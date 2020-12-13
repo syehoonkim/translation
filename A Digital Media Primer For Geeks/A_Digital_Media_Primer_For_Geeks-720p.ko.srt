@@ -207,256 +207,193 @@
 반대로, 디지털 신호는 값과 시간에 대해서 불연속적입니다.
 70
 00:04:15,378 --> 00:04:19,107
-In the simplest and most common system, called Pulse Code Modulation,
-
+펄스 코드 변조라고 불리는 가장 간단하고 공통적인 시스템에서는,
 71
 00:04:19,107 --> 00:04:24,058
-one of a fixed number of possible values directly represents the instantaneous signal amplitude 
-
+정해져 있는 가능한 값들 중 하나가 일정 단위로 떨어져 있는 시간의 특정 지점에서의
 72
 00:04:24,058 --> 00:04:30,165
-at points in time spaced a fixed distance apart. The end result is a stream of digits.
-
+그 신호의 값을 나타냅니다. 최종적인 결과는 정수의 흐름(나열)입니다.
 73
 00:04:30,674 --> 00:04:35,309
 Now this looks an awful lot like this.  
-
+이건, 이거랑 아주 달라 보이죠.
 74
 00:04:35,309 --> 00:04:38,964
-It seems intuitive that we should somehow be able to rigorously transform 
-
+당연히 우리는 어떻게든 정밀하게 이것을 이걸로 변환할 방법이 있어야겠죠.
 75
 00:04:38,964 --> 00:04:44,683
-one into the other, and good news, the Sampling Theorem says we can and tells us how. 
-
+좋은 소식은, 샘플링 이론이 우리가 어떻게 하면 되는지 알려준다는 것입니다.
 76
 00:04:44,683 --> 00:04:48,477
-Published in its most recognizable form by Claude Shannon in 1949
-
+클로드 섀넌에 의해 1949년에 가장 유명한 형태로 출판되었고
 77
 00:04:48,477 --> 00:04:52,409
-and built on the work of Nyquist, and Hartley, and tons of others, 
-
+나이퀴스트, 하틀리와 수많은 다른 사람들의 업적에 기반하는
 78
 00:04:52,409 --> 00:04:56,138
-the sampling theorem states that not only can we go back and forth between 
-
+샘플링 이론은 단순히 우리가 아날로그와 디지털 사이를 오갈 수 있음을 말하는 데 그치지 않고
 79
 00:04:56,138 --> 00:05:00,913
-analog and digital, but also lays down a set of conditions for which conversion 
-
+어떤 조건 하에서 손실없이 변환을 할 수 있는지
 80
 00:05:00,913 --> 00:05:06,779
-is lossless and the two representations become equivalent and interchangable.  
-
+또 디지털과 아날로그 두 표현이 동일하고 서로 바뀔 수 있는지 알려줍니다.
 81
 00:05:06,779 --> 00:05:10,601
-When the lossless conditions aren't met, the sampling theorem tells us 
-
+무손실 조건이 만족되지 않으면, 샘플링 이론은 어떻게, 그리고 얼마나
 82
 00:05:10,601 --> 00:05:14,247
-how and how much information is lost or corrupted.
-
+정보가 손실되거나 오염되는지 알려줍니다.
 83
 00:05:14,900 --> 00:05:21,270
-Up until very recently, analog technology was the basis for practically everything done with audio, 
-
+아주 최근까지도, 아날로그 기술은 실질적으로 오디오의 기본이었는데,
 84
 00:05:21,270 --> 00:05:25,267
-and that's not because most audio comes from an originally analog source.
-
+그건 대부분의 오디오가 근본적으로 아날로그 원천에서 나와서가 아닙니다.
 85
 00:05:25,267 --> 00:05:28,450
-You may also think that since computers are fairly recent, 
-
-86
+그리고 당신은 컴퓨터들은 상당히 최근에 만들어졌으니
 00:05:28,450 --> 00:05:31,643
-analog signal technology must have come first.  
-
+아날로그 신호 기술이 먼저 나왔을 것이라 생각할 수 있습니다.
 87
 00:05:31,643 --> 00:05:34,428
-Nope. Digital is actually older.  
-
+아닙니다. 다지털이 사실 먼저입니다.
 88
 00:05:34,428 --> 00:05:37,611
-The telegraph predates the telephone by half a century 
-
+전신이 전화보다 반세기는 빨리 나왔고
 89
 00:05:37,611 --> 00:05:41,951
-and was already fully mechanically automated by the 1860s, sending coded, 
-
+이미 전신은 1806년대에 완전히 기계적으로 자동화되었고, 디지털 코드를 전송했고
 90
 00:05:41,951 --> 00:05:46,476
-multiplexed digital signals long distances. You know... Tickertape. 
-
+디지털 신호들을 다중화하여 먼 곳으로 전송했습니다. 종이 테이프 아시죠?
 91
 00:05:46,476 --> 00:05:50,427
-Harry Nyquist of Bell Labs was researching telegraph pulse transmission 
-
+벨 연구소의 해리 나이퀴스트는 전신의 펄스 전송을 연구하고 있었는데
 92
 00:05:50,427 --> 00:05:53,027
-when he published his description of what later became known 
-
+그 때 샘플링 이론의 핵심 개념이 된, 나이퀴스트 주파수라는
 93
 00:05:53,027 --> 00:05:57,219
-as the Nyquist frequency, the core concept of the sampling theorem.  
-
+개념을 발표하였습니다.
 94
 00:05:57,219 --> 00:06:01,642
-Now, it's true the telegraph was transmitting symbolic information, text, 
-
+전신은 기호화된 정보, 문자들을 보낸 것이지 디지털화된 아날로그 신호를 보낸 것은 아닙니다만,
 95
 00:06:01,642 --> 00:06:06,883
-not a digitized analog signal, but with the advent of the telephone and radio,
-
+전화와 라디오의 발전에 의해 아날로그와 디지털 신호 기술은
 96
 00:06:06,883 --> 00:06:12,000
-analog and digital signal technology progressed rapidly and side-by-side.
-
+모두 같이 발전했습니다.
 97
 00:06:12,699 --> 00:06:18,732
-Audio had always been manipulated as an analog signal because, well, gee it's so much easier.  
-
+오디오는 늘 아날로그 신호로서 조작되었는데, 그 이유는 그게 훨씬 쉽기 때문이었죠.
 98
 00:06:18,732 --> 00:06:23,257
-A second-order lowpass filter, for example, requires two passive components.  
-
+예를 들어 2차 저대역 통과 필터는 두 개의 수동 소자로만 이루어집니다.
 99
 00:06:23,257 --> 00:06:26,505
-An all-analog short-time Fourier transform, a few hundred.  
-
+완전-아날로그 단시간 푸리에 변환은 수백 개 정도이구요.
 100
 00:06:26,505 --> 00:06:30,752
-Well, maybe a thousand if you want to build something really fancy.  
-
+글쎄요, 당신이 정말 멋진 뭔가를 만들고자 하면 수천 개가 필요할 겁니다.
 101
 00:06:31,844 --> 00:06:35,989
-Processing signals digitally requires millions to billions of transistors 
-
+디지털로 신호 처리를 하려면 수백 MHz에서 GHz 속도로 작동하는
 102
 00:06:35,989 --> 00:06:40,366
-running at microwave frequencies, support hardware at very least to digitize 
-
+수백만에서 수십억 개의 트랜지스터들이 필요하고, 최소한 디지털-아날로그 변환을 해주는 하드웨어와
 103
 00:06:40,366 --> 00:06:43,836
-and reconstruct the analog signals, a complete software ecosystem 
-
+그 수십억의 엄청난 트랜지스터들을 프로그래밍하고 조정할 수 있는
 104
 00:06:43,836 --> 00:06:47,362
-for programming and controlling that billion-transistor juggernaut,
-
+완전한 소프트웨어 생태계가 필요하고,
 105
 00:06:47,362 --> 00:06:51,091
-digital storage just in case you want to keep any of those bits for later...
-
+만약 그 비트들을 저장하고자 한다면 디지털 저장장치가 필요합니다.
 106
 00:06:51,091 --> 00:06:56,171
-So we come to the conclusion that analog is the only practical way to do much with audio...
-
+따라서 아날로그가 현실적으로 오디오를 다룰 수 있는 방법이라는 결론이 나오지요.
 107
 00:06:56,171 --> 00:07:07,019
-well, unless you happen to have a billion transistors and all the other things just lying around. 
-
+수십억 개의 트랜지스터들과 다른 것들이 없다면요.
 108
 00:07:07,850 --> 00:07:12,660
-And since we do, digital signal processing becomes very attractive.
-
+그리고 우리는 그것들을 갖고 있으니, 디지털 신호 처리가 아주 매력적이 되었습니다.
 109
 00:07:13,363 --> 00:07:18,906
-For one thing, analog componentry just doesn't have the flexibility of a general purpose computer.
-
+한 예로, 아날로그 구성 요소는 범용 컴퓨터가 갖고 있는 유연성이 없습니다.
 110
 00:07:18,906 --> 00:07:21,182
-Adding a new function to this beast... 
-
+이 괴물에 새로운 기능을 추가한다든가요...
 111
 00:07:22,191 --> 00:07:24,578
-yeah, it's probably not going to happen.  
-
+그래요, 아마 불가능할 겁니다.
 112
 00:07:24,578 --> 00:07:26,567
-On a digital processor though...
-
+하지만 디지털 프로세서라면...
 113
 00:07:28,668 --> 00:07:34,127
-...just write a new program. Software isn't trivial, but it is a lot easier.
-
+그저 새 프로그램을 작성하면 됩니다. 소프트웨어는 시시하진 않지만, 훨씬 쉽습니다.
 114
 00:07:34,127 --> 00:07:39,550
-Perhaps more importantly though every analog component is an approximation. 
-
+어쩌면, 더 중요한 것은 모든 아날로그 구성요소들은 그저 근사적으로 작동할 뿐이라는 것이죠.
 115
 00:07:39,550 --> 00:07:44,352
-There's no such thing as a perfect transistor, or a perfect inductor, or a perfect capacitor.  
-
+완벽한 트랜지스터나 완벽한 인덕터, 완벽한 커패시터란 것은 없습니다.
 116
 00:07:44,352 --> 00:07:51,569
-In analog, every component adds noise and distortion, usually not very much, but it adds up. 
-
+아날로그에서는, 모든 구성요소가 잡음과 왜곡을 더합니다. 보통은 심하지 않지만, 그것들이 다 더해지죠.
 117
 00:07:51,569 --> 00:07:55,669
-Just transmitting an analog signal, especially over long distances,
-
+그저 아날로그 신호를 보내기만 해도, 특히 먼 거리일수록,
 118
 00:07:55,669 --> 00:08:00,434
-progressively, measurably, irretrievably corrupts it.  
-
+점점 더, 측정할 수 있을 만큼, 돌이킬 수 없게 손상됩니다.
 119
 00:08:00,434 --> 00:08:06,513
-Besides, all of those single-purpose analog components take up a lot of space.  
-
+게다가, 각각 하나의 목적만을 위한 아날로그 구성 요소들은 많은 공간을 차지합니다.
 120
 00:08:06,513 --> 00:08:09,946
-Two lines of code on the billion transistors back here 
-
+여기 수십억 트랜지스터들에 대한 두 줄의 코드로
 121
 00:08:09,946 --> 00:08:14,702
-can implement a filter that would require an inductor the size of a refrigerator.
-
+냉장고만한 인덕터가 필요한 필터를 구현할 수 있습니다.
 122
 00:08:14,702 --> 00:08:17,941
-Digital systems don't have these drawbacks.  
-
+디지털 시스템은 그런 단점이 없지요.
 123
 00:08:17,941 --> 00:08:24,335
-Digital signals can be stored, copied, manipulated and transmitted without adding any noise or distortion. 
-
+디지털 신호는 추가적인 잡음이나 왜곡 없이 저장, 복사, 조작, 전송이 가능합니다.
 124
 00:08:24,335 --> 00:08:26,889
-We do use lossy algorithms from time to time, 
-
+우리는 손실이 발생하는 알고리즘을 때때로 쓰지만,
 125
 00:08:26,889 --> 00:08:31,284
-but the only unavoidably non-ideal steps are digitization and reconstruction,
-
+불가피한 비이상적인 과정은 디지털화와 아날로그로의 재구성으로,
 126
 00:08:31,284 --> 00:08:35,929
-where digital has to interface with all of that messy analog.  
-
+디지털이 그 온갖 지저분한 아날로그와 만나야 하는 지점입니다.
 127
 00:08:35,929 --> 00:08:40,750
-Messy or not, modern conversion stages are very, very good.  
-
+지저분하건 아니건, 현대적인 변환 과정은 아주, 아주 훌륭합니다.
 128
 00:08:40,750 --> 00:08:45,849
-By the standards of our ears, we can consider them practically lossless as well.
-
+우리 귀에 대해 일반적으로, 우리는 그 과정이 역시 실질적으로 무손실이라고 생각할 수 있습니다.
 129
 00:08:45,849 --> 00:08:50,429
-With a little extra hardware, then, most of which is now small and inexpensive 
-
+현대의 산업 기반에 의해 대부분 작고 저렴하게 만들어질 수 있는 조금의 하드웨어가 있다면
 130
 00:08:50,429 --> 00:08:55,379
-due to our modern industrial infrastructure, digital audio is the clear winner over analog.
-
+디지털 오디오는 아날로그에 대한 완벽한 승자입니다.
 131
 00:08:55,379 --> 00:09:00,857
-So let us then go about storing it, copying it, manipulating it, and transmitting it.
-
+그럼 디지털 신호를 저장하고, 복사하고, 다루고, 전송하는 것을 알아보죠.
 132
 00:09:04,956 --> 00:09:08,639
-Pulse Code Modulation is the most common representation for raw audio.  
-
+펄스 부호 변조는 원본 오디오에 대한 가장 일반적인 표현입니다.
 133
 00:09:08,639 --> 00:09:13,867
 Other practical representations do exist, for example the Sigma-Delta coding used by the SACD, 
