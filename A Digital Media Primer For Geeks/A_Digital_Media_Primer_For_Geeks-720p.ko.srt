@@ -1006,7 +1006,7 @@ U와 V 방향 수평 해상도가 절반인 4:2:2 비디오,
 따라서 이 경우 각각의 U와 V 평면의 크기는 Y의 1/4가 됩니다.
 335
 00:25:08,897 --> 00:25:17,096
-4:2:2, 4:2:0, 4:1:1과 다른 것들은 크로마 서브샘플링의 완전한 설명들이 아닙니다.
+4:2:2, 4:2:0, 4:1:1과 다른 것들은 색상 서브샘플링의 완전한 설명들이 아닙니다.
 336
 00:25:17,096 --> 00:25:21,186
 밝기에 대해서 색상 픽샐들을 배치하는 여러 방법들이 있고,
@@ -1049,193 +1049,145 @@ MPEG-2에서는 색상 채널들이 각 수평선 사이에 배치되지만, 수
 여러분은 기본 개념을 알게 되셨습니다. 계속하지요.
 349
 00:26:15,511 --> 00:26:21,128
-In audio, we always represent multiple channels in a PCM stream by interleaving the samples 
-
+오디오에서는 각 채널들의 샘플들을 순서대로 인터리빙하여 여러 채널들을 PCM 스트림에서 표현합니다.
 350
 00:26:21,128 --> 00:26:26,383
-from each channel in order. Video uses both packed formats that interleave the color channels, 
-
+비디오는 색 채널들을 인터리빙하여 모아담는 방법과
 351
 00:26:26,383 --> 00:26:30,584
-as well as planar formats that keep the pixels from each channel together in separate planes 
-
+각 채널의 픽셀들을 프레임에 순서대로 쌓이는 각 평면들에 담는 평면적인 형식 두 개 모두 사용합니다.
 352
 00:26:30,584 --> 00:26:35,415
-stacked in order in the frame. There are at least 50 different formats in these two broad categories 
-
+이 두 넓은 종류의 카테고리에 따라 최소 50개의 형식이 존재하는데
 353
 00:26:35,415 --> 00:26:41,549
-with possibly ten or fifteen in common use. Each chroma subsampling and different bit-depth requires 
-
+그 중 10~15개 정도가 보통 쓰입니다. 각 색상 서브샘플링과 다른 비트 깊이는 다른 모아담는 방식을 요구하는데,
 354
 00:26:41,549 --> 00:26:46,574
-a different packing arrangement,  and so a different pixel format.  For a given unique subsampling, 
-
+이는 결국 다른 픽셀 형식을 요구합니다. 특별한 서브샘플링이 주어지면
 355
 00:26:46,574 --> 00:26:50,858 
-there are usually also several equivalent formats that consist of trivial channel order 
-
+사소한 채널 순서의 재배열이나 다른 방법으로 모아담는 여러 동일한 형식이 존재합니다.
 356
 00:26:50,858 --> 00:26:55,966
-rearrangements or repackings due either to convenience once-upon-a-time on some particular 
-
+그러한 형식들의 존재 이유는 이전의 특별한 하드웨어에서의 편리함 때문일 수도 있고
 357
 00:26:55,966 --> 00:27:00,352
-piece of hardware or sometimes just good old-fashioned spite.
-
+그냥 오래된 관습이라 그럴 수 있습니다.
 358
 00:27:00,352 --> 00:27:04,692
-Pixels formats are described by a unique name or fourcc code.  
-
+픽셀 형식들은 유일한 이름이나 fourcc 코드로 불립니다.
 359
 00:27:04,692 --> 00:27:08,115
-There are quite a few of these and there's no sense going over each one now.
-
+여기 몇 개가 있는데, 지금 각각을 공부할 이유는 없네요.
 360
 00:27:08,115 --> 00:27:13,704
-Google is your friend.  Be aware that fourcc codes for raw video specify the pixel arrangement 
-
+구글을 활용하세요. 본래 비디오를 위한 fourcc 코드는 픽셀 배열, 색상 서브샘플링을 특정하지만
 361
 00:27:13,704 --> 00:27:20,339
-and chroma subsampling, but generally don't imply anything certain about chroma siting or color space.  
-
+일반적으로 색상 픽셀의 실제 배치 위치나 색공간에 대해서는 설명하지 않음을 유의하세요.
 362
 00:27:20,339 --> 00:27:25,807
-YV12 video to pick one, can use JPEG, MPEG-2 or DV chroma siting, 
-
+하나 예를 들자면, YV12 비디오는 JPEG, MPEG-2 또는 DV 색상 배치에 사용될 수 있고
 363
 00:27:25,807 --> 00:27:28,991
-and any one of several YUV colorspace definitions.
-
+YUV 색공간 중 하나를 사용할 수 있습니다.
 364
 00:27:29,472 --> 00:27:33,913
-That wraps up our not so quick and yet very incomplete tour of raw video. 
-
+이것으로 그리 빠르진 않은, 그리고 아직 아주 불완전한 본래 영상에 대한 여행을 마치겠습니다.
 365
 00:27:33,913 --> 00:27:38,651
-The good news is we can already get quite a lot of real work done using that overview. 
-
+좋은 소식은 우리는 이 개관을 통해서 실제 동영상에 대해 많이 배울 수 있었다는 것입니다.
 366
 00:27:38,651 --> 00:27:42,528
-In plenty of situations, a frame of video data is a frame of video data.  
-
+많은 상황에서, 비디오 데이터의 프레임은 그저 비디오 데이터의 프레임입니다.
 367
 00:27:42,528 --> 00:27:46,451
-The details matter, greatly, when it come time to write software, 
-
+소프트웨어를 사용하게 되면 세부 사항들이 크게 중요해집니다.
 368
 00:27:46,452 --> 00:27:52,086
-but for now I am satisfied that the esteemed viewer is broadly aware of the relevant issues.
-
+하지만 일단 지금 저는 존경하는 시청자들께서 관련된 논의점들을 넓게 알게 되셨다는 점에 만족합니다.
 369
 00:27:55,640 --> 00:27:59,230
-So. We have audio data. We have video data. 
-
+자, 우리는 오디오 데이터도 갖고 있고, 비디오 데이터도 갖고 있네요.
 370
 00:27:59,230 --> 00:28:03,246
-What remains is the more familiar non-signal data and straight up engineering 
-
+남은 것은 더 친숙한 비신호 데이터와 소프트웨어 개발자들에겐 익숙할 엔지니어링이네요.
 371
 00:28:03,246 --> 00:28:07,410
-that software developers are used to. And plenty of it!
-
+그리고 그게 아주 많아요!
 372
 00:28:07,928 --> 00:28:11,768 
-Chunks of raw audio and video data have no externally visible structure, 
-
+본래 오디오와 비디오 데이터 조각들은 외적으로 보이는 구조가 없지만
 373
 00:28:11,768 -->  00:28:15,173
-but they're often uniformly sized.  We could just string them together 
-
+보통 일정한 크기로 만들어집니다. 우리는 이것들을 미리 정해진 순서로
 374
 00:28:15,173 --> 00:28:18,097
-in a rigid pre-determined ordering for streaming and storage, 
-
+엄격하게 엮어서 스트리밍하거나 저장할 수 있고,
 375
 00:28:18,097 --> 00:28:21,040
-and some simple systems do approximately that. 
-
+어떤 시스템에서는 근사적으로 그렇게 합니다.
 376
 00:28:21,040 --> 00:28:24,195
-Compressed frames though aren't necessarily a predictable size, 
-
+압축된 프레임들은 반드시 정해진 크기를 가질 필요는 없고
 377
 00:28:24,195 --> 00:28:29,405
-and we usually want some flexibility in using a range of different data types in streams.
-
+우리는 보통 스트림에서 여러 종류의 데이터를 다룰 때 어느 정도 유연성을 원합니다.
 378
 00:28:29,405 --> 00:28:34,281
-If we string random formless data together, we lose the boundaries that separate frames 
-
+형식이 없는 여러 데이터들을 같이 엮으면, 우리는 각 프레임들의 경계를 모르게 되고
 379
 00:28:34,281 --> 00:28:37,871
-and don't necessarily know what data belongs to which streams.  
-
+어느 데이터가 어느 스트림에 속하는지 모르게 됩니다.
 380
 00:28:37,871 --> 00:28:42,192
-A stream needs some generalized structure to be generally useful.
-
+스트림이 널리 쓸모있으려면 어떤 일반화된 구조가 필요합니다.
 381
 00:28:42,192 --> 00:28:46,606
-In addition to our signal data, we also have our PCM and video parameters.  
-
+신호 데이터 외에도, PCM과 비디오 매개변수들이 있죠.
 382
 00:28:46,606 --> 00:28:49,752
-There's probably plenty of other metadata we also want to deal with, 
-
+아마도 우리가 다뤄야 할 많은 다른 메타데이터들이 있을 것입니다.
 383
 00:28:49,752 --> 00:28:55,415
-like audio tags and video chapters and subtitles, all essential components of rich media.  
-
+오디오 태그, 비디오의 각 장과 자막과 같은 리치 미디어의 필수 요소들이죠.
 384
 00:28:55,415 --> 00:29:01,633
-It makes sense to place this metadata, that is,  data about the data, within the media itself.
-
+미디어 자체에 데이터에 데한 데이터, 즉 메타데이터를 담는 것이 합리적입니다.
 385
 00:29:01,633 --> 00:29:06,445
-Storing and structuring formless data and disparate metadata is the job of a container.  
-
+형식이 없는 데이터와 이질적인 메타데이터를 저장하고 구조화하는 것은 컨테이너의 역할입니다.
 386
 00:29:06,445 --> 00:29:09,221
-Containers provide framing for the data blobs, 
-
+컨테이너는 데이터 덩어리들을 프레임화하고
 387
 00:29:09,221 --> 00:29:12,015
-interleave and identify multiple data streams, 
-
+여러 데이터 스트림들을 인터리브하고 판별하고
 388
 00:29:12,015 --> 00:29:15,337
-provide timing information, and store the metadata necessary 
-
+시간 정보와 미디어를 해석하고, 시간에 따라 탐색하고, 조작하고, 재생하는 데 필요한
 389
 00:29:15,337 --> 00:29:19,140
-to parse, navigate, manipulate and present the media.  
-
+메타데이터를 저장하는 역할을 합니다.
 390
 00:29:19,140 --> 00:29:22,222
-In general, any container can hold any kind of data.  
-
+일반적으로, 모든 컨테이너는 모든 종류의 데이터를 담을 수 있습니다.
 391
 00:29:22,222 --> 00:29:24,970
-And data can be put into any container.
-
+그리고 데이터는 모든 컨테이너 안에 모일 수 있죠.
 392
 00:29:28,801 --> 00:29:32,391 
-In the past thirty minutes, we've covered digital audio, video, 
-
+지난 30분 동안, 우리는 디지털 오디오, 비디오,
 393
 00:29:32,391 --> 00:29:35,435
-some history, some math and a little engineering. 
-
+역사 조금, 수학 조금과 엔지니어링 조금을 다뤘습니다.
 394
 00:29:35,435 --> 00:29:39,377
-We've barely scratched the surface, but it's time for a well earned break.
-
+우리는 간신히 겉핥기만 했지만, 이제 멈출 시간이네요.
 395
 00:29:41,107 --> 00:29:45,373
-There's so much more to talk about, so I hope you'll join me again in our next episode.  
-
+얘기할 게 엄청 많으니, 다음 영상에서 또 만나길 바랄게요.
 396
 00:29:45,373 --> 00:29:47,159
-Until then--- Cheers!
-
+그때까지, 화이팅!
