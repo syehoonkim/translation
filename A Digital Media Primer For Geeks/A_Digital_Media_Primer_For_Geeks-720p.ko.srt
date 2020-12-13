@@ -584,204 +584,154 @@ A-법칙과 mu-법칙은 선형 8비트 대비 분명한 양자화 잡음 감소
 비록 전 지금 48 kHz에 대해 얘기하고 있지만요.
 195
 00:14:13,328 --> 00:14:18,491
-Most modern PCM uses 16 or 24 bit two's-complement signed integers to encode 
-
+대부분의 현대 PCM은 16 또는 24비트의 2의 보수로 표현되는 부호 있는 정수를 이용합니다.
 196
 00:14:18,491 --> 00:14:23,858
-the range from negative infinity to zero decibels in 16 or 24 bits of precision. 
-
+음의 무한대부터 0 dB까지의 범위가 16 또는 24 비트의 정밀도로 표현됩니다.
 197
 00:14:23,858 --> 00:14:27,800
-The maximum absolute value corresponds to zero decibels. 
-
+최대 절댓값은 0 dB에 해당합니다.
 198
 00:14:27,800 --> 00:14:31,584
-As with all the sample formats so far, signals beyond zero decibels 
-
+지금까지의 다른 모든 샘플 형식들과 마찬가지로, 0 dB를 넘는 신호들
 199
 00:14:31,584 --> 00:14:35,619
-and thus beyond the maximum representable range are clipped.
-
+즉 최대 표현 범위를 벗어나는 신호들은 최댓값으로 고정(클리핑)됩니다.
 200
 00:14:35,619 --> 00:14:41,199
-In mixing and mastering, it's not unusual to use floating point numbers for PCM instead of integers.  
-
+믹싱과 마스터링에서 PCM 값들을 정수가 아닌 부동 소수점으로 표현하는 것은 드물지 않습니다.
 201
 00:14:41,199 --> 00:14:47,222
-A 32 bit IEEE754 float, that's the normal kind of floating point you see on current computers, 
-
+현재의 컴퓨터에서 일반적으로 볼 수 있는 IEEE754 32 비트 부동 소수점 표현 방식은
 202
 00:14:47,222 --> 00:14:52,793
-has 24 bits of resolution, but a seven bit floating point exponent increases the representable range.  
-
+24 비트의 해상도를 갖습니다만, 7 비트의 부동 소수점 지수부는 표현 범위를 더 넓힙니다.
 203
 00:14:52,793 --> 00:14:57,040
-Floating point usually represents zero decibels as +/-1.0, 
-
+부동 소수점은 보통 0 dB를 +/-1.0으로 표현하고
 204
 00:14:57,040 --> 00:15:00,547
-and because floats can obviously represent considerably beyond that, 
-
+또 부동 소수점은 확실히 그보다 훨씬 큰 값들을 표현할 수 있기 때문에
 205
 00:15:00,547 --> 00:15:05,220
-temporarily exceeding zero decibels during the mixing process doesn't cause clipping.
-
+믹싱 과정에서 일시적으로 0 dB를 넘는 값은 클리핑을 일으키지 않습니다.
 206
 00:15:05,220 --> 00:15:11,077 
-Floating point PCM takes up more space, so it tends to be used only as an intermediate production format.
-
+부동 소수점 PCM은 더 많은 메모리와 저장 공간을 요구하기에, 보통 중간 제작 형식으로만 사용됩니다.
 207
 00:15:11,077 --> 00:15:15,796
-Lastly, most general purpose computers still read and write data in octet bytes, 
-
+그리고, 대부분의 범용 컴퓨터들이 데이터를 8 바이트 단위로 읽고 쓰기 때문에
 208
 00:15:15,796 --> 00:15:18,489
-so it's important to remember that samples bigger than eight bits 
-
+8 비트를 넘는 샘플들은 빅 엔디안 또는 리틀 엔디안 형식이 될 수 있으며
 209
 00:15:18,489 --> 00:15:22,838
-can be in big or little endian order, and both endiannesses are common.  
-
+두 엔디안 모두 일반적임을 기억하는 게 중요합니다.
 210
 00:15:22,838 --> 00:15:28,751
-For example, Microsoft WAV files are little endian, and Apple AIFC files tend to be big-endian.  
-
+예를 들어, 마이크로소프트 WAV 파일들은 리틀 엔디안을 사용하고, 애플 AIFC 파일들은 빅 엔디안을 사용합니다.
 211
 00:15:28,751 --> 00:15:30,139
-Be aware of it.
-
+명심하세요.
 212
 00:15:30,870 --> 00:15:34,071
-The third PCM parameter is the number of channels.  
-
+세 번째 PCM 매개변수는 채널 수입니다.
 213
 00:15:34,071 --> 00:15:38,485
-The convention in raw PCM is to encode multiple channels by interleaving the samples 
-
+본래의 PCM의 관습은 여러 채널들에 대해서 샘플들을 인터리브하여(서로서로 끼워넣어서)
 214
 00:15:38,485 --> 00:15:43,398
-of each channel together into a single stream.  Straightforward and extensible.
-
+하나의 단일 스트림으로 만드는 것입니다. 직관적이고 확장 가능하지요.
 215
 00:15:43,398 --> 00:15:47,701
-And that's it!  That describes every PCM representation ever. 
-
+바로 그겁니다! 이게 모든 PCM 표현들을 설명합니다.
 216
 00:15:47,701 --> 00:15:51,578
-Done. Digital audio is _so easy_!  
-
+끝입니다. 디지털 오디오 참 쉽죠!
 217
 00:15:51,578 --> 00:15:56,436
-There's more to do of course, but at this point we've got a nice useful chunk of audio data, 
-
+물론 더 많은 것들이 있지만, 지금 단계에서 우리는 오디오 데이터에 대해 훌륭하고 유용한 부분을 얻었습니다.
 218
 00:15:56,436 --> 00:15:58,092
-so let's get some video too.
-
+그러니 이제 비디오에 대해서도 얻어보죠
 219
 00:16:02,571 --> 00:16:08,798
-One could think of video as being like audio but with two additional spatial dimensions, X and Y, 
-
+누군가는 비디오가 시간에다가 두 개의 추가적인 공간 차원, X와 Y가 있는 오디오와 비슷하다고 생각할 수도 있어요.
 220
 00:16:08,798 --> 00:16:12,787
-in addition to the dimension of time. This is mathematically sound.  
-
+이는 수학적으로 타당합니다.
 221
 00:16:12,787 --> 00:16:19,097
-The Sampling Theorem applies to all three video dimensions just as it does the single time dimension of audio.
-
+샘플링 이론은 하나의 차원만 있는 오디오에 적용되는 것처럼 세 비디오 차원들에 대해서도 적용됩니다.
 222
 00:16:19,097 --> 00:16:25,815
-Audio and video are obviously quite different in practice. For one, compared to audio, video is huge. 
-
+오디오와 비디오는 분명히 실질적으로는 다릅니다. 예를 들어, 오디오에 비해 비디오는 훨씬 큽니다.
 223
 00:16:25,815 --> 00:16:29,294
-Raw CD audio is about 1.4 megabits per second. 
-
+본래 CD 오디오는 약 1.4 Mbps의 전송률을 갖습니다.
 224
 00:16:29,294 --> 00:16:33,958
-Raw 1080i HD video is over 700 megabits per second. 
-
+본래 1080i HD 비디오는 700 Mbps를 넘죠.
 225
 00:16:33,958 --> 00:16:40,056
-That's more than 500 times more data to capture, process and store per second.  
-
+이는 초당 500배 이상의 데이터를 잡아내서 처리하고 저장하는 것에 해당합니다.
 226
 00:16:40,056 --> 00:16:43,711
-By Moore's law... that's... let's see... roughly eight doublings times two years, 
-
+무어의 법칙에 따르면, 음..., 2년마다 두 배로 약 8번을 해야하니까... 
 227
 00:16:43,711 --> 00:16:47,838
-so yeah, computers requiring about an extra fifteen years to handle raw video 
-
+네, 약 15년 정도 더 컴퓨터가 발전해야
 228
 00:16:47,838 --> 00:16:51,252
-after getting raw audio down pat was about right.
-
+오디오처럼 본래 비디오를 처리할 수 있겠네요.
 229
 00:16:51,252 --> 00:16:55,425
-Basic raw video is also just more complex than basic raw audio. 
-
+기본적인 본래 비디오는 본래 오디오보다 더 복잡하기도 합니다.
 230
 00:16:55,425 --> 00:16:58,599
-The sheer volume of data currently necessitates a representation 
-
+현재 비디오 데이터 크기는 오디오에서 쓰이는
 231
 00:16:58,599 --> 00:17:02,106 
-more efficient than the linear PCM used for audio.  
-
+선형 PCM보다 더 효율적인 표현을 요구합니다.
 232
 00:17:02,106 --> 00:17:06,705
-In addition, electronic video comes almost entirely from broadcast television alone,
-
+게다가, 전자적인 비디오는 거의 전적으로 방송 TV를 통해서 전달되므로
 233
 00:17:06,705 --> 00:17:13,423
-and the standards committees that govern broadcast video have always been very concerned with backward compatibility.
-
+방송 비디오를 다루는 표준화 기구는 하위 호환성을 늘 신경써 왔습니다.
 234
 00:17:13,423 --> 00:17:17,559  
-Up until just last year in the US, a sixty year old black and white television 
-
+미국에선 작년까지도 60년 전의 흑백 TV로
 235
 00:17:17,559 --> 00:17:21,038
-could still show a normal analog television broadcast.  
-
+일반 아날로그 방송을 시청할 수 있었습니다.
 236
 00:17:21,038 --> 00:17:23,879
-That's actually a really neat trick.
-
+굉장히 멋집니다.
 237
 00:17:23,879 --> 00:17:28,718
-The downside to backward compatibility is that once a detail makes it into a standard, 
-
+하위 호환성의 안좋은 면은 한번 세부 사항이 표준으로 정해지면
 238
 00:17:28,718 -->  00:17:30,985
-you can't ever really throw it out again. 
-
+그걸 다시 없애버릴 수 없다는 거죠.
 239
 00:17:30,985 --> 00:17:37,305
-Electronic video has never started over from scratch the way audio has multiple times.  
-
+전자적 비디오는 오디오가 여러 번 겪었던 처음부터 창조되는 과정을 겪지 않았습니다.
 240
 00:17:37,305 --> 00:17:43,958
-Sixty years worth of clever but obsolete hacks necessitated by the passing technology of a given era 
-
+60년 동안 쌓인 당시 기술에서 요구된 영리하지만 구식인 방법들은
 241
 00:17:43,958 --> 00:17:50,102
-have built up into quite a pile, and because digital standards also come from broadcast television, 
-
+커다란 더미가 되었고, 디지털 표준들 또한 방송 TV에 근본이 있기 때문에
 242
 00:17:50,102 --> 00:17:54,664
-all these eldritch hacks have been brought forward into the digital standards as well.
-
+이 모든 무시무시한 방법들은 디지털 표준에도 들어왔습니다.
 243
 00:17:54,664 --> 00:18:00,022
-In short, there are a whole lot more details involved in digital video than there were with audio. 
-
+즉, 디지털 비디오와 관련된 세부 사항들은 오디오에 비해 훨씬 많다는 것입니다.
 244
 00:18:00,022 --> 00:18:05,592
-There's no hope of covering them all completely here, so we'll cover the broad fundamentals.
-
+그것들을 여기서 전부 다룰 수는 없으니, 우리는 널리 쓰이는 기본적인 것을 다루겠습니다.
 245
 00:18:06,036 --> 00:18:10,857
 The most obvious raw video parameters are the width and height of the picture in pixels. 
