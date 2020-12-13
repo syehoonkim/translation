@@ -207,7 +207,7 @@
 반대로, 디지털 신호는 값과 시간에 대해서 불연속적입니다.
 70
 00:04:15,378 --> 00:04:19,107
-펄스 코드 변조라고 불리는 가장 간단하고 공통적인 시스템에서는,
+펄스 코드 변조(PCM)라고 불리는 가장 간단하고 공통적인 시스템에서는,
 71
 00:04:19,107 --> 00:04:24,058
 정해져 있는 가능한 값들 중 하나가 일정 단위로 떨어져 있는 시간의 특정 지점에서의
@@ -396,253 +396,192 @@ Now this looks an awful lot like this.
 펄스 부호 변조는 원본 오디오에 대한 가장 일반적인 표현입니다.
 133
 00:09:08,639 --> 00:09:13,867
-Other practical representations do exist, for example the Sigma-Delta coding used by the SACD, 
-
+다른 실제로 쓰이는 방법들도 있습니다. 예를 들면 SACD에서 쓰이는 시그마-델타 코딩이 있는데,
 134
 00:09:13,867 --> 00:09:16,625
-which is a form of Pulse Density Modulation.  
-
+이는 펄스 밀도 변조의 한 종류입니다.
 135
 00:09:16,625 --> 00:09:19,687
-That said, Pulse Code Modulation is far and away dominant, 
-
+어쨌건, 펄스 코드 변조는 가장 일반적인데,
 136
 00:09:19,687 --> 00:09:22,158
-mainly because it's so mathematically convenient.  
-
+그 이유는 이게 가장 수학적으로 편리해서입니다.
 137
 00:09:22,158 --> 00:09:26,350
-An audio engineer can spend an entire career without running into anything else.
-
+오디오 엔지니어는 다른 걸 할 필요 없이 PCM만 할지도 몰라요.
 138
 00:09:26,350 --> 00:09:29,135
-PCM encoding can be characterized in three parameters,
-
+PCM 부호화는 세 가지 매개변수로 그 특성이 결정되는데,
 139
 00:09:29,135 --> 00:09:34,187
-making it easy to account for every possible PCM variant with mercifully little hassle.
-
+이로부터 자비롭게 적은 노력으로 모든 PCM 종류들을 다룰 수 있게 됩니다.
 140
 00:09:34,187 --> 00:09:36,426
-The first parameter is the sampling rate.  
-
+첫 번째 매개변수는 샘플링 속도입니다.
 141
 00:09:36,426 --> 00:09:40,886
-The highest frequency an encoding can represent is called the Nyquist Frequency.  
-
+한 부호화가 표현할 수 있는 가장 높은 주파수를 나이퀴스트 주파수라고 부릅니다.
 142
 00:09:40,886 --> 00:09:45,124
-The Nyquist frequency of PCM happens to be exactly half the sampling rate.
-
+PCM의 나이퀴스트 주파수는 정확히 샘플링 속도의 절반입니다.
 143
 00:09:45,124 --> 00:09:51,389
-Therefore the sampling rate directly determines the highest possible frequency in the digitized signal.
-
+따라서, 샘플링 속도는 직접적으로 디지털화되는 신호의 가능한 최고 주파수를 결정하게 됩니다.
 144
 00:09:51,389 --> 00:09:56,515
-Analog telephone systems traditionally band-limited voice channels to just under 4kHz, 
-
+아날로그 전화 시스템은 전통적으로 4 KHz 이하로 대역제한되는 음성 채널을 사용했는데,
 145
 00:09:56,515 --> 00:10:02,224
-so digital telephony and most classic voice applications use an 8kHz sampling rate, 
-
+따라서 디지털 전화와 대부분의 고전적인 음성 응용 시스템은 8 KHz의 샘플링 속도를 사용합니다.
 146
 00:10:02,224 --> 00:10:07,277
-the minimum sampling rate necessary to capture the entire bandwidth of a 4kHz channel.  
-
+이 속도는 4 KHz 채널의 전체 대역폭을 획득하기 위한 최소 샘플링 속도입니다.
 147
 00:10:07,227 --> 00:10:14,263
-This is what an 8kHz sampling rate sounds like--- a bit muffled but perfectly intelligible for voice.  
-
+이것이 8 KHz 샘플링 속도로 샘플링한 음성의 소리입니다---조금 웅얼거리지만 음성을 완전히 알아들을 수는 있죠.
 148
 00:10:17,263 --> 00:10:18,149
-This is the lowest sampling rate that's ever been used widely in practice.
-
+이것이 실질적으로 널리 쓰여온 가장 낮은 샘플링 속도입니다.
 149
 00:10:18,149 --> 00:10:23,322
-From there, as power, and memory, and storage increased, consumer computer hardware
-
+일반 사용자용 컴퓨터 하드웨어의 성능, 메모리, 저장장치가 증가하면서,
 150
 00:10:23,322 --> 00:10:29,642
-went to offering 11, and then 16, and then 22, and then 32kHz sampling.  
-
+여기서부터 시작하여 11, 다음엔 16, 다음엔 22, 그 다음엔 32 kHz 샘플링이 지원되기 시작했습니다.
 151
 00:10:29,642 --> 00:10:33,491
 With each increase in the sampling rate and the Nyquist frequency, 
-
+샘플링 속도와 그에 따른 나이퀴스트 주파수가 증가함에 따라,
 152
 00:10:33,491 --> 00:10:38,302
-it's obvious that the high end becomes a little clearer and the sound more natural.
-
+분명히 고주파 부분이 좀 더 선명해지고, 소리가 더 자연스러워졌습니다.
 153
 00:10:38,301 --> 00:10:44,576
-The Compact Disc uses a 44.1kHz sampling rate, which is again slightly better than 32kHz, 
-
+CD는 44.1 kHz의 샘플링 속도를 사용하는데, 이는 32 kHz보다도 약간 더 좋지만
 154
 00:10:44,576 --> 00:10:46,788
-but the gains are becoming less distinct.  
-
+그에 따른 이점은 덜 분명해집니다.
 155
 00:10:46,788 --> 00:10:52,053
-44.1kHz is a bit of an oddball choice, especially given that it hadn't been used  for anything 
-
+44.1 kHz는 특이한 선택으로, 이 속도는 CD 이전엔 사용된 적이 없습니다.
 156
 00:10:52,053 --> 00:10:56,559
-prior to the compact disc, but the huge success of the CD has made it a common rate.
-
+하지만 CD의 엄청난 성공에 따라 이 속도가 일반적인 샘플링 속도가 되었습니다.
 157
 00:10:56,559 --> 00:11:01,195
-The most common hi-fidelity sampling rate aside from the CD is 48kHz.
-
+CD 이외의 가장 일반적인 고음질을 위한 샘플링 속도는 48 kHz입니다.
 158
 00:11:05,710 --> 00:11:08,597
-There's virtually no audible difference between the two.  
-
+현실적으로 그 둘 사이에서 들을 수 있는 차이는 없습니다.
 159
 00:11:08,597 --> 00:11:13,640
-This video, or at least the original version of it, was shot and produced with 48kHz audio, 
-
+이 비디오나, 아니면 이 비디오의 원래 버전은 48 kHz의 오디오로 촬영되고 제작되었는데,
 160
 00:11:13,640 --> 00:11:18,545
-which happens to be the original standard for high-fidelity audio with video.
-
+이는 동영상의 고음질 오디오의 원래 표준입니다.
 161
 00:11:18,545 --> 00:11:25,100
-Super-hi-fidelity sampling rates of 88, and 96, and 192kHz have also appeared. 
-
+88, 96, 그리고 192 kHz의 초고음질 샘플링 속도도 등장했습니다.
 162
 00:11:25,100 --> 00:11:30,888
-The reason for the sampling rates beyond 48kHz isn't to extend the audible high frequencies further. 
-
+48 kHz를 넘어서는 샘플링 속도를 사용하는 이유는 들을 수 있는 주파수 범위를 더 넓히는 게 아닙니다.
 163
 00:11:30,888 --> 00:11:32,489
-It's for a different reason.
-
+다른 이유가 있어서에요.
 164
 00:11:32,896 --> 00:11:37,319
-Stepping back for just a second, the French mathematician Jean Baptiste Joseph Fourier 
-
+조금 뒤로 돌아가서, 장 밥티스트 조셉 푸리에라는 프랑스 수학자는
 165
 00:11:37,319 --> 00:11:42,353
-showed that we can also think of signals like audio as a set of component frequencies.  
-
+오디오와 같은 신호는 그것을 구성하는 주파수 성분들의 모음이라고 생각할 수 있음을 보였지요.
 166
 00:11:42,353 --> 00:11:45,841
-This frequency domain representation is equivalent to the time representation; 
-
+이 주파수 영역의 표현은 시간 영역 표현과 동등합니다.
 167
 00:11:45,841 --> 00:11:49,719
-the signal is exactly the same, we're just looking at it a different way.  
-
+신호는 똑같지만, 다른 방식으로 볼 뿐이지요.
 168
 00:11:49,719 --> 00:11:56,131
-Here we see the frequency domain representation of a hypothetical analog signal we intend to digitally sample.
-
+여기 우리가 디지털로 샘플링하고자 하는 가상의 아날로그 신호에 대한 주파수 영역 표현이 있습니다.
 169
 00:11:56,131 --> 00:11:59,888
-The sampling theorem tells us two essential things about the sampling process. 
-
+샘플링 이론은 샘플링 과정에 대해 두 가지 중요한 것을 얘기합니다.
 170
 00:11:59,888 --> 00:12:04,727
-First, that a digital signal can't represent any frequencies above the Nyquist frequency. 
-
+첫째, 디지털 신호는 나이퀴스트 주파수를 넘어서는 어떠한 주파수도 표현할 수 없습니다.
 171
 00:12:04,727 --> 00:12:10,640
-Second, and this is the new part, if we don't remove those frequencies with a lowpass filter before sampling, 
-
+둘쨰, 이건 새로운 내용인데, 우리가 그 주파수들을 저대역 통과 필터로 샘플링 전에 없애지 않는다면
 172
 00:12:10,640 --> 00:12:16,414
-the sampling process will fold them down into the representable frequency range as aliasing distortion.
-
+샘플링 과정은 그 주파수들을 표현될 수 있는 주파수 범위로 낮춰서 에일리어싱 왜곡이라는 것이 나타나게 할 겁니다.
 173
 00:12:16,414 --> 00:12:20,069
-Aliasing, in a nutshell, sounds freakin' awful, 
-
+요약하자면 에일리어싱은 끔찍하게 이상하게 들리는 소리라서
 174
 00:12:20,069 --> 00:12:25,242
-so it's essential to remove any beyond-Nyquist frequencies before sampling and after reconstruction.
-
+반드시 나이퀴스트 주파수를 넘어서는 주파수들을 샘플링 전과 아날로그 재구성 후에 제거해야 합니다.
 175
 00:12:25,871 --> 00:12:31,265
-Human frequency perception is considered to extend to about 20kHz. 
-
+인간의 주파수 감지 범위는 20 kHz 범위까지인 것으로 생각됩니다.
 176
 00:12:31,265 --> 00:12:37,548
-In 44.1 or 48kHz sampling, the lowpass before the sampling stage has to be extremely sharp 
-
+44.1 kHz나 48 kHz 샘플링에서, 샘플링 전의 저대역 통과 필터는 아주 날카로워야 하는데
 177
 00:12:37,548 --> 00:12:42,101
-to avoid cutting any audible frequencies below 20kHz 
-
+이는 20 kHz 미만의 들을 수 있는 주파수가 잘리는 것을 막고
 178
 00:12:42,101 --> 00:12:49,439
-but still not allow frequencies above the Nyquist to leak forward into the sampling process.  
-
+나이퀴스트 주파수를 넘어서는 주파수가 샘플링 과정으로 들어가는 것을 막아야 하기 떄문입니다.
 179
 00:12:49,439 --> 00:12:55,342
-This is a difficult filter to build and no practical filter succeeds completely. 
-
+이는 만들기 어렵고 현실적으로 어떤 필터도 완전히 성공할 수 없는 목표입니다.
 180
 00:12:55,342 --> 00:13:00,024
-If the sampling rate is 96kHz or 192kHz on the other hand, 
-
+하지만 만약 샘플링 주파수가 96 kHz 또는 192 kHz라면
 181
 00:13:00,024 --> 00:13:07,223
-the lowpass has an extra octave or two for its transition band. This is a much easier filter to build.  
-
+저대역 필터의 통과-제한 대역에 1~2옥타브의 여유가 생깁니다(주: 덜 날카로워도 됩니다.) 따라서 훨씬 만들기 쉬운 필터가 됩니다.
 182
 00:13:07,223 --> 00:13:14,348
-Sampling rates beyond 48kHz are actually one of those messy analog stage compromises.
-
+48 kHz를 넘어서는 샘플링 속도는 사실 이러한 지저분한 아날로그 단과 타협하기 위함입니다.
 183
 00:13:15,014 --> 00:13:20,844
-The second fundamental PCM parameter is the sample format, that is, the format of each digital number.  
-
+두 번째의 근본적은 PCM 매개변수는 샘플링 형식으로, 각 디지털 숫자에 대한 형식입니다.
 184
 00:13:20,844 --> 00:13:26,285
-A number is a number, but a number can be represented in bits a number of different ways.
-
+하나의 숫자는 하나의 숫자이지만, 그 하나의 숫자는 아주 다양한 방법으로 비트들로 표현됩니다.
 185
 00:13:26,942 --> 00:13:30,902
-Early PCM was eight bit linear, encoded as an unsigned byte.  
-
+초기의 PCM은 선형적으로 8개의 비트를 이용하여 부호 없는 1바이트로 부호화하였습니다.
 186
 00:13:30,902 --> 00:13:37,028
-The dynamic range is limited to about 50dB and the quantization noise, as you can hear, is pretty severe. 
-
+이에 따라 다이내믹 레인지는 약 50 dB로 제한되었으며(주: 20(log 2^8)/log 10 = 48), 들으시는 것처럼 상당히 열악합니다.
 187
 00:13:37,028 --> 00:13:39,970
-Eight bit audio is vanishingly rare today.
-
+8 비트 오디오는 거의 사라져서 오늘날엔 드뭅니다.
 188
 00:13:41,007 --> 00:13:47,484
-Digital telephony typically uses one of two related non-linear eight bit encodings 
-called A-law and mu-law. 
-
+디지털 전화는 보통 서로 상관있는 비선형 8비트 부호화인 A-법칙과 mu-법칙이라는
+두 방법 중 하나를 사용합니다.
 189
 00:13:47,484 --> 00:13:51,287
-These formats encode a roughly 14 bit dynamic range into eight bits 
-
+이 형식들은 대략 14 비트의 다이내믹 레인지를 8 비트로 변환하는데 그 방법은
 190
 00:13:51,287 --> 00:13:54,674
-by spacing the higher amplitude values farther apart. 
-
+높은 진폭값에 대한 양자화 간격을 훨씬 멀리 떨어뜨리는 것입니다.
 191
 00:13:54,674 --> 00:13:59,226
-A-law and mu-law obviously improve quantization noise compared to linear 8-bit, 
-
+A-법칙과 mu-법칙은 선형 8비트 대비 분명한 양자화 잡음 감소를 보여주며
 192
 00:13:59,226 --> 00:14:03,557
-and voice harmonics especially hide the remaining quantization noise well. 
-
+음성 배음들은 특히나 남아있는 양자화 잡음을 잘 숨겨줍니다.
 193
 00:14:03,557 --> 00:14:08,248
-All three eight bit encodings, linear, A-law, and mu-law, are typically paired 
-
+이 세 가지 8비트 부호화, 즉 선형, A-법칙, mu-법칙은 보통 8 kHz 샘플링 속도와 같이 쓰입니다.
 194
 00:14:08,248 --> 00:14:13,328
-with an 8kHz sampling rate, though I'm demonstrating them here at 48kHz.
-
+비록 전 지금 48 kHz에 대해 얘기하고 있지만요.
 195
 00:14:13,328 --> 00:14:18,491
 Most modern PCM uses 16 or 24 bit two's-complement signed integers to encode 
