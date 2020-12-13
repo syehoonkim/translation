@@ -30,240 +30,181 @@
 특히 스트리밍을요.
 11
 00:00:39,908 --> 00:00:44,017
-YouTube was the first huge success, and now everybody wants in.
-
+유튜브는 최초의 거대한 성공이었고, 모두가 유튜브에서 뭔가 하고 싶어합니다.
 12
 00:00:44,017 --> 00:00:47,413
-Well good!  Because this stuff is a lot of fun!
-
+아주 좋아요! 이것들은 매우 재미있으니까요!
 13
 00:00:48,250 --> 00:00:51,179
-It's no problem finding consumers for digital media.  
-
+디지털 미디어의 소비자를 찾는 것은 전혀 문제가 아닙니다.
 14
 00:00:51,179 --> 00:00:54,649
-But here, I'd like to address the engineers, the mathematicians, 
-
+하지만 여기서는, 저는 여러 가지를 탐구하고, 만들고,
 15
 00:00:54,649 --> 00:00:57,869
-the hackers, the people who are interested in discovering 
-
+기술을 발전시키는 엔지니어들, 수학자들, 해커들을
 16
 00:00:57,869 --> 00:01:01,302
-and making things and building the technology itself. 
-
+언급하고 싶습니다.
 17
 00:01:01,302 --> 00:01:03,282
-The people after my own heart.
-
+제 가슴속에 있는 사람들을 말이지요.
 18
 00:01:04,250 --> 00:01:08,723
-Digital media, compression especially, is perceived to be super-elite,
-
+디지털 미디어, 특히 정보 압축은 컴퓨터 과학 분야에서 다른 것들보다 훨씬 어려운
 19
 00:01:08,723 --> 00:01:12,822
-somehow incredibly more difficult than anything else in computer science. 
-
+굉장히 중요한 것으로 인식됩니다.
 20
 00:01:12,822 --> 00:01:15,700
-The big industry players in the field don't mind this perception at all; 
-
+이 분야의 거대 기업은 그런 인식을 전혀 신경쓰지 않습니다.
 21
 00:01:15,700 --> 00:01:19,734
-it helps justify the staggering number of very basic patents they hold.  
-
+그 인식은 그들이 갖고 있는 위태로운 숫자의 기본 특허들을 정당화할 뿐입니다.
 22
 00:01:19,734 --> 00:01:23,870
-They like the image that their media researchers are the best of the best, 
-
+그들은 그들의 미디어 연구자들이 최고 중 최고이며,
 23
 00:01:23,870 --> 00:01:27,738
-so much smarter than anyone else that their brilliant ideas can't 
-
+다른 사람들보다 훨씬 똑똑하여 그들의 번뜩이는 생각들은
 24
 00:01:27,738 --> 00:01:29,903
-even be understood by mere mortals. 
-
+일반인들이 이해할 수 없다는 이미지를 좋아합니다.
 25
 00:01:30,625 --> 00:01:33,716
-This is bunk.  
-
+그건 허튼소리에요.
 26
 00:01:35,205 --> 00:01:38,900
-Digital audio and video and streaming and compression 
-
+디지털 오디오, 비디오, 스트리밍, 정보 압축은
 27
 00:01:38,900 --> 00:01:42,738
-offer endless deep and stimulating mental challenges, 
-
+끝없는 깊고 자극적인 정신적 도전을 제공합니다.
 28
 00:01:42,738 --> 00:01:44,662
-just like any other discipline. 
-
+다른 모든 분야가 그러듯이요.
 29
 00:01:44,662 --> 00:01:47,929
-It seems elite because so few people have been been involved.  
-
+소수의 사람들많이 관여해 왔기에 어렵고 잘난 분야 같아 보이긴 합니다.
 30
 00:01:47,929 --> 00:01:51,223
-So few people have been involved perhaps because so few people 
-
+얼마 안 되는 사람들만이 참여해 온 것은 그 얼마 안 되는 사람들만이
 31
 00:01:51,223 --> 00:01:54,665
-could afford the expensive, special-purpose equipment it required. 
-
+이 분야의 연구가 요구하는 비싼 특수 목적 장비를 구입할 수 있었기 때문입니다.
 32
 00:01:54,665 --> 00:01:58,792
-But today, just about anyone watching this video has a cheap, 
-
+하지만 요즘은, 이 비디오를 보는 거의 모든 사람들은
 33
 00:01:58,792 --> 00:02:03,317
-general-purpose computer powerful enough to play with the big boys. 
-
+저렴하고, 다목적이면서도 큰 장난감들을 갖고 놀만큼 강력한 컴퓨터를 갖고 있죠.
 34
 00:02:05,926 --> 00:02:11,108
-There are battles going on today around HTML5 and browsers 
-
+오늘날, HTML5와 브라우저, 비디오를 둘러싼,
 35
 00:02:11,108 --> 00:02:13,671
-and video and open vs. closed. 
-
+오픈소스 진영과 폐쇄 진영의 싸움이 진행되고 있습니다.
 36
 00:02:13,671 --> 00:02:17,048
-So now is a pretty good time to get involved.  
-
+이제 우리도 참여할 기회가 온 것이죠.
 37
 00:02:17,048 --> 00:02:20,000
-The easiest place to start is probably understanding 
-
+그 시작으로 가장 좋은 것은 지금 우리가 갖고 있는 기술들을
 38
 00:02:20,000 --> 00:02:22,619
-the technology we have right now.
-
+이해하는 것입니다.
 39
 00:02:23,500 --> 00:02:25,071
-This is an introduction. 
-
+이것은 개론, 즉 소개입니다.
 40
 00:02:25,071 --> 00:02:28,180
-Since it's an introduction, it glosses over a ton of details 
-
+개론이기 때문에, 매우 많은 세세한 부분들은 대충 넘어가겠습니다.
 41
 00:02:28,180 --> 00:02:30,882
-so that the big picture's a little easier to see.
-
+그래야 큰 그림 전체를 보기 쉬울 테니까요.
 42
 00:02:30,882 --> 00:02:33,908
-Quite a few people watching are going to be way past anything 
-
+지금 당장은, 꽤 많은 사람들에게 제가 다루는 것들이
 43
 00:02:33,908 --> 00:02:36,378
-that I'm talking about, at least for now.  
-
+이미 익숙할 것입니다.
 44
 00:02:36,378 --> 00:02:39,293
-On the other hand, I'm probably going to go too fast for folks 
-
+하지만, 이 모든 것들이 새로운 분들께는 제가 너무 빠를 수도 있지요.
 45
 00:02:39,293 --> 00:02:44,558
-who really are are brand new to all of this, so if this is all new, relax. 
-
+그러니 이 모든 게 새로워 보여도 긴장하지 마세요.
 46
 00:02:44,558 --> 00:02:48,629
-The important thing is to pick out any ideas  that really grab your imagination.
-
+중요한 것은 당신의 상상력을 발휘할 수 있는 아이디어를 찾아내는 것입니다.
 47
 00:02:48,629 --> 00:02:52,497
-Especially pay attention to the terminology surrounding those ideas, 
-
+특히 그런 아이디어에 대한 용어들에 집중하세요.
 48
 00:02:52,479 --> 00:02:56,078
-because with those, and Google, and Wikipedia, you can dig 
-
+왜냐하면 그 단어들로 구글과 위키피디아에서
 49
 00:02:56,078 --> 00:02:57,753
-as deep as interests you.
-
+더 깊이 찾아볼 수 있으니까요.
 50
 00:02:57,753 --> 00:03:00,094
-So, without any further ado, 
-
+그러니, 더 이상 야단법석 떨지 않고,
 51
 00:03:00,094 --> 00:03:03,351
-welcome to one hell of a new hobby.
-
+새로운 취미에 발을 들이신 것을 환영하겠습니다.
 52
 00:03:10,291 --> 00:03:13,030
-Sound is the propagation of pressure waves through air, 
-
+소리라는 것은 공기의 압력이 파동 형태로 전달되는 것인데,
 53
 00:03:13,030 --> 00:03:16,981
-spreading out from a source like ripples spread from a stone tossed into a pond.
-
+연못에 조약돌을 던지면 잔물결이 퍼져나가듯이 소리도 그렇게 그 원천으로부터 퍼져나갑니다.
 54
 00:03:16,981 --> 00:03:19,489
-A microphone, or the human ear for that matter, 
-
+그런 의미에서 마이크나 사람의 귀는
 55
 00:03:19,489 --> 00:03:22,876
-transforms these passing ripples of pressure into an electric signal.  
-
+그 압력의 잔물결을 전기 신호로 바꿉니다.
 56
 00:03:22,876 --> 00:03:25,800
-Right, this is middle school science class, everyone remembers this.
-
+그래요, 이건 중학교 과학 시간에 배우는 것이고 모두가 기억하시겠지요.
 57
 00:03:25,800 --> 00:03:26,771
-Moving on.
-
+계속합시다.
 58
 00:03:27,465 --> 00:03:32,527
-That audio signal is a one-dimensional function, a single value varying over time.  
-
+오디오 신호는 1차원 함수이기 때문에 시간 변화에 대해 바뀌는 변수는 하나입니다.
 59
 00:03:32,527 --> 00:03:34,248
-If we slow the 'scope down a bit... 
-
+우리가 조금 더 깊이 살펴보면
 60
 00:03:36,450 --> 00:03:38,190
-that should be a little easier to see. 
-
+좀 더 이해하기 쉽겠죠.
 61
 00:03:38,190 --> 00:03:40,688
-A few other aspects of the signal are important.  
-
+이 신호의 다른 측면들도 중요합니다.
 62
 00:03:40,688 --> 00:03:43,418
-It's continuous in both value and time;  
-
+이 신호는 연속적인 변수 값과 시간을 가집니다.
 63
 00:03:43,418 --> 00:03:46,813
-that is, at any given time it can have any real value, 
-
+이는, 어떤 특정 시간에 어떤 실수 값을 가진다는 뜻이고,
 64
 00:03:46,813 --> 00:03:50,228
-and there's a smoothly varying value at every point in in time.  
-
+그 값들은 시간상 모든 지점에서 부드럽게 바뀝니다.
 65
 00:03:50,228 --> 00:03:52,439
-No matter how much we zoom in,
-
+얼마나 우리가 확대해서 보든
 66
 00:03:54,068 --> 00:03:58,510 
-there are no discontinuities, no singularities, no instantaneous steps 
-
+불연속적이거나, 갑자기 튀는 값이나, 불연속적인 단계나 
 67
 00:03:58,510 --> 00:04:01,285
-or points where the signal ceases to exist. 
-
+신호가 없어지는 지점은 없습니다.
 68
 00:04:03,247 --> 00:04:08,475
-It's defined everywhere. Classic continuous math works very well on these signals.
-
+모든 지점에서 값이 정의됩니다. 고전적인 연속 수학이 이 신호들에 잘 적용됩니다.
 69
 00:04:11,001 --> 00:04:15,378
-A digital signal on the other hand is discrete in both value and time.
-
+반대로, 디지털 신호는 값과 시간에 대해서 불연속적입니다.
 70
 00:04:15,378 --> 00:04:19,107
 In the simplest and most common system, called Pulse Code Modulation,
