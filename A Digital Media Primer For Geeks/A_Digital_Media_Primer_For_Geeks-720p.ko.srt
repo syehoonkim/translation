@@ -734,423 +734,319 @@ A-법칙과 mu-법칙은 선형 8비트 대비 분명한 양자화 잡음 감소
 그것들을 여기서 전부 다룰 수는 없으니, 우리는 널리 쓰이는 기본적인 것을 다루겠습니다.
 245
 00:18:06,036 --> 00:18:10,857
-The most obvious raw video parameters are the width and height of the picture in pixels. 
-
+명확한 본래 비디오의 매개변수는 픽셀로 표현된 비디오의 폭과 높이입니다.
 246
 00:18:10,857 --> 00:18:15,882
-As simple as that may sound, the pixel dimensions alone don't actually specify the absolute 
-
+들리는 것처럼, 픽셀 차원만으로는 그림의 실제 폭과 높이를 표현하지 못합니다.
 247
 00:18:15,882 --> 00:18:22,016
-width and height of the picture, as most broadcast-derived video doesn't use square pixels.
-
+대부분의 방송에서 기인한 비디오는 정사각형 픽셀을 쓰지 않기 때문이죠.
 248
 00:18:22,016 --> 00:18:25,005
-The number of scanlines in a broadcast image was fixed, 
-
+방송 영상의 주사선 수는 고정이지만
 249
 00:18:25,005 --> 00:18:29,021
-but the effective number of horizontal pixels was a function of channel bandwidth. 
-
+실질적인 수평 픽셀 개수는 채널 대역폭과 상관있습니다.
 250
 00:18:29,021 --> 00:18:31,945
-Effective horizontal resolution could result in pixels that were either 
-
+실질 수평 해상도는 주사선 간의 간격보다 좁거나 넓은
 251
 00:18:31,945 --> 00:18:35,489
-narrower or wider than the spacing between scanlines.
-
+픽셀들을 만들 수 있습니다.
 252
 00:18:35,489 --> 00:18:38,395
-Standards have generally specified that digitally sampled video 
-
+표준들은 일반적으로 디지털로 샘플링된 비디오들이
 253
 00:18:38,395 --> 00:18:41,902
-should reflect the real resolution of the original analog source, 
-
+원본 아날로그 소스의 해상도를 반영하도록 정해집니다.
 254
 00:18:41,902 --> 00:18:45,566
-so a large amount of digital video also uses non-square pixels. 
-
+따라서 많은 비디오들이 정사각형이 아닌 픽셀을 사용합니다.
 255
 00:18:45,566 --> 00:18:49,924
-For example, a normal 4:3 aspect NTSC DVD is typically encoded 
-
+예를 들어, 일반적인 4:3 비율의 NTSC DVD는
 256
 00:18:49,924 --> 00:18:55,374
-with a display resolution of 704 by 480, a ratio wider than 4:3.  
-
+보통 704 x 480의, 4:3보다 넓은 화면 해상도로 부호화됩니다.
 257
 00:18:55,374 --> 00:18:59,640
-In this case, the pixels themselves are assigned an aspect ratio of 10:11, 
-
+이러한 경우, 픽셀 자체의 해상도는 10:11이 되는데,
 258
 00:18:59,640 --> 00:19:04,553
-making them taller than they are wide and narrowing the image horizontally to the
-correct aspect.  
-
+따라서 픽셀들은 너비보다 높이가 커지고, 이미지가 정확한 종횡비보다
+수평 방향으로 좁게 됩니다.
 259
 00:19:04,553 --> 00:19:09,800
-Such an image has to be resampled to show properly on a digital display with square pixels.
-
+그러한 이미지들은 정사각형의 픽셀을 갖는 디지털 디스플레이에서 제대로 보이게 다시 샘플링되어야 합니다.
 260
 00:19:10,253 -->  00:19:15,287
-The second obvious video parameter is the frame rate, the number of full frames per second.  
-
+두 번째로 분명한 비디오 매개변수는 프레임율로, 초당 프레임 수를 말합니다.
 261
 00:19:15,287 --> 00:19:19,655
-Several standard frame rates are in active use. Digital video, in one form or another, 
-
+몇몇 표준 프레임율은 실제로 사용되고 있습니다. 특정 형식이나 그와 다른 형식의 디지털 비디오는,
 262
 00:19:19,655 --> 00:19:23,689
-can use all of them.  Or, any other frame rate.  Or even variable rates 
-
+그 모든 프레임율이나 또 다른 프레임율을 쓸 수 있습니다. 또는 비디오가 진행됨에 따라
 263
 00:19:23,689 --> 00:19:27,113
-where the frame rate changes adaptively over the course of the video. 
-
+적응적으로 달라지는 가변 프레임율을 쓸 수도 있지요.
 264
 00:19:27,113 --> 00:19:32,998
-The higher the frame rate, the smoother the motion and that brings us, unfortunately, to interlacing.
-
+프레임율이 높을수록 움직임은 부드럽게 보이고, 이는 불행히도 인터레이싱(비월주사)을 도입하게 합니다.
 265
 00:19:32,998 --> 00:19:37,967
-In the very earliest days of broadcast video, engineers sought the fastest practical framerate 
-
+방송 비디오의 초창기에, 엔지니어들은 형광 물질을 사용하는 CRT 모니터에서 플리커(깜빡임)을 최소화하고
 266
 00:19:37,967 --> 00:19:42,075
-to smooth motion and to minimize flicker on phosphor-based CRTs.  
-
+움직임을 부드럽게 만드는 현실적으로 가장 빠른 프레임율을 찾았습니다.
 267
 00:19:42,075 --> 00:19:45,277
-They were also under pressure to use the least possible bandwidth 
-
+그들은 또 최고의 해상도와 프레임율에 대한
 268
 00:19:45,277 --> 00:19:48,182
-for the highest resolution and fastest frame rate.  
-
+최소의 대역폭을 사용해야 한다는 압박을 받았지요.
 269
 00:19:48,182 --> 00:19:51,208
-Their solution was to interlace the video where the even lines 
-
+그들이 찾은 방법은 짝수 번째 선들을 한번 보내고 홀수 선들을 그 다음에 보내는
 270
 00:19:51,208 --> 00:19:54,826
-are sent in one pass and the odd lines in the next.  
-
+인터레이싱이라는 방법이었습니다.
 271
 00:19:54,826 --> 00:19:59,961
-Each pass is called a field and two fields sort of produce one complete frame.
-
+각 전송 순서는 필드라고 부르고, 두 필드가 하나의 완전한 프레임 같은 것을 만듭니다.
 272
 00:19:59,961 --> 00:20:05,319
-"Sort of", because the even and odd fields aren't actually from the same source frame.  
-
+"같은 것"이란 표현을 쓴 이유는 짝수와 홀수 필드가 사실상 같은 근원 프레임에서 오는 것이 아니기 때문입니다.
 273
 00:20:05,319 --> 00:20:10,797
-In a 60 field per second picture, the source frame rate is actually 60 full frames per second, 
-
+초당 60 필드의 그림에서, 근원 프레임율은 실제로 완전한 초당 60 프레임이지만,
 274
 00:20:10,797 --> 00:20:15,386
-and half of each frame, every other line, is simply discarded.  
-
+홀수 또는 짝수 번째 선들로 이루어지는 각 프레임의 절반만 취해지고 나머지 절반은 버려집니다.
 275
 00:20:15,386 --> 00:20:20,272
-This is why we can't deinterlace a video simply by combining two fields into one frame;
-
+이것이 우리가 비디오의 각 필드를 한 프레임으로 합쳐도 디인터레이싱이 되지 않는 이유입니다.
 276
 00:20:20,272 --> 00:20:23,039
-they're not actually from one frame to begin with.
-
+필드들은 하나의 프레임에서 만들어진 게 아니니까요.
 277
 00:20:24,047 --> 00:20:29,683
-The cathode ray tube was the only available display technology for most of the history of electronic video. 
-
+CRT는 대부분의 전자 비디오 역사에서 유일하게 가능한 디스플레이 기술이었습니다.
 278
 00:20:29,683 --> 00:20:32,949
-A CRT's output brightness is nonlinear, approximately equal 
-
+CRT의 출력 밝기는 비선형적인데,
 279
 00:20:32,949 --> 00:20:36,585
-to the input controlling voltage raised to the 2.5th power. 
-
+대략 입력되는 조절 전압의 2.5승과 같습니다.
 280
 00:20:36,585 --> 00:20:43,821
-This exponent, 2.5, is designated gamma, and so it's often referred to as the gamma of a display.  
-
+이 2.5라는 지수승은 감마라고 정해지며, 따라서 보통 디스플레이 감마라고 불립니다.
 281
 00:20:43,821 --> 00:20:50,493
-Cameras, though, are linear, and if you feed a CRT a linear input signal, it looks a
-bit like this.
-
+하지만 카메라들은 선형적이어서, CRT에 선형 신호를 입력하면 
+이런 식으로 보이게 됩니다.
 282
 00:20:51,270 --> 00:20:56,637
-As there were originally to be very few cameras, which were fantastically expensive anyway, 
-
+당시에는, 어마어마하게 비쌌던, 카메라들은 비교적 소수 존재했고
 283
 00:20:56,637 --> 00:21:01,634
-and hopefully many, many television sets which best be as inexpensive as possible, 
-
+최대한 저렴해야 하는 TV들은 많았기 때문에
 284
 00:21:01,634 --> 00:21:08,222
-engineers decided to add the necessary gamma correction circuitry to the cameras rather than the sets. 
-
+엔지니어들은 감마 보정 회로를 TV가 아닌 카메라에 넣기로 결정했습니다.
 285
 00:21:08,222 --> 00:21:13,062
-Video transmitted over the airwaves would thus have a nonlinear intensity using the inverse 
-
+따라서 공중파를 통해 전달된 비디오들은 비선형적인 세기를 갖게 되었는데
 286
 00:21:13,062 --> 00:21:18,271
-of the set's gamma exponent, so that once a camera's signal was finally displayed on the CRT, 
-
+그 함수는 TV 수상기 감마 지수함수의 역함수이고, 따라서 카메라의 신호가 CRT에서 표시될 때엔
 287
 00:21:18,271 --> 00:21:23,305
-the overall response of the system from camera to set was back to linear again.
-
+카메라에서 TV로 전달된 전체적인 응답은 다시 선형적으로 됩니다.
 288
 00:21:23,777 --> 00:21:25,118
-Almost.
-
+거의요.
 289
 00:21:30,393 --> 00:21:33,113
-There were also two other tweaks. 
-
+두 가지 개선사항이 더 있습니다.
 290
 00:21:33,113 --> 00:21:40,442
-A television camera actually uses a gamma exponent that's the inverse of 2.2, not 2.5.  
-
+TV 카메라는 사실 2.5가 아닌 2.2 감마 지수의 역수를 씁니다.
 291
 00:21:40,442 --> 00:21:43,754
-That's just a correction for viewing in a dim environment. 
-
+이는 어두운 환경에서 볼 때에 대한 보정입니다.
 292
 00:21:43,754 --> 00:21:48,279
-Also, the exponential curve transitions to a linear ramp near black.  
-
+또한, 지수 곡선은 검정 부근에서 직선으로 바뀝니다.
 293
 00:21:48,279 --> 00:21:52,360
-That's just an old hack for suppressing sensor noise in the camera.
-
+이는 카메라의 센서 잡음을 줄이기 위한 오래된 방법입니다.
 294
 00:21:54,941 --> 00:21:57,347
-Gamma correction also had a lucky benefit. 
-
+또 감마 보정은 운 좋게도 추가적인 이득을 줍니다.
 295
 00:21:57,347 --> 00:22:02,214
-It just so happens that the human eye has a perceptual gamma of about 3.  
-
+인간의 눈은 3이란 감마 값을 갖는 인지적 특성을 보입니다.
 296
 00:22:02,214 --> 00:22:05,962
-This is relatively close to the CRT's gamma of 2.5. 
-
+이는 상대적으로 CRT의 감마인 2.5에 가깝죠.
 297
 00:22:05,962 --> 00:22:10,607
-An image using gamma correction devotes more resolution to lower intensities, 
-
+감마 보정을 하는 영상은 낮은 세기의 값을 더 잘 표현하게 되는데
 298
 00:22:10,607 --> 00:22:14,336
-where the eye happens to have its finest intensity discrimination, 
-
+눈의 세기 분해능은 이 범위에서 가장 좋습니다.
 299
 00:22:14,336 --> 00:22:18,222
-and therefore uses the available scale resolution more efficiently.  
-
+따라서 사용 가능한 값의 해상도를 더 효율적으로 사용할 수 있게 되는 것입니다.
 300
 00:22:18,222 --> 00:22:22,784
-Although CRTs are currently vanishing, a standard sRGB computer display 
-
+비록 CRT들은 사라지고 있지만, 표준 sRGB 컴퓨터 화면들은
 301
 00:22:22,784 --> 00:22:28,419
-still uses a nonlinear intensity curve similar to television, with a linear ramp near black,
-
+TV와 비슷하게, 검정 근처에선 직선이며, 2.4의 감마 지수승을 갖는 지수함수 형태의
 302
 00:22:28,419 --> 00:22:32,491
-followed by an exponential curve with a gamma exponent of 2.4. 
-
+비선형적인 세기 곡선을 사용합니다.
 303
 00:22:32,491 --> 00:22:36,636
-This encodes a sixteen bit linear range down into eight bits.
-
+이것은 16 비트의 선형 범위를 8 비트로 변환합니다.
 304 
 00:22:37,580 --> 00:22:41,790
-The human eye has three apparent color channels, red, green, and blue, 
-
+인간의 눈은 빨강, 초록, 파랑의 3개의 색 채널을 갖고 있고
 305
 00:22:41,790 --> 00:22:47,407
-and most displays use these three colors as additive primaries to produce a full range of color output.  
-
+대부분의 디스플레이들은 이 세 색깔을 합성의 근본 원소로 사용하여 전체 출력 색상을 만듭니다.
 306
 00:22:49,258 --> 00:22:54,190
-The primary pigments in printing are Cyan, Magenta, and Yellow for the same reason; 
-
+인쇄에서 사용되는 색소의 삼원색이 사이안, 마젠타, 노랑인 것과 같은 이유입니다.
 307
 00:22:54,190 --> 00:22:59,381
-pigments are subtractive, and each of these pigments subtracts one pure color from reflected light.  
-
+색소들에는 뺄셈이 적용되며, 각 색소들은 반새된 빛에서 하나의 순수한 색을 뺸 것입니다.
 308
 00:22:59,381 --> 00:23:05,682
-Cyan subtracts red, magenta subtracts green, and yellow subtracts blue.
-
+사이안은 빨강, 마젠타는 초록, 노랑은 파랑을 뺍니다.
 309
 00:23:05,682 --> 00:23:10,919
-Video can be and sometimes is represented with red, green, and blue color channels, 
-
+비디오는 빨강, 초록, 파랑 채널들로 표현될 수 있고(RGB), 실제로 가끔 그렇게 표현되지만,
 310
 00:23:10,919 --> 00:23:17,211
-but RGB video is atypical. The human eye is far more sensitive to luminosity than it is the color, 
-
+RGB 비디오는 일반적이지 않습니다. 인간의 눈은 색보다는 밝기에 훨씬 민감한데,
 311
 00:23:17,211 --> 00:23:21,329
-and RGB tends to spread the energy of an image across all three color channels.  
-
+RGB는 영상의 이미지를 세 채널에 분산시킵니다.
 312
 00:23:21,329 --> 00:23:25,326
-That is, the red plane looks like a red version of the original picture, 
-
+이는, 빨강 평면은 원래 그림의 빨간 버전으로 보이고
 313
 00:23:25,326 --> 00:23:28,769
-the green plane looks like a green version of the original picture, 
-
+초록 평면은 원래 그림의 초록 버전으로 보이고
 314
 00:23:28,769 --> 00:23:32,063
-and the blue plane looks like a blue version of the original picture.  
-
+파랑 평면은 원래 그림의 파랑 버전으로 보일 것입니다.
 315
 00:23:32,063 --> 00:23:35,705
-Black and white times three.  Not efficient.
-
+흑백이 세 번 필요한 것이죠. 효율적이지 않습니다.
 316
 00:23:35,706 --> 00:23:39,438
-For those reasons and because, oh hey, television just happened to start out 
-
+이런 이유로, 또 그리고 TV는 어쨌건 흑백에서 시작됐기 때문에
 317
 00:23:39,438 --> 00:23:45,017
-as black and white anyway, video usually is represented as a high resolution luma channel, 
-
+비디오는 보통 높은 해상도의 밝기 채널, 즉 흑백 채널과
 318
 00:23:45,017 --> 00:23:51,041
-the black & white, along with additional, often lower resolution chroma channels, the color. 
-
+보통 더 낮은 해상도를 갖는 색상 채널들로 표현됩니다.
 319
 00:23:51,041 --> 00:23:57,074
-The luma channel, Y, is produced by weighting and then adding the separate red, green and blue signals.  
-
+밝기 채널, Y는 개별 빨강, 초록, 파랑 신호에 가중치를 곱해서 더함으로써 만들어집니다.
 320
 00:23:57,074 --> 00:24:01,867
-The chroma channels U and V are then produced by subtracting the luma signal from blue 
-
+색상 채널들 U와 V는 밝기 채널에서 각각 파랑과
 321
 00:24:01,867 --> 00:24:04,070
-and the luma signal from red.
-
+빨강을 뺌으로써 만들어집니다.
 322
 00:24:04,070 --> 00:24:11,750
-When YUV is scaled, offset and quantized for digital video, it's usually more correctly called Y'CbCr, 
-
+YUV가 측정되고, 오프셋이 더해지고 양자화되오 디지털 비디오가 되면, 보통 더 정확히는 Y'CbCr이라고 불려야 하지만
 323
 00:24:11,750 --> 00:24:15,238
-but the more generic term YUV is widely used to describe 
-
+YUV라는 더 일반적인 용어가 이 색상 모델을 설명할 때
 324
 00:24:15,238 --> 00:24:18,301
-all the analog and digital variants of this color model.
-
+아날로그와 디지털 모두에서 사용됩니다.
 325
 00:24:18,912 --> 00:24:22,983
-The U and V chroma channels can have the same resolution as the Y channel, 
-
+U와 V 색상 채널은 Y 채널과 같은 해상도를 가질 수 있지만,
 326
 00:24:22,983 --> 00:24:28,674
-but because the human eye has far less spatial color resolution than spatial luminosity resolution, 
-
+인간의 눈은 밝기에 대한 공간 해상도보다 색상에 대한 공간 해상도가 훨씬 낮기 때문에
 327
 00:24:28,674 --> 00:24:34,346
-chroma resolution is usually halved or even quartered in the horizontal direction, the vertical direction, 
-
+색상 해상도는 수평 방향 또는 수직 방향으로, 혹은 두 방향 모두에서 밝기 해상도의 절반이나 1/4를 갖습니다.
 328
 00:24:34,346 --> 00:24:39,528
-or both, usually without any significant impact on the apparent raw image quality. 
-
+그렇게 해도 원본 이미지 대비 큰 영향은 없습니다.
 329
 00:24:39,528 --> 00:24:43,942
-Practically every possible subsampling variant has been used at one time or another,
-
+실질적으로 모든 서브샘플링 변형들이 사용되곤 했지만,
 330
 00:24:43,942 --> 00:24:46,875
-but the common choices today are 
-
+오늘날 일반적인 선택은
 331
 00:24:46,875 --> 00:24:51,187
-4:4:4 video, which isn't actually subsampled at all, 
-
+서브샘플링되지 않은 4:4:4 비디오,
 332
 00:24:51,187 --> 00:24:56,711
-4:2:2 video in which the horizontal resolution of the U and V channels is halved, 
-
+U와 V 방향 수평 해상도가 절반인 4:2:2 비디오,
 333
 00:24:56,711 --> 00:25:02,587
-and most common of all, 4:2:0 video in which both the horizontal and vertical resolutions 
-
+그리고 가장 일반적인 색상 해상도의 수평, 수직 해상도가 절반인 4:2:0 비디오가 있는데
 334
 00:25:02,587 --> 00:25:08,897
-of the chroma channels are halved, resulting in U and V planes that are each one quarter the size of Y.
-
+따라서 이 경우 각각의 U와 V 평면의 크기는 Y의 1/4가 됩니다.
 335
 00:25:08,897 --> 00:25:17,096
-The terms 4:2:2, 4:2:0, 4:1:1 and so on and so forth, aren't complete descriptions of a chroma subsampling. 
-
+4:2:2, 4:2:0, 4:1:1과 다른 것들은 크로마 서브샘플링의 완전한 설명들이 아닙니다.
 336
 00:25:17,096 --> 00:25:21,186
-There's multiple possible ways to position the chroma pixels relative to luma, 
-
+밝기에 대해서 색상 픽샐들을 배치하는 여러 방법들이 있고,
 337
 00:25:21,096 --> 00:25:24,776 
-and again, several variants are in active use for each subsampling.  
-
+다시 여러 변형들이 각 서브샘플링에 이용됩니다.
 338
 00:25:24,776 --> 00:25:32,502
-For example, motion JPEG, MPEG-1 video, MPEG-2 video, DV, Theora and WebM all use 
-
+예를 들어, 모션 JPEG, MPEG-1 비디오, MPEG-2 비디오, DV, Theora와 WebM 모두
 339
 00:25:32,502 --> 00:25:38,137
-or can use 4:2:0 subsampling, but they site the chroma pixels three different ways.
-
+4:2:0 서브샘플링을 이용하고 있거나 이용할 수 있지만, 색상 픽셀들을 세 가지 다른 방법으로 배치합니다.
 340
 00:25:38,498 --> 00:25:43,023
-Motion JPEG, MPEG1 video, Theora and WebM all site chroma pixels 
-
+모션 JPEG, MPEG-1 비디오, Theora와 WebM은 모두 색상 픽셀들을
 341
 00:25:43,023 --> 00:25:46,345
-between luma pixels both horizontally and vertically.
-
+밝기 픽셀들의 수평과 수직 사이에 배치합니다.
 342
 00:25:46,345 --> 00:25:51,989
-MPEG2 sites chroma pixels between lines, but horizontally aligned with every other luma pixel. 
-
+MPEG-2에서는 색상 채널들이 각 수평선 사이에 배치되지만, 수평적으로는 다른 밝기 픽셀들과 마찬가지로 정렬됩니다.
 343
 00:25:51,989 --> 00:25:57,106
-Interlaced modes complicate things somewhat, resulting in a siting arrangement that's a tad bizarre.
-
+인터레이싱 모드는 더 어렵게 만들고, 위치 배치를 좀 기괴하게 만듭니다.
 344
 00:25:57,106 --> 00:26:00,909
-And finally PAL-DV, which is always interlaced, places the chroma pixels 
-
+마지막으로 늘 인터레이싱을 하는 PAL-DV는 색상 채널들을
 345
 00:26:00,909 --> 00:26:04,398
-in the same position as every other luma pixel in the horizontal direction, 
-
+수평 방향으로는 다른 밝기 픽셀들과 마찬가지 위치에 배치하고
 346
 00:26:04,398 --> 00:26:07,303
-and vertically alternates chroma channel on each line.
-
+수직 방향으로는 각 선에서 색상 채널을 번갈아 가며 배치합니다.
 347
 00:26:07,683 --> 00:26:12,282
-That's just 4:2:0 video. I'll leave the other subsamplings as homework for the
-viewer.  
-
+이것이 바로 4:2:0 비디오입니다.
+다른 서브샘플링 방법들은 시청자분들의 숙제로 남겨두겠습니다.
 348
 00:26:12,282 --> 00:26:14,882
-You've got the basic idea, moving on.
-
+여러분은 기본 개념을 알게 되셨습니다. 계속하지요.
 349
 00:26:15,511 --> 00:26:21,128
 In audio, we always represent multiple channels in a PCM stream by interleaving the samples 
