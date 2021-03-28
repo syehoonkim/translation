@@ -3,220 +3,222 @@ WEBVTT
 1
 00:00:08.252 --> 00:00:11.550
 안녕하세요? 저는 레드햇과 Xiph.Org 소속의 몬티 몽고메리입니다.
+
 2
 00:00:11.550 --> 00:00:18.430
 몇달 전, 저는 디지털 오디오와 왜 24비트/192kHz 음악을 다운로드하는 것이 말이 안 되는지에 대해 설명하는 글을 썼습니다.
+
 3
 00:00:18.430 --> 00:00:23.433
-In the article, I mentioned--almost in passing--that a digital waveform is not a stairstep,
+그 글에서, 저는 지나가듯이 디지털 파형은 계단 형태가 아니라고 언급했습니다.
 
 4
 00:00:23.433 --> 00:00:28.680
-and you certainly don't get a stairstep when you convert from digital back to analog.
+분명히, 디지털에서 아날로그로 다시 변환하면 분명 계단 형태의 신호가 나오지 않습니다.
 
 5
 00:00:29.865 --> 00:00:33.865
-Of everything in the entire article, <b>that</b> was the number one thing people wrote about.
+그 문서에서, 이 부분이 많은 사람들이 지적한 가장 큰 부분입니다.
 
 6
 00:00:33.865 --> 00:00:37.221
-In fact, more than half the mail I got was questions and comments
+사실, 제가 받은 반 이상의 이메일이
 
 7
 00:00:37.221 --> 00:00:39.663
-about basic digital signal behavior.
+기본적인 디지털 신호에 대한 질문과 의견이었습니다.
 
 8
 00:00:39.894 --> 00:00:45.285
-Since there's interest, let's take a little time to play with some <u>simple</u> digital signals.
+흥미로운 것이 있으니 잠시 몇몇 간단한 디지털 신호에 대해서 살펴보죠.
 
 9
 00:00:49.747 --> 00:00:51.006
-Pretend for a moment
+잠시 이렇다고 가정해보죠
 
 10
 00:00:51.006 --> 00:00:54.089
-that we have no idea how digital signals really behave.
+디지털 신호가 어떻게 행동하는지 우리가 전혀 모른다고 말입니다.
 
 11
 00:00:54.734 --> 00:00:56.841
-In that case it doesn't make sense for us
+그런 상황에선 디지털 측정기를 쓰는 것은
 
 12
 00:00:56.841 --> 00:00:59.049
-to use digital test equipment either.
+아무 의미가 없습니다.
 
 13
 00:00:59.049 --> 00:01:00.937
-Fortunately for this exercise, there's still
+다행히도, 이 실험에 관해서는
 
 14
 00:01:00.937 --> 00:01:04.020
-plenty of working analog lab equipment out there.
+많은 아날로그 장비들이 여기 있습니다.
 
 15
 00:01:04.020 --> 00:01:05.972
-First up, we need a signal generator
+일단, 우린 신호 발생기가 필요합니다.
 
 16
 00:01:05.972 --> 00:01:08.190
-to provide us with analog input signals--
+아날로그 입력 신호를 만들기 위해서 말이죠.
 
 17
 00:01:08.190 --> 00:01:12.692
-in this case, an HP3325 from 1978.
+여기서는 1978년에 나온 HP3325가 있습니다.
 
 18
 00:01:12.692 --> 00:01:14.153
-It's still a pretty good generator,
+이건 여전히 꽤 좋은 신호 발생기에요
 
 19
 00:01:14.153 --> 00:01:15.614
-so if you don't mind the size,
+여러분이 크기나
 
 20
 00:01:15.614 --> 00:01:16.532
-the weight,
+무게나
 
 21
 00:01:16.532 --> 00:01:17.577
-the power consumption,
+전력 소모나
 
 22
 00:01:17.577 --> 00:01:18.910
-and the noisy fan,
+시끄러운 팬을 신경쓰시지 않는다면
 
 23
 00:01:18.910 --> 00:01:20.329
-you can find them on eBay.
+이베이에서 찾으실 수 있을 겁니다.
 
 24
 00:01:20.329 --> 00:01:23.863
-Occasionally for only slightly more than you'll pay for shipping.
+때로 배송비는 좀 더 들겠지만요.
 
 25
 00:01:24.617 --> 00:01:28.500
-Next, we'll observe our analog waveforms on analog oscilloscopes,
+다음으로, 우린 아날로그 파형을 아날로그 오실로스코프로 관찰할 겁니다.
 
 26
 00:01:28.500 --> 00:01:31.550
-like this Tektronix 2246 from the mid-90s,
+이 90년대 중반에 나온 텍트로닉스 2246 같은 장비로요.
 
 27
 00:01:31.550 --> 00:01:34.761
-one of the last and very best analog scopes ever made.
+가장 마지막에 나온, 그리고 최고의 아날로그 스코프입니다.
 
 28
 00:01:34.761 --> 00:01:36.807
-Every home lab should have one.
+가정 실험실에 꼭 필요하죠.
 
 29
 00:01:37.716 --> 00:01:40.852
-And finally inspect the frequency spectrum of our signals
+그리고 마지막으로, 신호의 주파수 스펙트럼을 분석할
 
 30
 00:01:40.852 --> 00:01:43.177
-using an analog spectrum analyzer.
+아날로그 스펙트럼 분석기입니다.
 
 31
 00:01:43.177 --> 00:01:47.732
-This HP3585 from the same product line as the signal generator.
+신호 발생기와 같은 라인인 HP3585 같은 장비죠.
 
 32
 00:01:47.732 --> 00:01:50.615
-Like the other equipment here it has a rudimentary
+여기 있는 다른 장비들처럼 이 장비는 초보적이고
 
 33
 00:01:50.615 --> 00:01:52.905
-and hilariously large microcontroller,
+웃기게 큰 마이크로 컨트롤러를 갖고 있지만
 
 34
 00:01:52.905 --> 00:01:56.276
-but the signal path from input to what you see on the screen
+입력에서부터 여러분이 화면에서 보는 신호 경로 상에서
 
 35
 00:01:56.276 --> 00:01:58.537
-is completely analog.
+모든 것이 아날로그입니다.
 
 36
 00:01:58.537 --> 00:02:00.329
-All of this equipment is vintage,
+이 모든 것들은 오래되었지만
 
 37
 00:02:00.329 --> 00:02:01.993
-but aside from its raw tonnage,
+그 무게를 고려하지 않는다면
 
 38
 00:02:01.993 --> 00:02:03.844
-the specs are still quite good.
+성능은 여전히 상당히 좋습니다.
 
 39
 00:02:04.536 --> 00:02:06.868
-At the moment, we have our signal generator
+지금, 우리는 신호 발생기가
 
 40
 00:02:06.868 --> 00:02:12.829
-set to output a nice 1kHz sine wave at one volt RMS,
+실효값 1 볼트의 1 kHz 사인파를 만들도록 설정했습니다.
 
 41
 00:02:13.414 --> 00:02:15.220
-we see the sine wave on the oscilloscope,
+우리는 오실로스코프에서 사인파를 볼 수 있구요,
 
 42
 00:02:15.220 --> 00:02:21.428
-can verify that it is indeed 1kHz at one volt RMS,
+실제로 실효값 1 볼트의 1 kHz 신호임을 확인할 수 있죠.
 
 43
 00:02:21.428 --> 00:02:24.108
-which is 2.8V peak-to-peak,
+최고-최저값이 약 2.8V임으로부터요.
 
 44
 00:02:24.308 --> 00:02:27.561
-and that matches the measurement on the spectrum analyzer as well.
+또한 스펙트럼 분석기의 측정 결과와도 일치합니다.
 
 45
 00:02:27.561 --> 00:02:30.644
-The analyzer also shows some low-level white noise
+분석기는 약간의 낮은 백색 잡음도 보여주네요.
 
 46
 00:02:30.644 --> 00:02:32.190
-and just a bit of harmonic distortion,
+그리고 몇몇 고주파 왜곡도요.
 
 47
 00:02:32.190 --> 00:02:36.649
-with the highest peak about 70dB or so below the fundamental.
+그 고조파 왜곡들의 최고점은 기본파보다 약 70 dB 정도 낮습니다.
 
 48
 00:02:36.649 --> 00:02:38.612
-Now, this doesn't matter at all in our demos,
+이건 이번 실험에서 아무 문제가 되지 않지만,
 
 49
 00:02:38.612 --> 00:02:40.574
-but I wanted to point it out now
+저는 그래도 지적하고 싶었어요
 
 50
 00:02:40.574 --> 00:02:42.452
-just in case you didn't notice it until later.
+나중에야 여러분이 깨닫지 않도록요.
 
 51
 00:02:44.036 --> 00:02:47.142
-Now, we drop digital sampling in the middle.
+이제, 중간에 디지털 샘플링 단계를 추가해보죠.
 
 52
 00:02:48.557 --> 00:02:51.024
-For the conversion, we'll use a boring,
+변환을 위해서, 우리는 재미없는
 
 53
 00:02:51.024 --> 00:02:53.374
-consumer-grade, eMagic USB1 audio device.
+상용 수준의 eMagic USB 1 오디오 장치를 쓸 겁니다.
 
 54
 00:02:53.374 --> 00:02:55.337
-It's also more than ten years old at this point,
+이것은 현재 기준으로 10년도 더 되었고
 
 55
 00:02:55.337 --> 00:02:57.257
-and it's getting obsolete.
+구식이 되어갑니다.
 
 56
 00:02:57.964 --> 00:03:02.676
