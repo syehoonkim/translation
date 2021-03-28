@@ -888,399 +888,401 @@ CD처럼요.
 
 221
 00:11:47.284 --> 00:11:49.876
-The simple way to quantize a signal is to choose
+신호를 양자화하기위해 가장 간단한 방법은
 
 222
 00:11:49.876 --> 00:11:52.329
-the digital amplitude value closest
+디지털 진폭 값을 원래 아날로그 진폭에
 
 223
 00:11:52.329 --> 00:11:54.377
-to the original analog amplitude.
+가장 가깝게 고르는 것입니다.
 
 224
 00:11:54.377 --> 00:11:55.337
-Obvious, right?
+당연하죠, 그렇죠?
 
 225
 00:11:55.337 --> 00:11:57.545
-Unfortunately, the exact noise you get
+불행히도, 이 간단한 양자화 개념에서
 
 226
 00:11:57.545 --> 00:11:59.220
-from this simple quantization scheme
+발생하게 되는 그 노이즈는
 
 227
 00:11:59.220 --> 00:12:02.174
-depends somewhat on the input signal,
+입력 신호에 의존합니다.
 
 228
 00:12:02.174 --> 00:12:04.596
-so we may get noise that's inconsistent,
+그래서 우리는 일정하지 않거나
 
 229
 00:12:04.596 --> 00:12:06.142
-or causes distortion,
+왜곡을 일으키거나
 
 230
 00:12:06.142 --> 00:12:09.054
-or is undesirable in some other way.
+아무튼 좋지 않은 노이즈를 얻게 됩니다.
 
 231
 00:12:09.054 --> 00:12:11.764
-Dither is specially-constructed noise that
+디더는 특별히 만들어진 노이즈인데
 
 232
 00:12:11.764 --> 00:12:15.273
-substitutes for the noise produced by simple quantization.
+이 단순한 양자화에 의해 발생하는 노이즈를 제거하죠.
 
 233
 00:12:15.273 --> 00:12:18.025
-Dither doesn't drown out or mask quantization noise,
+디더는 양자화 노이즈를 없애거나 가리진 않습니다.
 
 234
 00:12:18.025 --> 00:12:20.190
-it actually replaces it
+실질적으로 그걸 대체하죠.
 
 235
 00:12:20.190 --> 00:12:22.612
-with noise characteristics of our choosing
+노이즈 특성이 입력에 영향받지 않도록
 
 236
 00:12:22.612 --> 00:12:24.794
-that aren't influenced by the input.
+선택되어서요.
 
 237
 00:12:25.256 --> 00:12:27.081
-Let's <u>watch</u> what dither does.
+디더가 뭘 하는지 보시죠.
 
 238
 00:12:27.081 --> 00:12:30.078
-The signal generator has too much noise for this test
+신호 발생기는 이 실험을 위해서는 노이즈가 너무 많으니
 
 239
 00:12:30.431 --> 00:12:33.161
-so we'll produce a mathematically
+수학적으로 완벽한 사인파를
 
 240
 00:12:33.161 --> 00:12:34.782
-perfect sine wave with the ThinkPad
+이 노트북으로 만들 겁니다.
 
 241
 00:12:34.782 --> 00:12:38.205
-and quantize it to eight bits with dithering.
+그리고 디더링하면서 8비트로 양자화할게요.
 
 242
 00:12:39.006 --> 00:12:41.342
-We see a nice sine wave on the waveform display
+파형 화면에서 좋은 사인파를 볼 수 있구요
 
 243
 00:12:41.342 --> 00:12:43.452
-and output scope
+그리고 출력 스코프에서도요
 
 244
 00:12:44.222 --> 00:12:44.972
-and...
+그리고...
 
 245
 00:12:46.588 --> 00:12:49.375
-once the analog spectrum analyzer catches up...
+아날로그 스펙트럼 분석기가 신호를 잡으면...
 
 246
 00:12:50.713 --> 00:12:53.588
-a clean frequency peak with a uniform noise floor
+일정한 노이즈 층과 깨끗한 꼭대기의 주파수를 볼 수 있죠.
 
 247
 00:12:56.864 --> 00:12:58.611
-on both spectral displays
+두 스펙트럼 화면에서도요.
 
 248
 00:12:58.611 --> 00:12:59.646
-just like before
+이전과 마찬가지로요.
 
 249
 00:12:59.646 --> 00:13:01.549
-Again, this is with dither.
+다시 말씀드리지만, 이건 디더링이 있는 경우입니다.
 
 250
 00:13:02.196 --> 00:13:04.225
-Now I turn dithering off.
+이제 디더링을 꺼볼게요.
 
 251
 00:13:05.779 --> 00:13:07.913
-The quantization noise, that dither had spread out
+디더링이 멋진, 평평한 노이즈 층으로 분산시켰던
 
 252
 00:13:07.913 --> 00:13:09.577
-into a nice, flat noise floor,
+양자화 노이즈가
 
 253
 00:13:09.577 --> 00:13:12.286
-piles up into harmonic distortion peaks.
+고조파 왜곡 피크들로 나타나네요.
 
 254
 00:13:12.286 --> 00:13:16.030
-The noise floor is lower, but the level of distortion becomes nonzero,
+노이즈 층은 낮았지만, 여기선 왜곡들이 0이 아니게 되면서,
 
 255
 00:13:16.030 --> 00:13:19.668
-and the distortion peaks sit higher than the dithering noise did.
+왜곡 꼭대기 점들은 디더링 노이즈보다 높은 데서 나타나죠.
 
 256
 00:13:19.668 --> 00:13:22.318
-At eight bits this effect is exaggerated.
+8비트 양자화에서 이 효과는 강조됩니다.
 
 257
 00:13:22.488 --> 00:13:24.200
-At sixteen bits,
+16 비트에서는,
 
 258
 00:13:24.692 --> 00:13:25.929
-even without dither,
+디더링이 없더라도,
 
 259
 00:13:25.929 --> 00:13:28.308
-harmonic distortion is going to be so low
+고조파 왜곡이 아주 낮아서
 
 260
 00:13:28.308 --> 00:13:30.708
-as to be completely inaudible.
+완전히 들리지 않게 됩니다.
 
 261
 00:13:30.708 --> 00:13:34.581
-Still, we can use dither to eliminate it completely
+여전히, 우리는 이를 완전히 없애기 위해 디더링을 쓸 수 있죠.
 
 262
 00:13:34.581 --> 00:13:36.489
-if we so choose.
+그러고 싶다면요.
 
 263
 00:13:37.642 --> 00:13:39.273
-Turning the dither off again for a moment,
+디더를 다시 잠시 끄면,
 
 264
 00:13:40.934 --> 00:13:43.444
-you'll notice that the absolute level of distortion
+디더링 없는 양자화에서의 왜곡의 절대 레벨이
 
 265
 00:13:43.444 --> 00:13:47.070
-from undithered quantization stays approximately constant
+거의 일정함을 보실 겁니다.
 
 266
 00:13:47.070 --> 00:13:49.033
-regardless of the input amplitude.
+입력 진폭에 상관없이요.
 
 267
 00:13:49.033 --> 00:13:51.998
-But when the signal level drops below a half a bit,
+하지만 신호 레벨이 비트당 절반 이하로 내려가면,
 
 268
 00:13:51.998 --> 00:13:54.036
-everything quantizes to zero.
+모든 것들이 0으로 양자화됩니다.
 
 269
 00:13:54.036 --> 00:13:54.910
-In a sense,
+어떤 의미로는,
 
 270
 00:13:54.910 --> 00:13:58.557
-everything quantizing to zero is just 100% distortion!
+모든 게 0으로 양자화된다는 것은 100% 왜곡이 생긴단 뜻이죠!
 
 271
 00:13:58.833 --> 00:14:01.588
-Dither eliminates this distortion too.
+디더는 이 왜곡도 없애줍니다.
 
 272
 00:14:01.588 --> 00:14:03.599
-We reenable dither and...
+디더링을 다시 활성화하면...
 
 273
 00:14:03.599 --> 00:14:06.377
-there's our signal back at 1/4 bit,
+1/4 비트에서도 우리의 신호가 있네요.
 
 274
 00:14:06.377 --> 00:14:09.076
-with our nice flat noise floor.
+멋진 평탄한 노이즈 층과 함께요.
 
 275
 00:14:09.630 --> 00:14:11.220
-The noise floor doesn't have to be flat.
+노이즈 층은 꼭 평평할 필요는 없습니다.
 
 276
 00:14:11.220 --> 00:14:12.798
-Dither is noise of our choosing,
+디더는 우리가 선택한 노이즈에요.
 
 277
 00:14:12.798 --> 00:14:15.006
-so let's choose a noise as inoffensive
+그래서 노이즈가 덜 거슬리고
 
 278
 00:14:15.006 --> 00:14:17.017
-and difficult to notice as possible.
+잘 들리지 않게 선택해보죠.
 
 279
 00:14:18.142 --> 00:14:22.484
-Our hearing is most sensitive in the midrange from 2kHz to 4kHz,
+인간의 청력은 2 kHz에서 4 kHz의 중간 대역에서 가장 민감합니다.
 
 280
 00:14:22.484 --> 00:14:25.438
-so that's where background noise is going to be the most obvious.
+따라서 여기가 배경 잡음이 가장 잘 들리는 구간이죠.
 
 281
 00:14:25.438 --> 00:14:29.406
-We can shape dithering noise away from sensitive frequencies
+우리는 디더링 노이즈가 민감한 주파수에서 떨어지도록 모양을 만들어서
 
 282
 00:14:29.406 --> 00:14:31.241
-to where hearing is less sensitive,
+잘 안 들리게 할 수 있죠.
 
 283
 00:14:31.241 --> 00:14:33.910
-usually the highest frequencies.
+보통 최고 주파수로 옮깁니다.
 
 284
 00:14:34.249 --> 00:14:37.460
-16-bit dithering noise is normally much too quiet to hear at all,
+16비트 디더링 노이즈는 듣기에는 보통 너무 조용합니다.
 
 285
 00:14:37.460 --> 00:14:39.668
-but let's listen to our noise shaping example,
+하지만 노이즈 모양을 만드는 예제를 들어보죠.
 
 286
 00:14:39.668 --> 00:14:42.234
-again with the gain brought way up...
+다시 이득을 크게 해서요.
 
 287
 00:14:56.020 --> 00:14:59.977
-Lastly, dithered quantization noise <u>is</u> higher power overall
+마지막으로, 디더링된 양자화 노이즈는 작게 들리더라도
 
 288
 00:14:59.977 --> 00:15:04.276
-than undithered quantization noise even when it sounds quieter.
+디더링되지 않은 양자화 노이즈보다 전체적으로 더 많은 전력을 갖습니다.
 
 289
 00:15:04.276 --> 00:15:07.902
-You can see that on a VU meter during passages of near-silence.
+거의 무음 상태의 통로에서도 VU 미터 상에서 그걸 볼 수 있죠.
 
 290
 00:15:07.902 --> 00:15:10.537
-But dither isn't only an on or off choice.
+하지만 디더링은 단순히 켜고 끄고의 선택이 아닙니다.
 
 291
 00:15:10.537 --> 00:15:14.712
-We can reduce the dither's power to balance less noise against
+우리는 디더링의 전력이 약간의 왜곡보다 더 작게 만들 수 있습니다.
 
 292
 00:15:14.712 --> 00:15:18.313
-a bit of distortion to minimize the overall effect.
+그에 따라 전체적인 나쁜 효과는 작아지겠죠.
 
 293
 00:15:19.605 --> 00:15:22.790
-We'll also modulate the input signal like this:
+또 입력 신호를 이렇게 변조해볼게요:
 
 294
 00:15:27.098 --> 00:15:30.206
-...to show how a varying input affects the quantization noise.
+...입력 변화가 양자화 노이즈에 어떤 영향을 주는지 보이기 위해서요.
 
 295
 00:15:30.206 --> 00:15:33.289
-At full dithering power, the noise is uniform, constant,
+최대 디더링 전력에서, 잡음은 평평하고, 일정하고,
 
 296
 00:15:33.289 --> 00:15:35.643
-and featureless just like we expect:
+특별하지 않습니다. 우리가 바란 것처럼요:
 
 297
 00:15:40.937 --> 00:15:42.772
-As we reduce the dither's power,
+디더링 전력을 줄이면,
 
 298
 00:15:42.772 --> 00:15:46.356
-the input increasingly affects the amplitude and the character
+입력이 점점 양자화 노이즈의 진폭과 특성에
 
 299
 00:15:46.356 --> 00:15:47.977
-of the quantization noise:
+영향을 미칩니다.
 
 300
 00:16:09.883 --> 00:16:13.844
-Shaped dither behaves similarly,
+모양이 만들어진 디더링도 비슷합니다.
 
 301
 00:16:13.844 --> 00:16:16.553
-but noise shaping lends one more nice advantage.
+하지만 노이즈의 모양을 만드는 것은 장점을 하나 더 주죠.
 
 302
 00:16:16.553 --> 00:16:18.804
-To make a long story short, it can use
+짧게 얘기해서,
 
 303
 00:16:18.804 --> 00:16:20.937
-a somewhat lower dither power before the input
+입력이 출력에 큰 영향을 주지 않기 위해 필요한
 
 304
 00:16:20.937 --> 00:16:23.662
-has as much effect on the output.
+디더링 전력이 더 낮아지게 할 수 있다는 겁니다
 
 305
 00:16:49.172 --> 00:16:51.508
-Despite all the time I just spent on dither,
+지금까지 디더링에 대해 얘기한 시간에 불구하고,
 
 306
 00:16:51.508 --> 00:16:53.012
-we're talking about differences
+우리는 원래 신호의 100 데시벨 아래에서의
 
 307
 00:16:53.012 --> 00:16:56.372
-that start 100 decibels below full scale.
+차이에 대해서 얘기하고 있습니다.
 
 308
 00:16:56.372 --> 00:16:59.806
-Maybe if the CD had been 14 bits as originally designed,
+CD가 처음에 설계된 대로 14비트를 쓴다면
 
 309
 00:16:59.806 --> 00:17:01.513
-dither <u>might</u> be more important.
+디더는 더 중요할 수 있죠.
 
 310
 00:17:01.989 --> 00:17:02.644
-Maybe.
+어쩌면요.
 
 311
 00:17:02.644 --> 00:17:05.438
-At 16 bits, really, it's mostly a wash.
+16 비트에서라면, 사실, 그냥 약간 씻어내는 정도입니다.
 
 312
 00:17:05.438 --> 00:17:08.019
-You can think of dither as an insurance policy
+디더링을 보험으로 생각할 수 있죠.
 
 313
 00:17:08.019 --> 00:17:11.443
-that gives several extra decibels of dynamic range
+다이내믹 레인지에 몇 데시벨을 추가로 줄 수 있는 보험이요.
 
 314
 00:17:11.443 --> 00:17:12.804
-just in case.
+혹시나 해서 이용하는.
 
 315
 00:17:12.990 --> 00:17:14.196
-The simple fact is, though,
+하지만 간단한 사실은,
 
 316
 00:17:14.196 --> 00:17:16.361
-no one ever ruined a great recording
+누구도 훌륭한 녹음을 최종 마스터링 단계에서
 
 317
 00:17:16.361 --> 00:17:19.182
-by not dithering the final master.
+디더링하지 않아서 망한 적은 없다는 겁니다.
 
 318
 00:17:24.414 --> 00:17:25.790
 We've been using sine waves.
+우리는 사인파를 써 왔는데요.
 
 319
 00:17:25.790 --> 00:17:28.254
 They're the obvious choice when what we want to see
+
 
 320
 00:17:28.254 --> 00:17:32.212
