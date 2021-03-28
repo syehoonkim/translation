@@ -222,671 +222,669 @@ WEBVTT
 
 56
 00:02:57.964 --> 00:03:02.676
-A recent converter can easily have an order of magnitude better specs.
+최신의 변환기들은 성능이 수십 배 좋습니다.
 
 57
 00:03:03.076 --> 00:03:07.924
-Flatness, linearity, jitter, noise behavior, everything...
+평탄성, 선형성, 지터, 잡음 특성, 기타 등등...
 
 58
 00:03:07.924 --> 00:03:09.353
-you may not have noticed.
+아마 여러분은 알아차리기 어려우실 수 있지만요.
 
 59
 00:03:09.353 --> 00:03:11.604
-Just because we can measure an improvement
+왜냐면 성능 향상을 측정할 수 있다는 게
 
 60
 00:03:11.604 --> 00:03:13.609
-doesn't mean we can hear it,
+우리가 그걸 들을 수 있음을 의미하진 않고
 
 61
 00:03:13.609 --> 00:03:16.404
-and even these old consumer boxes were already
+이 오래된 상용 수준의 제품들은 이미
 
 62
 00:03:16.404 --> 00:03:18.643
-at the edge of ideal transparency.
+이상적인 정도의 경계 수준으로 원래 신호대로 처리하거든요.
 
 63
 00:03:20.244 --> 00:03:22.825
-The eMagic connects to my ThinkPad,
+eMagic 장비를 제 ThinkPad 노트북에 연결합니다.
 
 64
 00:03:22.825 --> 00:03:26.121
-which displays a digital waveform and spectrum for comparison,
+이 노트북이 비교를 위한 디지털 파형과 스펙트럼을 보여줄 거에요.
 
 65
 00:03:26.121 --> 00:03:28.788
-then the ThinkPad sends the digital signal right back out
+그리고 노트북은 디지털 신호를 eMagic 장비로 다시 돌려보냅니다.
 
 66
 00:03:28.788 --> 00:03:30.921
-to the eMagic for re-conversion to analog
+신호를 아날로그로 다시 바꾸고
 
 67
 00:03:30.921 --> 00:03:33.332
-and observation on the output scopes.
+출력 스코프로 관찰하기 위해서죠.
 
 68
 00:03:33.332 --> 00:03:35.582
-Input to output, left to right.
+입력에서 출력으로, 왼쪽에서 오른쪽으로 신호가 전달됩니다.
 
 69
 00:03:40.211 --> 00:03:41.214
-OK, it's go time.
+자 이제 시작하죠.
 
 70
 00:03:41.214 --> 00:03:43.924
-We begin by converting an analog signal to digital
+아날로그 신호를 디지터로 바꾸는 것에서 출발해서
 
 71
 00:03:43.924 --> 00:03:47.347
-and then right back to analog again with no other steps.
+다른 단계 없이 아날로그로 다시 바꿀 겁니다.
 
 72
 00:03:47.347 --> 00:03:49.268
-The signal generator is set to produce
+신호 발생기는 설정이 완료되었습니다.
 
 73
 00:03:49.268 --> 00:03:52.649
-a 1kHz sine wave just like before.
+방금 한 것처럼 1 kHz 사인파를 만들도록요.
 
 74
 00:03:52.649 --> 00:03:57.428
-We can see our analog sine wave on our input-side oscilloscope.
+입력 쪽 오실로스코프에서 아날로그 사인파를 보실 수 있습니다.
 
 75
 00:03:57.428 --> 00:04:01.694
-We digitize our signal to 16 bit PCM at 44.1kHz,
+이 신호를 44.1 kHz로 샘플링해서 16 비트 PCM으로 디지털화합니다.
 
 76
 00:04:01.694 --> 00:04:03.828
-same as on a CD.
+CD처럼요.
 
 77
 00:04:03.828 --> 00:04:07.156
-The spectrum of the digitized signal matches what we saw earlier. and...
+디지털화된 신호는 우리가 방금 본 것과 일치합니다. 그리고...
 
 78
 00:04:07.156 --> 00:04:10.836
-what we see now on the analog spectrum analyzer,
+이제 우리가 아날로그 스펙트럼 분석기로 보는 것과도요.
 
 79
 00:04:10.836 --> 00:04:15.154
-aside from its high-impedance input being just a smidge noisier.
+이 장비의 큰 임피던스 입력이 조금 노이즈를 만들지만요.
 
 80
 00:04:15.154 --> 00:04:15.956
-For now
+이제
 
 81
 00:04:18.248 --> 00:04:20.798
-the waveform display shows our digitized sine wave
+파형 화면은 디지털화된 사인파를 보여줍니다.
 
 82
 00:04:20.798 --> 00:04:23.966
-as a stairstep pattern, one step for each sample.
+각 샘플당 한 칸인 계단 형태로요.
 
 83
 00:04:23.966 --> 00:04:26.388
-And when we look at the output signal
+그리고 디지털에서 아날로그로 다시 변환된
 
 84
 00:04:26.388 --> 00:04:29.054
-that's been converted from digital back to analog, we see...
+출력 신호를 보시면...
 
 85
 00:04:29.054 --> 00:04:32.052
-It's exactly like the original sine wave.
+정확히 원래 사인파와 같죠.
 
 86
 00:04:32.052 --> 00:04:33.483
-No stairsteps.
+계단은 없습니다.
 
 87
 00:04:33.914 --> 00:04:37.193
-OK, 1kHz is still a fairly low frequency,
+그래요, 1 kHz는 꽤 저주파수니까
 
 88
 00:04:37.193 --> 00:04:40.633
-maybe the stairsteps are just
-hard to see or they're being smoothed away.
+어쩌면 계단이 잘 안 보이거나 부드러워졌을 수 있겠죠.
 
 89
 00:04:40.739 --> 00:04:49.492
-Fair enough. Let's choose
-a higher frequency, something close to Nyquist, say 15kHz.
+좋아요. 나이퀴스트 주파수와 더 가깝게 주파수를 올려보죠.
+15 kHz 정도로요.
 
 90
 00:04:49.492 --> 00:04:53.545
-Now the sine wave is represented by less than three samples per cycle, and...
+이제 사인파는 한 주기당 세 개의 샘플 미만으로 표현될 것이구요...
 
 91
 00:04:53.545 --> 00:04:55.838
-the digital waveform looks pretty awful.
+디지털 파형은 꽤 나빠 보입니다.
 
 92
 00:04:55.838 --> 00:04:59.798
-Well, looks can be deceiving. The analog output...
+음, 속임수 같아 보이겠네요. 아날로그 출력은...
 
 93
 00:05:01.876 --> 00:05:06.033
-is still a perfect sine wave, exactly like the original.
+여전히 완벽한 사인파입니다. 원본과 똑같죠.
 
 94
 00:05:06.633 --> 00:05:09.228
-Let's keep going up.
+계속해보죠.
 
 95
 00:05:17.353 --> 00:05:20.151
-16kHz....
+16 kHz...
 
 96
 00:05:23.198 --> 00:05:25.616
-17kHz...
+17 kHz...
 
 97
 00:05:28.201 --> 00:05:29.945
-18kHz...
+18 kHz...
 
 98
 00:05:33.822 --> 00:05:35.548
-19kHz...
+19 kHz...
 
 99
 00:05:40.457 --> 00:05:42.465
-20kHz.
+20 kHz.
 
 100
 00:05:49.097 --> 00:05:52.350
-Welcome to the upper limits of human hearing.
+인간의 가청 영역에 도달했습니다.
 
 101
 00:05:52.350 --> 00:05:54.377
-The output waveform is still perfect.
+출력 파형은 여전히 완벽합니다.
 
 102
 00:05:54.377 --> 00:05:58.025
-No jagged edges, no dropoff, no stairsteps.
+톱니 모양 경계나, 수직 형태나, 계단은 없죠.
 
 103
 00:05:58.025 --> 00:06:01.342
-So where'd the stairsteps go?
+그럼 계단 형태는 어디 갔죠?
 
 104
 00:06:01.342 --> 00:06:03.198
-Don't answer, it's a trick question.
+대답하지 마세요, 이건 속이는 질문이에요.
 
 105
 00:06:03.198 --> 00:06:04.318
-They were never there.
+그런 건 원래 없었습니다.
 
 106
 00:06:04.318 --> 00:06:06.652
-Drawing a digital waveform as a stairstep
+디지털 파형을 계단 형태로 그리는 건
 
 107
 00:06:08.712 --> 00:06:10.772
-was wrong to begin with.
+처음부터 잘못된 것이었습니다.
 
 108
 00:06:10.942 --> 00:06:11.998
-Why?
+왜일까요?
 
 109
 00:06:11.998 --> 00:06:14.366
-A stairstep is a continuous-time function.
+계단 형태 함수는 연속 시간 함수니까요.
 
 110
 00:06:14.366 --> 00:06:16.201
-It's jagged, and it's piecewise,
+들쭉날쭉하고, 부분부분이지만,
 
 111
 00:06:16.201 --> 00:06:19.700
-but it has a defined value at every point in time.
+모든 시간들에서 정해진 값을 갖죠.
 
 112
 00:06:19.700 --> 00:06:22.004
-A sampled signal is entirely different.
+샘플링된 신호는 완전히 다릅니다.
 
 113
 00:06:22.004 --> 00:06:23.337
-It's discrete-time;
+이산 시간 신호에요.
 
 114
 00:06:23.337 --> 00:06:27.337
-it's only got a value right at each instantaneous sample point
+각각의 샘플링되는 순간의 지점에서만 신호를 갖죠.
 
 115
 00:06:27.337 --> 00:06:32.596
-and it's undefined, there is no value at all, everywhere between.
+그리고 그 사이사이에는 어떠한 값도 없어요.
 
 116
 00:06:32.596 --> 00:06:36.666
-A discrete-time signal is properly drawn as a lollipop graph.
+이산 신호를 적절히 그리면 막대 사탕 그래프처럼 그려집니다.
 
 117
 00:06:40.020 --> 00:06:42.974
-The continuous, analog counterpart of a digital signal
+어떤 디지털 신호에 대응되는, 연속적이고 아날로그적인 신호는
 
 118
 00:06:42.974 --> 00:06:45.364
-passes smoothly through each sample point,
+각 샘플 지점을 부드럽게 이으면서 지납니다.
 
 119
 00:06:45.364 --> 00:06:50.153
-and that's just as true for high frequencies as it is for low.
+그리고 이는 고주파이든 저주파이든 마찬가지죠.
 
 120
 00:06:50.153 --> 00:06:53.033
-Now, the interesting and not at all obvious bit is:
+자 이제 흥미로우면서도 전혀 명확하지 않아 보이는 것은 이겁니다:
 
 121
 00:06:53.033 --> 00:06:55.454
-there's only one bandlimited signal that passes
+오직 하나의 대역 제한된(정해진 주파수의) 신호만이
 
 122
 00:06:55.454 --> 00:06:57.417
-exactly through each sample point.
+각 지점을 정확히 통과합니다.
 
 123
 00:06:57.417 --> 00:06:58.708
-It's a unique solution.
+유일한 답이죠.
 
 124
 00:06:58.708 --> 00:07:01.246
-So if you sample a bandlimited signal
+그러니, 여러분이 대역 제한된 신호를 샘플링하고
 
 125
 00:07:01.246 --> 00:07:02.612
-and then convert it back,
+다시 역변환하면
 
 126
 00:07:02.612 --> 00:07:06.462
-the original input is also the only possible output.
+원래 신호만이 가능한 유일한 출력이죠.
 
 127
 00:07:06.462 --> 00:07:07.838
-And before you say,
+그리고
 
 128
 00:07:07.838 --> 00:07:11.721
-"Oh, I can draw a different signal that passes through those points."
+"아, 전 그 지점들을 지나는 다른 신호를 그릴 수 있어요."라고 말씀하시기 전에,
 
 129
 00:07:11.721 --> 00:07:14.283
-Well, yes you can, but...
+네 그러실 수 있죠. 하지만...
 
 130
 00:07:17.268 --> 00:07:20.521
-if it differs even minutely from the original,
+만약 그게 원래 신호와 미세하게라도 다르면
 
 131
 00:07:20.521 --> 00:07:24.905
-it contains frequency content at or beyond Nyquist,
+그건 나이퀴스트 샘플링 주파수보다 높은 주파수 성분을 가질 것이고
 
 132
 00:07:24.905 --> 00:07:26.185
-breaks the bandlimiting requirement
+대역 제한되어 있다는 조건을 깨게 되므로
 
 133
 00:07:26.185 --> 00:07:28.358
-and isn't a valid solution.
+유효한 답이 아니게 됩니다.
 
 134
 00:07:28.574 --> 00:07:30.036
-So how did everyone get confused
+그럼 왜 모두가 혼란스러워하게 되고
 
 135
 00:07:30.036 --> 00:07:32.702
-and start thinking of digital signals as stairsteps?
+디지털 신호가 계단 형태라고 착각하게 되었을까요?
 
 136
 00:07:32.702 --> 00:07:34.900
-I can think of two good reasons.
+전 두 개의 그럴듯한 이유를 생각해 봤어요.
 
 137
 00:07:34.900 --> 00:07:37.956
-First: It's easy enough to convert a sampled signal
+첫 번째: 샘플링된 신호를 계단 형태로 바꾸는 것은
 
 138
 00:07:37.972 --> 00:07:39.294
-to a true stairstep.
+아주 쉽기 때문이죠.
 
 139
 00:07:39.294 --> 00:07:42.409
-Just extend each sample value forward until the next sample period.
+그저 각 샘플 값들을 다음 샘플이 나타날 때까지 쭉 연장하면 되죠.
 
 140
 00:07:42.409 --> 00:07:44.414
-This is called a zero-order hold,
+이것은 0차 홀드라고 불리는데요(역주: 0차는 상수니까요)
 
 141
 00:07:44.414 --> 00:07:47.913
-and it's an important part of how some digital-to-analog converters work,
+그리고 이는 일부 디지털->아날로그 변환기가 작동하는 중요한 원리입니다.
 
 142
 00:07:47.913 --> 00:07:50.089
-especially the simplest ones.
+특히 간단한 변환기들이요.
 
 143
 00:07:50.089 --> 00:07:55.591
-So, anyone who looks up digital-to-analog conversion
+자, 디지털->아날로그 변환을 찾는 분들은 아마도
 
 144
 00:07:55.592 --> 00:07:59.550
-is probably going to see a diagram of a stairstep waveform somewhere,
+어디선가 계단 형태의 파형 그래프를 보셨을 겁니다.
 
 145
 00:07:59.550 --> 00:08:01.982
-but that's not a finished conversion,
+하지만 이건 변환이 끝난 게 아니에요.
 
 146
 00:08:01.982 --> 00:08:04.250
-and it's not the signal that comes out.
+출력 신호도 아니죠.
 
 147
 00:08:04.944 --> 00:08:05.684
-Second,
+두 번째,
 
 148
 00:08:05.684 --> 00:08:07.529
-and this is probably the more likely reason,
+이게 더 그럴듯한 이유인데요,
 
 149
 00:08:07.529 --> 00:08:09.449
-engineers who supposedly know better,
+더 잘 알 법한 엔지니어들이,
 
 150
 00:08:09.449 --> 00:08:10.441
-like me,
+예를 들어 저 같은,
 
 151
 00:08:10.441 --> 00:08:13.193
-draw stairsteps even though they're technically wrong.
+기술적으로 틀렸지만 계단 형태로 그래프를 그린다는 거죠.
 
 152
 00:08:13.193 --> 00:08:15.571
-It's a sort of like a one-dimensional version of
+이건 이미지 편집기에서 확대하면 뚱뚱한 조각들이 보이는 것의
 
 153
 00:08:15.571 --> 00:08:17.395
-fat bits in an image editor.
+1차원 버전이라고 할 수 있죠.
 
 154
 00:08:17.395 --> 00:08:19.241
-Pixels aren't squares either,
+픽셀들은 정사각형들이 아닙니다.
 
 155
 00:08:19.241 --> 00:08:23.081
-they're samples of a 2-dimensional function space and so they're also,
+그것들은 2차원 함수 공간의 샘플들이고, 이것들도 마찬가지로,
 
 156
 00:08:23.081 --> 00:08:26.366
-conceptually, infinitely small points.
+개념적으로는, 무한히 작은 점들이죠.
 
 157
 00:08:26.366 --> 00:08:28.500
-Practically, it's a real pain in the ass to see
+현실적으로, 무한히 작은 것들을 보거나
 
 158
 00:08:28.500 --> 00:08:30.804
-or manipulate infinitely small anything.
+다루는 것은 아주 어렵습니다.
 
 159
 00:08:30.804 --> 00:08:32.212
-So big squares it is.
+그래서 큰 정사각형들로 표현되는 거죠.
 
 160
 00:08:32.212 --> 00:08:35.966
-Digital stairstep drawings are exactly the same thing.
+디지털 계단 그림은 정확히 같은 것입니다.
 
 161
 00:08:35.966 --> 00:08:37.684
-It's just a convenient drawing.
+그저 편의상 그렇게 그리는 거죠.
 
 162
 00:08:37.684 --> 00:08:40.404
-The stairsteps aren't really there.
+계단은 절대 없어요.
 
 163
 00:08:45.652 --> 00:08:48.233
-When we convert a digital signal back to analog,
+디지털 신호를 아날로그로 다시 변환할 때
 
 164
 00:08:48.233 --> 00:08:50.900
-the result is <u>also</u> smooth regardless of the bit depth.
+그 결과도 부드럽습니다. 비트 수와 상관없이요.
 
 165
 00:08:50.900 --> 00:08:53.193
-24 bits or 16 bits...
+24 비트건 16 비트건...
 
 166
 00:08:53.193 --> 00:08:54.196
-or 8 bits...
+8 비트건...
 
 167
 00:08:54.196 --> 00:08:55.486
-it doesn't matter.
+상관없어요.
 
 168
 00:08:55.486 --> 00:08:57.534
-So does that mean that the digital bit depth
+그럼 이 말은, 디지털 비트 수는
 
 169
 00:08:57.534 --> 00:08:58.953
-makes no difference at all?
+아무 차이도 만들지 않는단 걸까요?
 
 170
 00:08:59.245 --> 00:09:00.521
-Of course not.
+당연히 아니죠.
 
 171
 00:09:02.121 --> 00:09:06.046
-Channel 2 here is the same sine wave input,
+여기 2번 채널은 똑같은 사인파 입력이지만,
 
 172
 00:09:06.046 --> 00:09:09.086
-but we quantize with dither down to eight bits.
+디더링 있는 8비트로 양자화해볼게요.
 
 173
 00:09:09.086 --> 00:09:14.174
-On the scope, we still see a nice
-smooth sine wave on channel 2.
+스코프 상에서, 2번 채널에 대해서 여전히 깔끔한
+부드러운 사인파를 볼 수 있죠.
 
 174
 00:09:14.174 --> 00:09:18.014
-Look very close, and you'll also see a
-bit more noise.
+둘은 아주 비슷해 보이지만,
+약간 더 많은 노이즈도 보실 수 있습니다.
 
 175
 00:09:18.014 --> 00:09:19.305
-That's a clue.
+이게 단서에요.
 
 176
 00:09:19.305 --> 00:09:21.273
-If we look at the spectrum of the signal...
+신호의 스펙트럼을 보면...
 
 177
 00:09:22.889 --> 00:09:23.732
-aha!
+아하!
 
 178
 00:09:23.732 --> 00:09:26.398
-Our sine wave is still there unaffected,
+사인파는 저기 영향을 받지 않은 채로 있지만
 
 179
 00:09:26.398 --> 00:09:28.490
-but the noise level of the eight-bit signal
+2번 채널의 8비트 신호의 노이즈 레벨은
 
 180
 00:09:28.490 --> 00:09:32.470
-on the second channel is much higher!
+훨씬 높군요!
 
 181
 00:09:32.948 --> 00:09:36.148
-And that's the difference the number of bits makes.
+이게 비트수가 만들어내는 차이에요.
 
 182
 00:09:36.148 --> 00:09:37.434
-That's it!
+이겁니다!
 
 183
 00:09:37.822 --> 00:09:39.956
-When we digitize a signal, first we sample it.
+우리가 신호를 디지털화할 때, 먼저 샘플링합니다.
 
 184
 00:09:39.956 --> 00:09:42.366
-The sampling step is perfect; it loses nothing.
+샘플링 단계는 완벽해요. 아무 정보도 잃지 않습니다.
 
 185
 00:09:42.366 --> 00:09:45.626
-But then we quantize it,
-and quantization adds noise.
+하지만 양자화할 때,
+양자화는 노이즈를 만듭니다.
 
 186
 00:09:47.827 --> 00:09:50.793
-The number of bits determines how much noise
+비트 수는 얼마나 많은 노이즈가 만들어지는지
 
 187
 00:09:50.793 --> 00:09:52.569
-and so the level of the
-noise floor.
+그리고 결국 노이즈 층의 레벨이
+어떻게 되는지 결정하죠.
 
 188
 00:10:00.170 --> 00:10:03.646
-What does this dithered quantization noise sound like?
+이 디더링된 양자화에 따른 노이즈는 어떻게 들릴까요?
 
 189
 00:10:03.646 --> 00:10:06.012
-Let's listen to our eight-bit sine wave.
+8비트 사인파 신호를 들어봅시다.
 
 190
 00:10:12.521 --> 00:10:15.273
-That may have been hard to hear anything but the tone.
+삐 하는 톤 외에는 들리는 게 없으셨을 수 있습니다.
 
 191
 00:10:15.273 --> 00:10:18.740
-Let's listen to just the noise after we notch out the sine wave
+노이즈만 듣기 위해서 먼저 원 신호에서 사인파를 빼고
 
 192
 00:10:18.740 --> 00:10:21.683
-and then bring the gain up a bit because the noise is quiet.
+이득을 높여보죠. 노이즈는 조용하니까요.
 
 193
 00:10:32.009 --> 00:10:35.049
-Those of you who have used analog recording equipment
+아날로그 녹음 장비를 사용해보신 분들은
 
 194
 00:10:35.049 --> 00:10:36.670
-may have just thought to yourselves,
+아마 생각하신 적이 있을 겁니다.
 
 195
 00:10:36.670 --> 00:10:40.382
-"My goodness! That sounds like tape hiss!"
+"이럴수가! 이 소리는 마치 테이프에서 나는 쉿 하는 소리 같아!"
 
 196
 00:10:40.382 --> 00:10:41.929
-Well, it doesn't just sound like tape hiss,
+음, 이건 테이프의 쉿 하는 소리와는 다릅니다.
 
 197
 00:10:41.929 --> 00:10:43.433
-it acts like it too,
+비슷하게 행동하긴 하지만요.
 
 198
 00:10:43.433 --> 00:10:45.225
-and if we use a gaussian dither
+그리고 가우시안 디더를 사용하면
 
 199
 00:10:45.225 --> 00:10:47.646
-then it's mathematically equivalent in every way.
+둘은 수학적으로 완전히 동일합니다.
 
 200
 00:10:47.646 --> 00:10:49.225
-It <u>is</u> tape hiss.
+이것은 테이프의 쉿 소리에요.
 
 201
 00:10:49.225 --> 00:10:51.774
-Intuitively, that means that we can measure tape hiss
+직관적으로, 이는 우리가 테이프의 쉿 소리를 측정할 수 있고
 
 202
 00:10:51.774 --> 00:10:54.196
-and thus the noise floor of magnetic audio tape
+따라서 자기 오디오 테이프의 노이즈 층은
 
 203
 00:10:54.196 --> 00:10:56.233
-in bits instead of decibels,
+데시벨 말고 비트 단위에서
 
 204
 00:10:56.233 --> 00:10:59.902
-in order to put things in a digital perspective.
+소리를 디지털화하다 보니 있는 것이란 걸 알 수 있죠.
 
 205
 00:10:59.902 --> 00:11:03.028
-Compact cassettes...
+컴팩트 카세트...
 
 206
 00:11:03.028 --> 00:11:05.449
-for those of you who are old enough to remember them,
+그걸 기억하실 만큼 나이 있으신 분들은
 
 207
 00:11:05.449 --> 00:11:09.161
-could reach as
-deep as nine bits in perfect conditions,
+완벽한 상태의 9비트 테이프를 접해보셨을지도 몰라요.
 
 208
 00:11:09.161 --> 00:11:11.209
-though five to six bits was more typical,
+5, 6비트가 더 일반적이지민요.
 
 209
 00:11:11.209 --> 00:11:13.876
-especially if it was a recording made on a tape deck.
+특히나 테이프 데크에서 녹음된 것이라면요. 
 
 210
 00:11:13.876 --> 00:11:19.422
-That's right... your mix tapes were only about six bits
-deep... if you were lucky!
+맞습니다. 여러분의 믹스 테이프는 6비트를 썼을 겁니다.
+여러분이 행운아라면요!
 
 211
 00:11:19.837 --> 00:11:22.345
-The very best professional open reel tape
+스튜디오에서 사용된 전문적인 오픈 릴 테이프는
 
 212
 00:11:22.345 --> 00:11:24.553
-used in studios could barely hit...
+몇 비트를 쓸까요? 간신히...
 
 213
 00:11:24.553 --> 00:11:26.473
-any guesses?...
+얼마쯤일까요?...
 
 214
 00:11:26.473 --> 00:11:27.604
-13 bits
+13 비트입니다.
 
 215
 00:11:27.604 --> 00:11:28.980
-<u>with</u> advanced noise reduction.
+보다 잡음이 억제되었겠죠.
 
 216
 00:11:28.980 --> 00:11:32.062
-And that's why seeing 'DDD' on a Compact Disc
+이것이 크고 고성능의 컴팩트 디스크(CD)에서 DDD란 단어가
 
 217
 00:11:32.062 --> 00:11:35.208
-used to be such a big, high-end deal.
+보이는 이유입니다.
 
 218
 00:11:40.116 --> 00:11:42.825
-I keep saying that I'm quantizing with dither,
+저는 계속 양자화할 때 디더링한다고 얘기했는데요,
 
 219
 00:11:42.825 --> 00:11:44.734
-so what is dither exactly?
+그럼 디더가 정확히 뭘까요?
 
 220
 00:11:44.734 --> 00:11:47.284
-More importantly, what does it do?
+더 중요하게, 그게 뭘 할까요?
 
 221
 00:11:47.284 --> 00:11:49.876
