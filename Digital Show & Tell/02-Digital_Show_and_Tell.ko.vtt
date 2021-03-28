@@ -1281,493 +1281,492 @@ We've been using sine waves.
 
 319
 00:17:25.790 --> 00:17:28.254
-They're the obvious choice when what we want to see
-
+우리가 시스템이 정해지고 제한된 주파수의 응답이 어떤지
 
 320
 00:17:28.254 --> 00:17:32.212
-is a system's behavior at a given isolated frequency.
+보고싶을 때 선택하는 분명한 선택지가 있습니다.
 
 321
 00:17:32.212 --> 00:17:34.217
-Now let's look at something a bit more complex.
+이제 좀 더 복잡한 경우를 보죠.
 
 322
 00:17:34.217 --> 00:17:35.923
-What should we expect to happen
+우리가 예상하는 것은
 
 323
 00:17:35.923 --> 00:17:39.671
-when I change the input to a square wave...
+제가 입력을 사각파로 바꿀 때...
 
 324
 00:17:42.718 --> 00:17:45.921
-The input scope confirms our 1kHz square wave.
+입력 스코프는 1 kHz 사각파를 확인해주네요.
 
 325
 00:17:45.921 --> 00:17:47.351
-The output scope shows..
+출력 스코프는...
 
 326
 00:17:48.614 --> 00:17:51.102
-Exactly what it should.
+정확히 그래야 할 화면을 보여주네요.
 
 327
 00:17:51.102 --> 00:17:53.900
-What is a square wave really?
+사각파는 실제로 무엇일까요?
 
 328
 00:17:54.654 --> 00:17:57.982
-Well, we can say it's a waveform that's some positive value
+음, 우리는 그 파는 주기의 절반동안 어떤 양의 값을 갖다가
 
 329
 00:17:57.982 --> 00:18:00.788
-for half a cycle and then transitions instantaneously
+나머지 반 주기 동안 음의 값으로 즉시 바뀌는
 
 330
 00:18:00.788 --> 00:18:02.910
-to a negative value for the other half.
+파라고 할 수 있겠죠.
 
 331
 00:18:02.910 --> 00:18:05.076
-But that doesn't really tell us anything useful
+하지만 이는 어떻게 이 입력이
 
 332
 00:18:05.076 --> 00:18:07.241
-about how this input
+이 출력이 되는지에 대해
 
 333
 00:18:07.241 --> 00:18:09.378
-becomes this output.
+아무것도 안 알려줍니다.
 
 334
 00:18:10.132 --> 00:18:12.713
-Then we remember that any waveform
+그럼 우리는 파형이란 게
 
 335
 00:18:12.713 --> 00:18:15.508
-is also the sum of discrete frequencies,
+이산적인 주파수들의 합임을 기억해야 합니다.
 
 336
 00:18:15.508 --> 00:18:18.302
-and a square wave is a particularly simple sum
+그리고 사각파는 특별히도 기본 주파수와
 
 337
 00:18:18.302 --> 00:18:19.636
-a fundamental and
+무한히 많은 고조파들의
 
 338
 00:18:19.636 --> 00:18:22.228
-an infinite series of odd harmonics.
+단순한 합이라는 것도요.
 
 339
 00:18:22.228 --> 00:18:24.597
-Sum them all up, you get a square wave.
+이들을 다 더하면, 사각파가 나옵니다.
 
 340
 00:18:26.398 --> 00:18:27.433
-At first glance,
+처음엔,
 
 341
 00:18:27.433 --> 00:18:29.225
-that doesn't seem very useful either.
+이게 그리 유용해 보이지 않습니다.
 
 342
 00:18:29.225 --> 00:18:31.561
-You have to sum up an infinite number of harmonics
+무한히 많은 고조파들을 더해야
 
 343
 00:18:31.561 --> 00:18:33.108
-to get the answer.
+답이 나오니까요.
 
 344
 00:18:33.108 --> 00:18:35.977
-Ah, but we don't have an infinite number of harmonics.
+아, 하지만 우리는 모든 고조파들을 다 더할 필요는 없습니다.
 
 345
 00:18:36.960 --> 00:18:39.902
-We're using a quite sharp anti-aliasing filter
+우리는 꽤나 날카로은 안티애일리어싱 필터를 쓰니까요.
 
 346
 00:18:39.902 --> 00:18:42.206
-that cuts off right above 20kHz,
+이 필터는 20 kHz 이상을 잘라내서
 
 347
 00:18:42.206 --> 00:18:44.158
-so our signal is band-limited,
+우리 신호가 대역제한되게 만들죠.
 
 348
 00:18:44.158 --> 00:18:46.421
-which means we get this:
+이는 우리가 이걸 얻는다는 뜻입니다:
 
 349
 00:18:52.500 --> 00:18:56.468
-..and that's exactly what we see on the output scope.
+...그리고 이건 정확히 우리가 출력 스코프에서 보게 되는 것이죠.
 
 350
 00:18:56.468 --> 00:18:59.550
-The rippling you see around sharp edges in a bandlimited signal
+이 대역제한 신호의 모서리에서 보이는 잔물결 같은 건
 
 351
 00:18:59.550 --> 00:19:00.926
-is called the Gibbs effect.
+깁스 효과라고 불리는 것입니다.
 
 352
 00:19:00.926 --> 00:19:04.137
-It happens whenever you slice off part of the frequency domain
+이는 주파수 영역에서 0이 아닌 에너지 대역을 잘라내면
 
 353
 00:19:04.137 --> 00:19:07.006
-in the middle of nonzero energy.
+반드시 생깁니다.
 
 354
 00:19:07.006 --> 00:19:09.854
-The usual rule of thumb you'll hear is the sharper the cutoff,
+경험적으로, 더 날카롭게 잘라낼수록
 
 355
 00:19:09.854 --> 00:19:11.188
-the stronger the rippling,
+이 잔물결은 더 심해지는데
 
 356
 00:19:11.188 --> 00:19:12.777
-which is approximately true,
+이는 거의 맞지만
 
 357
 00:19:12.777 --> 00:19:14.900
-but we have to be careful how we think about it.
+우리는 이를 잘 생각해야 합니다.
 
 358
 00:19:14.900 --> 00:19:15.774
-For example...
+가령...
 
 359
 00:19:15.774 --> 00:19:19.529
-what would you expect our quite sharp anti-aliasing filter
+우리의 꽤나 날카로운 안티애일리어싱 필터가
 
 360
 00:19:19.529 --> 00:19:23.181
-to do if I run our signal through it a second time?
+신호를 두 번 처리하게 되면 무슨 일을 할 거라고 생각하시나요?
 
 361
 00:19:34.136 --> 00:19:37.588
-Aside from adding a few fractional cycles of delay,
+약간의 딜레이를 제외하면,
 
 362
 00:19:37.588 --> 00:19:39.348
-the answer is...
+그 답은...
 
 363
 00:19:39.348 --> 00:19:40.857
-nothing at all.
+아무것도 안 한다입니다.
 
 364
 00:19:41.257 --> 00:19:43.302
-The signal is already bandlimited.
+신호는 이미 대역 제한되었죠.
 
 365
 00:19:43.656 --> 00:19:46.590
-Bandlimiting it again doesn't do anything.
+제한된 대역을 똑같이 제한하는 것은 아무것도 하지 않는 겁니다.
 
 366
 00:19:46.590 --> 00:19:50.686
-A second pass can't remove frequencies that we already removed.
+두 번째 처리는 이미 없앤 주파수들을 또 없애지 못하겠죠.
 
 367
 00:19:52.070 --> 00:19:53.737
-And that's important.
+이게 중요합니다.
 
 368
 00:19:53.737 --> 00:19:56.233
-People tend to think of the ripples as a kind of artifact
+사람들은 이 잔물결들이 안티애일리어싱과 안티이미징 필터들이
 
 369
 00:19:56.233 --> 00:19:59.945
-that's added by anti-aliasing and anti-imaging filters,
+만들어내는 것이라고 생각합니다.
 
 370
 00:19:59.945 --> 00:20:01.737
-implying that the ripples get worse
+이는 신호가 필터를 통과할 때마다
 
 371
 00:20:01.737 --> 00:20:03.913
-each time the signal passes through.
+잔물결이 많아진다는 것을 암시하죠.
 
 372
 00:20:03.913 --> 00:20:05.950
-We can see that in this case that didn't happen.
+우리는 이런 일이 생기지 않음을 볼 수 있습니다.
 
 373
 00:20:05.950 --> 00:20:09.492
-So was it really the filter that added the ripples the first time through?
+그럼 이 잔물결들은 필터가 처음 신호를 처리할 때 만들어낸 것일까요?
 
 374
 00:20:09.492 --> 00:20:10.537
-No, not really.
+아뇨, 전혀 아닙니다.
 
 375
 00:20:10.537 --> 00:20:12.126
-It's a subtle distinction,
+이는 미묘한 차이지만,
 
 376
 00:20:12.126 --> 00:20:15.252
-but Gibbs effect ripples aren't added by filters,
+깁스 효과는 필터에 의해 생기는 게 아닙니다.
 
 377
 00:20:15.252 --> 00:20:18.836
-they're just part of what a bandlimited signal <u>is</u>.
+이들은 대역 제한된 신호의 일부입니다.
 
 378
 00:20:18.836 --> 00:20:20.798
-Even if we synthetically construct
+우리가 완벽한 디지털 사각파로 보이는 신호를
 
 379
 00:20:20.798 --> 00:20:23.508
-what looks like a perfect digital square wave,
+합성해 낼지라도,
 
 380
 00:20:23.508 --> 00:20:26.206
-it's still limited to the channel bandwidth.
+그 신호는 여전히 채널 대역폭에 의해 제한됩니다.
 
 381
 00:20:26.206 --> 00:20:29.140
-Remember the stairstep representation is misleading.
+계단 형태의 표현이 오해를 부른다는 것을 기억하세요.
 
 382
 00:20:29.140 --> 00:20:32.222
-What we really have here are instantaneous sample points,
+여기 실제로 존재하는 것은 순간적인 샘플 지점들이고,
 
 383
 00:20:32.222 --> 00:20:36.148
-and only one bandlimited signal fits those points.
+오직 대역제한된 신호가 이들 지점들에 딱 맞습니다.
 
 384
 00:20:36.148 --> 00:20:39.614
-All we did when we drew our apparently perfect square wave
+우리가 보기에 완벽한 사각파를 그릴 때 한 것이라고는
 
 385
 00:20:39.614 --> 00:20:43.198
-was line up the sample points just right so it appeared
+샘플 포인트들을 줄세워서 겉으로 보기에는
 
 386
 00:20:43.198 --> 00:20:47.785
-that there were no ripples if we played connect-the-dots.
+점들을 연결했을 때 잔물결이 보이지 않게 한 것입니다.
 
 387
 00:20:47.785 --> 00:20:49.449
-But the original bandlimited signal,
+하지만 원래의 대역 제한된 신호는,
 
 388
 00:20:49.449 --> 00:20:52.742
-complete with ripples, was still there.
+이 잔물결들을 갖고 있습니다.
 
 389
 00:20:54.004 --> 00:20:56.542
-And that leads us to one more important point.
+그리고 이는 하나 더 중요한 사실을 알려주죠.
 
 390
 00:20:56.542 --> 00:20:59.550
-You've probably heard that the timing precision of a digital signal
+디지털 신호의 시간 정확도는 샘플링 속도에 의존함을
 
 391
 00:20:59.550 --> 00:21:02.409
-is limited by its sample rate; put another way,
+들어보셨을 겁니다. 다른 말로는,
 
 392
 00:21:02.409 --> 00:21:05.140
-that digital signals can't represent anything
+디지털 신호는 샘플 사이의 지점들에 대해서는
 
 393
 00:21:05.140 --> 00:21:08.041
-that falls between the samples...
+아무것도 표현하지 못한다는 것이죠...
 
 394
 00:21:08.041 --> 00:21:11.422
-implying that impulses or fast attacks have to align
+이는 임펄스나 빠른 충격들은 정확히 샘플들에 대해
 
 395
 00:21:11.422 --> 00:21:14.473
-exactly with a sample, or the timing gets mangled...
+정렬되어야 함을 의미하고, 안 그러면 타이밍이 망가지거나...
 
 396
 00:21:14.473 --> 00:21:16.219
-or they just disappear.
+아예 사라질 수도 있습니다.
 
 397
 00:21:16.711 --> 00:21:20.820
-At this point, we can easily see why that's wrong.
+이 지점에서, 우리는 쉽게 뭐가 잘못되었는지 알 수 있죠.
 
 398
 00:21:20.820 --> 00:21:23.742
-Again, our input signals are bandlimited.
+다시 말씀드리지만, 우리의 입력 신호는 대역 제한됩니다.
 
 399
 00:21:23.742 --> 00:21:26.036
-And digital signals are samples,
+그리고 디지털 신호들은 샘플들이고,
 
 400
 00:21:26.036 --> 00:21:29.340
-not stairsteps, not 'connect-the-dots'.
+계단이 아니죠. 점들을 이은 게 아닙니다.
 
 401
 00:21:31.572 --> 00:21:34.592
-We most certainly can, for example,
+예를 들어, 우리는 확실히
 
 402
 00:21:36.777 --> 00:21:39.337
-put the rising edge of our bandlimited square wave
+대역 제한된 사각파의 상승 모서리를
 
 403
 00:21:39.337 --> 00:21:42.004
-anywhere we want between samples.
+샘플 사이의 원하는 곳에 놓을 수 있습니다.
 
 404
 00:21:42.004 --> 00:21:44.354
-It's represented perfectly
+이 신호의 표현은 완벽하고
 
 405
 00:21:47.508 --> 00:21:50.218
-and it's reconstructed perfectly.
+완벽히 다시 만들어질 수 있습니다.
 
 406
 00:22:04.620 --> 00:22:06.526
-Just like in the previous episode,
+이전 에피소드에서처럼,
 
 407
 00:22:06.526 --> 00:22:08.393
-we've covered a broad range of topics,
+우리는 넓은 범위의 주제를 다루었고,
 
 408
 00:22:08.393 --> 00:22:10.868
-and yet barely scratched the surface of each one.
+각각의 표면을 거의 훑지조차 못했습니다.
 
 409
 00:22:10.868 --> 00:22:13.620
-If anything, my sins of omission are greater this time around...
+만약 생략이 있다면, 정의 죄는 이번에 더 크겠죠...
 
 410
 00:22:13.620 --> 00:22:16.286
-but this is a good stopping point.
+하지만 여기서 끝내는 게 좋겠습니다.
 
 411
 00:22:16.286 --> 00:22:17.833
-Or maybe, a good starting point.
+아니면, 좋은 시작점일 수도 있겠죠.
 
 412
 00:22:17.833 --> 00:22:18.708
-Dig deeper.
+더 깊이 파 내려가세요.
 
 413
 00:22:18.708 --> 00:22:19.710
-Experiment.
+실험하세요.
 
 414
 00:22:19.710 --> 00:22:21.374
-I chose my demos very carefully
+저는 제 실험을 아주 신중하게 선택했습니다.
 
 415
 00:22:21.374 --> 00:22:23.668
-to be simple and give clear results.
+간단하고 깔끔한 결과를 내도록요.
 
 416
 00:22:23.668 --> 00:22:26.217
-You can reproduce every one of them on your own if you like.
+원하신다면 여러분이 직접 해보실 수도 있겠죠.
 
 417
 00:22:26.217 --> 00:22:28.766
-But let's face it, sometimes we learn the most
+하지만, 때로 우리는 멋진 장난감을 깨서 열고
 
 418
 00:22:28.766 --> 00:22:30.516
-about a spiffy toy by breaking it open
+쏟아져 나오는 것들에 공부함으로써
 
 419
 00:22:30.516 --> 00:22:32.553
-and studying all the pieces that fall out.
+가장 많이 배울 수 있음을 인정합시다.
 
 420
 00:22:32.553 --> 00:22:35.230
-That's OK, we're engineers.
+그래도 돼요, 우린 엔지니어니까요.
 
 421
 00:22:35.230 --> 00:22:36.350
-Play with the demo parameters,
+실험 값들을 가지고 놀고,
 
 422
 00:22:36.350 --> 00:22:37.972
-hack up the code,
+코드를 연구하고 고치고,
 
 423
 00:22:37.972 --> 00:22:39.774
-set up alternate experiments.
+다른 실험들을 해보세요.
 
 424
 00:22:39.774 --> 00:22:40.692
-The source code for everything,
+작은 누름 버튼이 있는 실험 프로그램의 코드를 포함한
 
 425
 00:22:40.692 --> 00:22:42.398
-including the little pushbutton demo application,
+모든 소스 코드들은
 
 426
 00:22:42.398 --> 00:22:44.361
-is up at Xiph.Org.
+Xiph.Org에 올려져 있습니다.
 
 427
 00:22:44.361 --> 00:22:45.940
-In the course of experimentation,
+실험 과정에서,
 
 428
 00:22:45.940 --> 00:22:47.401
-you're likely to run into something
+여러분은 예상치 못하고 설명하지 못하는
 
 429
 00:22:47.401 --> 00:22:49.950
-that you didn't expect and can't explain.
+결과들을 마주할 수 있습니다.
 
 430
 00:22:49.950 --> 00:22:51.198
-Don't worry!
+걱정 마세요!
 
 431
 00:22:51.198 --> 00:22:54.537
-My earlier snark aside, Wikipedia is fantastic for
+저의 이전의 제작물을 제외하고서도, 위키피디아는
 
 432
 00:22:54.537 --> 00:22:56.788
-exactly this kind of casual research.
+이러한 가벼운 연구에 환상적입니다.
 
 433
 00:22:56.788 --> 00:22:59.956
-If you're really serious about understanding signals,
+여러분이 정말로 신호를 이해하고 싶다면
 
 434
 00:22:59.956 --> 00:23:03.337
-several universities have advanced materials online,
+몇몇 학교들은 더 깊은 자료들을 제공합니다.
 
 435
 00:23:03.337 --> 00:23:07.380
-such as the 6.003 and 6.007 Signals and Systems modules
+MIT OpenCourseWare의
 
 436
 00:23:07.380 --> 00:23:08.798
-at MIT OpenCourseWare.
+6.003과 6.007 신호와 시스템 모듈이 그 예죠.
 
 437
 00:23:08.798 --> 00:23:11.593
-And of course, there's always the community here at Xiph.Org.
+그리고 당연히, Xiph.Org에는 커뮤니티가 늘 있습니다.
 
 438
 00:23:12.792 --> 00:23:13.929
-Digging deeper or not,
+더 깊이 파고드시든 마시든,
 
 439
 00:23:13.929 --> 00:23:14.974
-I am out of coffee,
+제 커피가 떨어졌으니,
 
 440
 00:23:14.974 --> 00:23:16.436
-so, until next time,
+다음 시간까지,
 
 441
 00:23:16.436 --> 00:23:19.316
-happy hacking!
+해피 해킹!
