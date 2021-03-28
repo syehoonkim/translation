@@ -3,3 +3,6 @@
 
 ## A Digital Media Primer for Geeks
 xiph.org의 A Digital Media Primer for Geeks(https://www.xiph.org/video/vid1.shtml) 의 한국어 자막이다.
+
+## Digital Show & Tell
+xiph.org의 Digital Show & Tell(https://www.xiph.org/video/vid2.shtml) 의 한국어 자막이다.
