@@ -1,3 +1,12 @@
 02-Digital_Show_and_Tell.en.vtt
 *.webm
 *.ogv
+*.aux
+*.fdb_latexmk
+*.fls
+*.idx
+*.log
+*.out
+*synctex.gz
+*.toc
+*.xdv

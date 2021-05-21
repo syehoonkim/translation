@@ -1,0 +1,90 @@
+\documentclass{book}
+\usepackage[unicode=true,
+            pdfauthor={김세훈},
+            pdftitle={SD와 HD 영상 측정 가이드},
+            pdfsubject={Tektronix의 A guide to standard and high-definition digital video measurements를 번역한 문서},
+            pdfkeywords={SDI, Video},
+            colorlinks=true,
+            linkcolor=blue,
+            citecolor=blue,
+            anchorcolor=blue]{hyperref}
+
+
+\usepackage[hangul]{kotex}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\usepackage{amsmath,amssymb}
+\usepackage{IEEEtrantools}
+
+\usepackage{fontspec}
+\hangulfontspec{본명조}
+\hangulfontspec{Noto Sans}
+\setmainhangulfont{본명조}
+\setsanshangulfont{Noto Sans}
+
+\defaultfontfeatures{Ligature=TeX}
+
+\raggedbottom
+
+\usepackage{tabu}
+
+\usepackage[framemethod=tikz]{mdframed}
+\newmdtheoremenv[%
+    topline=false, bottomline=false,rightline=false,
+    outerlinewidth=3pt, outerlinecolor=DeepSkyBlue!80,
+    backgroundcolor=Cyan!5,
+    splittopskip=10pt, splitbottomskip=10pt,
+    skipabove=5pt, skipbelow=5pt,
+    innertopmargin=\topskip, innerbottommargin=\topskip,
+]{Thmbox}{정리}[chapter]
+\newmdenv[%
+    linecolor=MediumPurple,skipabove=10pt,
+    roundcorner=5pt,backgroundcolor=MediumPurple!10,
+    ]{Problem}
+\newmdenv[%
+    linecolor=green!10, skipabove=10pt,
+    roundcorner=5pt, backgroundcolor=green!8,
+    ]{Solution}
+\newmdenv[%
+    linecolor=blue!10, skipabove=10pt,
+    roundcorner=0pt, backgroundcolor=blue!5,
+    ]{Stress}
+
+\hypersetup{pdfencoding=auto}
+
+\makeindex
+
+\title{SD와 HD 영상 측정 가이드}
+\author{Tektronix}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{시작}
+\include{새로운_디지털_텔레비전}
+\include{아날로그에서_디지털로}
+\include{디지털_비디오_인터페이스}
+\include{타이밍과_동기화}
+\include{디지털_스튜디오_주사_포맷}
+\include{디지털_스튜디오_동기화와_타이밍}
+\include{듀얼_링크와_3G}
+\include{디지털_오디오}
+\include{부가_데이터}
+\include{비디오_측정}
+\include{디지털_시스템_테스트}
+\include{디지털_텔레비전_시스템_운용}
+\include{색공간_확인}
+\include{부록_A-색과_색_측정}
+\include{부록_B-텔레비전_시간_관계}
+\include{부록_C-SD_아날로그_컴포지트_비디오_파라미터}
+\include{부록_D-텔레비전_기술_표준과_실현}
+\include{부록_E-참고_문헌}
+\include{부록_F-용어_사전}
+
+\printindex
+
+\end{document}
