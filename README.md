@@ -9,3 +9,4 @@ xiph.org의 Digital Show & Tell(https://www.xiph.org/video/vid2.shtml) 의 한�
 
 ## A Guide to Standard and High-Definition Digital Video Measurements
 Tektronix 사의 문서를 번역하는 것이다. Tektronix 사의 허가 하에 진행하는 작업이다.
+해당 디렉토리 내의 out 안에 pdf 결과물이 들어 있다.
