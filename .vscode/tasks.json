@@ -8,6 +8,10 @@
             "problemMatcher": []
         },
         {
+            "label":"Clean up LaTeX",
+            "command":"${command:latex-workshop.clean}",
+        },
+        {
             "label": "Update PDF",
             "command":"${command:latex-workshop.refresh-viewer}",
         },
@@ -18,7 +22,7 @@
                 "isDefault": true
             },
             "dependsOrder": "sequence",
-            "dependsOn":["Build LaTeX","Update PDF"]
+            "dependsOn":["Clean up LaTeX","Build LaTeX","Build LaTeX","Build LaTeX","Update PDF"]
         },
     ]
 }
