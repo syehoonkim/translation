@@ -12,10 +12,24 @@
 \usepackage[hangul]{kotex}
 \usepackage{makeidx}
 \usepackage{graphicx}
-\usepackage{xcolor}
+\graphicspath{{./images/}}
 
+\usepackage{silence}
+\WarningsOff*
+
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[name=표]{tab}
+
+\usepackage{xcolor}
+\usepackage{titlepic}
 \usepackage{amsmath,amssymb}
 \usepackage{IEEEtrantools}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{tab}{chapter}
+
+\usepackage{float}
 
 \usepackage{fontspec}
 \hangulfontspec{본명조}
@@ -55,10 +69,11 @@
 
 \makeindex
 
-\title{SD와 HD 영상 측정 가이드}
+\title{\includegraphics[width=15cm]{cover.png} \\SD와 HD 영상 측정 가이드}
 \author{Tektronix, 번역 김세훈}
 
 \begin{document}
+
 
 \maketitle
 \tableofcontents
