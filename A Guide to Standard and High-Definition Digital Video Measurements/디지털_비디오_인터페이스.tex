@@ -45,9 +45,21 @@ SD ITU-R BT-656/SMPTE 259M 적합 신호는 표준 비디오 케이블을 따라
 이 간단한 시스템 개관은 시스템이 어떻게 작동하는지 이해하는 데 도움이 될 것이다. 추가적인 디지털 인터페이스에 대한 세부적인 설명은 뒤의 문단들에서 나올 것이다.
 
 \section{601 샘플링}
+\begin{figure*}[t!]
+    \centering
+    \includegraphics[width=\textwidth]{color difference quantizing.PNG}
+    \caption{색차 신호의 양자화}\label{fig:color difference quantizing}
+\end{figure*}
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{luminance quantizing.PNG}
+    \caption{휘도 신호의 양자화}\label{fig:luminance quantizing}
+\end{figure*}
 ITU-R BT.601은 625/50과 525/60 텔레비전 시스템의 디지털 요소들에 대한 파라미터를 결정하기 위한 연합 SMPTE/EBU 태스크 포스에서 만들어진 샘플링 표준이다.
-이 작업은 1981년에 SMPTEㅇ 의해 후원된 일련의 테스트들로 완결되었고, 잘 알려진 CCIR 권고안 601 (이제는 ITU-R BT.601)이라는 결과가 나왔다.
+이 작업은 1981년에 SMPTE에 의해 후원된 일련의 테스트들로 완결되었고, 잘 알려진 CCIR 권고안 601 (이제는 ITU-R BT.601)이라는 결과가 나왔다.
 이 표준 문서는 525와 625줄 신호에서 사용되는 샘플링 방법을 규정한다. 이는 아날로그 휘도에 대한 13.5 MHz와 두 개의 아날로그 색상차 신호에 대한 6.75 MHz의 직교 샘플링을 규정하고 있다.
 샘플링된 값들은 디지털 휘도인 Y'와 디지털 색차 신호인 C'B와 C'r인데 이들은 아날로그의 감마 보정 신호인 B'-Y'와 R'-Y'에 배율이 곱해진 것이다.
 525줄과 625줄 시스템에서 공통적인 요소인 2.25 MHz가 13.5 MHz의 약수이기 때문에 13.5 MHz라는 샘플링 주파수가 선정되었다(부록 B - 텔레비전 클럭 관계를 참고하라).
 \\
+현재 많은 ITU-R BT.601 구현들이 10 비트 샘플링을 쓰고 있지만, ITU-R BT.601은 8비트 샘플링($00_h$부터 $FF_h$까지 256레벨을 갖는)과 10비트 샘플링($000_h$부터 $3FF_h$까지 1024 레벨을 갖는) 모두를 허용한다.
+8비트 워드는 바로 10비트로 변환될 수 있고, 10비트 값은 8비트 시스템과의 상호 운용성을 위해 8비트로 반올림된다.
