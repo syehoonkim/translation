@@ -1,34 +1,5 @@
 \chapter{아날로그에서 디지털로}
-\begin{figure*}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{rgb camera to monitor direct.PNG}
-    \caption{카메라에서 모니터까지 RGB 직접 연결}\label{fig:rgb camera to monitor direct}
-\end{figure*}
-\begin{figure*}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{video encodeded into ntsc pal.PNG}
-    \caption{단일 동축 케이블 전송을 위해 NTSC 또는 PAL로 인코딩된 비디오}\label{fig:video encodeded into ntsc pal}
-\end{figure*}
-\begin{figure*}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{digital no degradation.PNG}
-    \caption{디지털 전송에서는 아날로그적 신호 열화가 발생하지 않는다}\label{fig:digital no degradation}
-\end{figure*}
-\begin{figure*}[t!]
-    \centering
-    \includegraphics[width=\textwidth]{bt 709 gamma.PNG}
-    \caption{BT.709 감마 보정은 CRT 디스플레이의 응답을 보정한다}\label{fig:bt 709 gamma}
-\end{figure*}
-\begin{tab*}[t]
-    \centering
-    \includegraphics[width=\textwidth]{luma and chroma components.PNG}
-    \caption{휘도와 색상 비디오 요소}\label{table:luma and chroma components}
-\end{tab*}
-\begin{tab}[hpb!]
-    \centering
-    \includegraphics[width=0.5\textwidth]{luma and chroma for composite encoding.PNG}
-    \caption{컴포지트 비디오 인코딩을 위한 휘도와 색차 값}\label{table:luma and chroma for composite encoding}
-\end{tab}
+
 디지털 데이터 스트림은 각각의 개별 구성 요소들로 쉽게 분해될 수 있는데, 이들은 보통 아날로그에서 대응되는 것들과 같은 역할을 한다.
 아날로그와 디지털 비디오 영역을 설명하고 비교하는 동안 계속 이 관계를 사용할 것이다.
 한번 아날로그와 디지털 비디오의 유사성을 이해하고 나면 HDTV를 다룰 수 있는데, 보통 이는 이에 대응되는 HD 아날로그 포맷의 디지털적 표현이다.
@@ -39,6 +10,9 @@ NTSC와 PAL 비디오 신호들은 색의 삼원색인 빨강, 초록, 파랑 �
 NTSC, PAL 또는 SECAM에 대한 이해가 충분히 유용한 이상, 컴포지트 비디오에 대해서 더 많은 이해를 위해 투자하진 않을 것이다.
 
 \section{RGB 컴포넌트 신호}
+\image{h!}{rgb camera to monitor direct.pdf}{카메라에서 모니터까지 RGB 직접 연결}{fig:rgb camera to monitor direct}
+\image{h!}{video encodeded into ntsc pal.pdf}{단일 동축 케이블 전송을 위해 NTSC 또는 PAL로 인코딩된 비디오}{fig:video encodeded into ntsc pal}
+\image{h!}{digital no degradation.pdf}{디지털 전송에서는 아날로그적 신호 열화가 발생하지 않는다}{fig:digital no degradation}
 비디오 카메라는 이미지를 빛의 삼원색인 빨강, 초록, 파랑으로 분할한다. 카메라의 센서들은 이 각각의 단색 이미지들을 분리된 전기 신호로 변환한다.
 그림의 왼쪽 끝과 최상단을 알려주는 동기 정보가 이 신호들에 추가된다. 디스플레이를 카메라와 동기화시키는 정보가 초록 채널에, 때로는 모든 채널에 더해지거나 아니면 별도로 전달된다.
 \\
@@ -63,6 +37,7 @@ NTSC와 PAL 신호 모두에서 색상차와 휘도는 4.2 MHz(NTSC) 또는 5.0�
 SD 신호는 전통적인 방송 텔레비전 채널을 통한 전송을 하기 위해 아날로그 NTSC나 PAL로 변환될 수 있다.
 HD 신호는 기존의 NTSC나 PAL 채널의 대역폭에 맞춰져서 공중파로 전송되기 위해서 압축되어야 한다.
 
+\image{h!}{bt 709 gamma.pdf}{BT.709 감마 보정은 CRT 디스플레이의 응답을 보정한다}{fig:bt 709 gamma}
 \section{감마 보정}
 비디오 신호를 다룰 때 고려해야 할 아날로그 요소는 비디오 디스플레이는 장면의 각 요소들의 밝기를 정확하게 표현한다는 생각이다.
 음극선관(CRT) 디스플레이는 근본적으로 비선형 장치로서, 디스플레이에 가해지는 전압은 비선형적인 함수에 따라 정해지는 빛의 양으로 출력된다.
@@ -80,6 +55,16 @@ CRT를 위한 감마 보정은 거의 최적의 인지적 보정이다. 이러�
 이 감마 보정은 CRT의 비선형성 교정과 인지적 코딩을 위해서 카메라에 적용된다. CRT의 비선형성은 2.2에서 2.6의 지수승을 갖는 지수함수이고, 대부분의 CRT는 2.5의 지수승을 갖는다.
 최종적인 전체 시스템의 감마는 약 1.2로 일반적인 시청 환경에서 거의 이상적인 값이다. 이 응답은 대략적으로 인간의 밝기 인지 특성에 적합하고, 결과적으로 비디오가 전송을 위해 디지털화될 때에 필요한 비트 수를 줄여준다.
 
+\begin{tab*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{luma and chroma components.pdf}
+    \caption{휘도와 색상 비디오 요소}\label{table:luma and chroma components}
+\end{tab*}
+\begin{tab}[h!]
+    \centering
+    \includegraphics[width=0.48\textwidth]{luma and chroma for composite encoding.pdf}
+    \caption{컴포지트 비디오 인코딩을 위한 휘도와 색차 값}\label{table:luma and chroma for composite encoding}
+\end{tab}
 \section{R'G'B'신호의 휘도와 색상차 신호로의 변환}
 빨강, 초록, 파랑의 비디오 요소들은 카메라의 감지 장치의 근본적인 것들이고 비디오 색상을 다룰 때 거의 항상 이용된다.
 하지만 RGb는 비디오 처리를 할 때 이미지를 전달하는 가장 대역폭 효율적인 방법은 아닌데 이는 세 신호가 모두 같은 대역폭을 가져야 하기 때문이다.

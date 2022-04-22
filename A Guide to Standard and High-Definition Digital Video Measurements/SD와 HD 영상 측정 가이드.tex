@@ -34,16 +34,32 @@
 \usepackage{float}
 
 \usepackage{fontspec}
-\hangulfontspec{본명조}
-\hangulfontspec{Noto Sans}
-\setmainhangulfont{본명조}
-\setsanshangulfont{Noto Sans}
-
-\defaultfontfeatures{Ligature=TeX}
+\hangulfontspec{Noto Serif KR}
+\hangulfontspec{Noto Sans KR}
+\setmainhangulfont{Noto Serif KR}
+\setsanshangulfont{Noto Sans KR}
 
 \raggedbottom
 
 \usepackage{tabu}
+
+\newcommand{\image}[5][width=\textwidth]{
+    \begin{figure*}[#2]
+        \centering
+        \includegraphics[#1]{#3}
+        \caption{#4}\label{#5}
+    \end{figure*}
+}
+\AfterEndEnvironment{figure*}{\noindent\ignorespaces}
+
+\newcommand{\himage}[5][width=0.48\textwidth]{
+    \begin{figure}[#2]
+        \centering
+        \includegraphics[#1]{#3}
+        \caption{#4}\label{#5}
+    \end{figure}
+}
+\AfterEndEnvironment{figure}{\noindent\ignorespaces}
 
 \usepackage[framemethod=tikz]{mdframed}
 \newmdtheoremenv[%
@@ -71,7 +87,7 @@
 
 \makeindex
 
-\title{\includegraphics[width=15cm]{cover.png} \\SD와 HD 영상 측정 가이드}
+\title{\includegraphics[width=15cm]{cover.pdf} \\SD와 HD 영상 측정 가이드}
 \author{Tektronix, 번역 김세훈}
 
 \begin{document}

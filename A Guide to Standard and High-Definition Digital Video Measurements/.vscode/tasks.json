@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build LaTeX",
+            "command": "${command:latex-workshop.build}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Update PDF",
+            "command":"${command:latex-workshop.refresh-viewer}",
+        },
+        {
+            "label":"Build and View",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOrder": "sequence",
+            "dependsOn":["Build LaTeX","Update PDF"]
+        },
+        {
+            "label": "Run Octave Code",
+            "group": "build",
+            "command":"octave.run"
+        }
+    ]
+}
