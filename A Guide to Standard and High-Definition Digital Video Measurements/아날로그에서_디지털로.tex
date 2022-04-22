@@ -55,16 +55,8 @@ CRT를 위한 감마 보정은 거의 최적의 인지적 보정이다. 이러�
 이 감마 보정은 CRT의 비선형성 교정과 인지적 코딩을 위해서 카메라에 적용된다. CRT의 비선형성은 2.2에서 2.6의 지수승을 갖는 지수함수이고, 대부분의 CRT는 2.5의 지수승을 갖는다.
 최종적인 전체 시스템의 감마는 약 1.2로 일반적인 시청 환경에서 거의 이상적인 값이다. 이 응답은 대략적으로 인간의 밝기 인지 특성에 적합하고, 결과적으로 비디오가 전송을 위해 디지털화될 때에 필요한 비트 수를 줄여준다.
 
-\begin{tab*}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{luma and chroma components.pdf}
-    \caption{휘도와 색상 비디오 요소}\label{table:luma and chroma components}
-\end{tab*}
-\begin{tab}[h!]
-    \centering
-    \includegraphics[width=0.48\textwidth]{luma and chroma for composite encoding.pdf}
-    \caption{컴포지트 비디오 인코딩을 위한 휘도와 색차 값}\label{table:luma and chroma for composite encoding}
-\end{tab}
+\tbl{h!}{luma and chroma components.pdf}{휘도와 색상 비디오 요소}{table:luma and chroma components}
+\htbl{h!}{luma and chroma for composite encoding.pdf}{컴포지트 비디오 인코딩을 위한 휘도와 색차 값}{table:luma and chroma for composite encoding}
 \section{R'G'B'신호의 휘도와 색상차 신호로의 변환}
 빨강, 초록, 파랑의 비디오 요소들은 카메라의 감지 장치의 근본적인 것들이고 비디오 색상을 다룰 때 거의 항상 이용된다.
 하지만 RGb는 비디오 처리를 할 때 이미지를 전달하는 가장 대역폭 효율적인 방법은 아닌데 이는 세 신호가 모두 같은 대역폭을 가져야 하기 때문이다.

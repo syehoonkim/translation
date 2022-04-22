@@ -61,6 +61,24 @@
 }
 \AfterEndEnvironment{figure}{\noindent\ignorespaces}
 
+\newcommand{\tbl}[5][width=\textwidth]{
+    \begin{tab*}[#2]
+        \centering
+        \includegraphics[#1]{#3}
+        \caption{#4}\label{#5}
+    \end{tab*}
+}
+\AfterEndEnvironment{tab*}{\noindent\ignorespaces}
+
+\newcommand{\htbl}[5][width=0.48\textwidth]{
+    \begin{tab}[#2]
+        \centering
+        \includegraphics[#1]{#3}
+        \caption{#4}\label{#5}
+    \end{tab}
+}
+\AfterEndEnvironment{tab}{\noindent\ignorespaces}
+
 \usepackage[framemethod=tikz]{mdframed}
 \newmdtheoremenv[%
     topline=false, bottomline=false,rightline=false,

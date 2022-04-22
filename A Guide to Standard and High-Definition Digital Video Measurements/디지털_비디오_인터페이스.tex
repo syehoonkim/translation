@@ -117,3 +117,8 @@ NRZI로 인코딩하는 것은 직렬 데이터가 극성에 민감하지 않도
     \item ANSI/SMPTE 424M, 텔레비전 - 3 Gb/s 신호/데이터 직렬 인터페이스: 3 Gb/s의 직렬 디지털 신호를 동축 인터페이스를 통해 전송하는 방법을 정의한다.
     \item ANSI/SMPTE 425M, 텔레비전 - 3 Gb/s 신호/데이터 직렬 인터페이스 - 원 소스 이미지 포맷 매핑: 단일 3 Gb/s의 전송 인터페이스를 통해 1920x1080과 2048x1080 영상 포맷을 전송하는 방법을 정의한다.
 \end{itemize}
+
+\image{!t}{ancillary data in the digital line vs analog representation.pdf}{디지털 라인과 이에 대응되는 아날로그 표현 내의 부가 데이터}{fig:ancillary data in the digital line vs analog representation}
+\tbl{!h}{bit distribution of line number word.pdf}{라인 번호 워드 내의 비트 분포}{fig:bit distribution of line number word}
+일반적인 HD 비디오의 빨강, 초록, 파랑 성분의 아날로그 비디오 대역폭은 1080 포맷(인터레이스드와 30, 29.97, 25, 24, 23.98 프로그레시브 포맷)과 720 프로그레시브 포맷의 경우 30 MHz이며 1080 프로그레시브(50, 59.94, 60) 포맷의 경우 60 MHz이다.
+따라서, 행렬로 섞인 휘도와 색차 신호들을 디지털화하기 위해 높은 샘플 주파수가 필요하다. 
