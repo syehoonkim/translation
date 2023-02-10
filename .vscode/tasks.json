@@ -12,6 +12,10 @@
             "command":"${command:latex-workshop.clean}",
         },
         {
+            "label":"View PDF",
+            "command":"${command:latex-workshop.view}"
+        },
+        {
             "label": "Update PDF",
             "command":"${command:latex-workshop.refresh-viewer}",
         },
@@ -22,7 +26,7 @@
                 "isDefault": true
             },
             "dependsOrder": "sequence",
-            "dependsOn":["Clean up LaTeX","Build LaTeX","Build LaTeX","Build LaTeX","Update PDF"]
+            "dependsOn":["Clean up LaTeX","Build LaTeX","Build LaTeX","View PDF","Update PDF"]
         },
     ]
 }
