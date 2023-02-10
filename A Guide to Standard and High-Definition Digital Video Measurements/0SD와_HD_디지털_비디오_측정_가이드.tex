@@ -1,4 +1,4 @@
-\documentclass[10pt,twocolumn]{book}
+\documentclass[10pt,twocolumn,a4paper]{book}
 \usepackage[unicode=true,
             pdfauthor={김세훈},
             pdftitle={SD와 HD 영상 측정 가이드},
@@ -13,6 +13,8 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
+
+\usepackage{geometry}
 
 \usepackage{silence}
 \WarningsOff*
@@ -32,6 +34,8 @@
 \usepackage[skip=0pt]{caption}
 
 \usepackage{float}
+
+\usepackage{pdfpages}
 
 \usepackage{fontspec}
 \hangulfontspec{Noto Sans KR}
@@ -104,13 +108,12 @@
 
 \makeindex
 
-\title{\includegraphics[width=15cm]{cover.pdf} \\SD와 HD 영상 측정 가이드}
-\author{Tektronix, 번역 김세훈}
-
 \begin{document}
 
+\includepdf[fitpaper=true]{표지.pdf}
+\thispagestyle{empty}
 
-\maketitle
+\restoregeometry
 \tableofcontents
 
 \onecolumn
