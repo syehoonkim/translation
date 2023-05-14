@@ -82,7 +82,7 @@ EAV와 SAV 데이터 패킷을 코딩하는 방법은 이 글의 디지털 스�
 병렬 정보의 직렬화 뒤에는 데이터 스트림이 수학적 알고리즘에 의해 스크램블되고, 그 후에는 다음의 두 함수의 합성에 의해 NRZI로 인코딩된다.
 \begin{IEEEeqnarray*}{lCr}
     G_1(X)=X^9+X^4+1$$\\
-    G_2(X)=X+1$$
+        G_2(X)=X+1$$
 \end{IEEEeqnarray*}
 스크램블링을 하면 통계적으로 신호가 적은 직류 성분을 갖게 되고 이는 신호를 다루기 쉽게 만든다. 또한 많은 상태 전환을 만들어내는데 이로부터 클럭 복구가 용이해진다. NRZI 포매팅은 신호의 극성이 중요하지 않게 만들어준다.
 \\
@@ -121,4 +121,4 @@ NRZI로 인코딩하는 것은 직렬 데이터가 극성에 민감하지 않도
 \image{!t}{ancillary data in the digital line vs analog representation.pdf}{디지털 라인과 이에 대응되는 아날로그 표현 내의 부가 데이터}{fig:ancillary data in the digital line vs analog representation}
 \tbl{!h}{bit distribution of line number word.pdf}{라인 번호 워드 내의 비트 분포}{fig:bit distribution of line number word}
 일반적인 HD 비디오의 빨강, 초록, 파랑 성분의 아날로그 비디오 대역폭은 1080 포맷(인터레이스드와 30, 29.97, 25, 24, 23.98 프로그레시브 포맷)과 720 프로그레시브 포맷의 경우 30 MHz이며 1080 프로그레시브(50, 59.94, 60) 포맷의 경우 60 MHz이다.
-따라서, 행렬로 섞인 휘도와 색차 신호들을 디지털화하기 위해 높은 샘플 주파수가 필요하다. 
+따라서, 행렬로 섞인 휘도와 색차 신호들을 디지털화하기 위해 높은 샘플 주파수가 필요하다.
