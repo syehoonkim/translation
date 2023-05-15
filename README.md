@@ -4,7 +4,7 @@
 
 ## Tektronix
 
-Tektronix(https://www.tek.com) 사의 기술 문서 번역들을 담고 있다. 각 문서 디렉토리 내의 out에 결과 pdf 파일이 있다.
+[Tektronix](https://www.tek.com) 사의 기술 문서 번역들을 담고 있다. 각 문서 디렉토리 내의 out에 결과 pdf 파일이 있다.
 
 ### A Guide to Standard and High-Definition Digital Video Measurements
 
@@ -14,5 +14,5 @@ SD 비디오와 HD 비디오, 오디오 및 부가 데이터의 측정 뿐 아�
 
 [Xiph.org](https://xiph.org) 재단의 아래 영상들에 대한 한국어 자막이다.
 
-- A diigital Media Primer for Geeks(https://www.xiph.org/video/vid1.shtml)
-- Digital Show & Tell(https://www.xiph.org/video/vid2.shtml)
+- [A diigital Media Primer for Geeks](https://www.xiph.org/video/vid1.shtml)
+- [Digital Show & Tell](https://www.xiph.org/video/vid2.shtml)
