@@ -15,8 +15,9 @@
 \graphicspath{{./images/}}
 
 \usepackage{geometry}
+\geometry{a4paper,portrait,hmargin={1.5cm,1.5cm},vmargin={3cm,3cm}}
 
-	
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
@@ -35,7 +36,6 @@
 \usepackage{xcolor}
 \usepackage{titlepic}
 \usepackage{titlesec}
-
 
 \usepackage{amsmath,amssymb}
 \usepackage{IEEEtrantools}
@@ -110,7 +110,9 @@
 
 
 \titleformat{\chapter}[display]
-{\normalfont\bfseries}{}{0pt}{\Huge}
+{\normalfont\bfseries}{}{0pt}{\huge}
+\titlespacing{\chapter}{0pt}{-24pt}{*0}
+
 
 \hypersetup{pdfencoding=auto}
 
@@ -124,8 +126,11 @@
 
 \tableofcontents
 
+\onecolumn
 \section{안내}
 이 문서는 Tektronix 사의 허가 아래 SBS의 김세훈이 번역하였습니다. 모든 저작권은 Tektronix 사에서 설정한 바에 따릅니다.
+\\
+번역 오류를 알려주시거나 문의하실 사항이 있으시면 syehoon.kim@sbs.co.kr 로 메일 부탁드립니다.
 
 \twocolumn
 \include{1시작}
