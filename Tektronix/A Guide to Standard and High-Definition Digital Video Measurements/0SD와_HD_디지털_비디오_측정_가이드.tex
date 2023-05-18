@@ -25,6 +25,9 @@
 
 \usepackage{xcolor}
 \usepackage{titlepic}
+\usepackage{titlesec}
+
+
 \usepackage{amsmath,amssymb}
 \usepackage{IEEEtrantools}
 
@@ -83,29 +86,19 @@
 }
 \AfterEndEnvironment{tab}{\noindent\ignorespaces}
 
-\setcounter{secnumdepth}{0}
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancy}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
 
-\usepackage[framemethod=tikz]{mdframed}
-\newmdtheoremenv[%
-    topline=false, bottomline=false,rightline=false,
-    outerlinewidth=3pt, outerlinecolor=DeepSkyBlue!80,
-    backgroundcolor=Cyan!5,
-    splittopskip=10pt, splitbottomskip=10pt,
-    skipabove=5pt, skipbelow=5pt,
-    innertopmargin=\topskip, innerbottommargin=\topskip,
-]{Thmbox}{정리}[chapter]
-\newmdenv[%
-    linecolor=MediumPurple,skipabove=10pt,
-    roundcorner=5pt,backgroundcolor=MediumPurple!10,
-    ]{Problem}
-\newmdenv[%
-    linecolor=green!10, skipabove=10pt,
-    roundcorner=5pt, backgroundcolor=green!8,
-    ]{Solution}
-\newmdenv[%
-    linecolor=blue!10, skipabove=10pt,
-    roundcorner=0pt, backgroundcolor=blue!5,
-    ]{Stress}
+\setcounter{secnumdepth}{0}
+\renewcommand{\thechapter}{}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
 
 \hypersetup{pdfencoding=auto}
 
