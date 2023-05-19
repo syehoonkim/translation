@@ -11,14 +11,14 @@ NTSC와 PAL 비디오 신호들은 색의 삼원색인 빨강, 초록, 파랑 �
 NTSC, PAL 또는 SECAM에 대한 이해로 충분한 이상, 컴포지트 비디오에 대해서 더 많은 이해를 추구하진 않겠다.
 
 \section{RGB 컴포넌트 신호}
-\image{h!}{rgb camera to monitor direct.pdf}{카메라에서 모니터까지의 RGB 직결 연결}{fig:rgb camera to monitor direct}
-\image{h!}{video encodeded into ntsc pal.pdf}{단일 동축 케이블 전송을 위해 NTSC 또는 PAL로 인코딩된 비디오}{fig:video encodeded into ntsc pal}
-\image{h!}{digital no degradation.pdf}{디지털 전송에서는 아날로그적 신호 열화가 발생하지 않는다}{fig:digital no degradation}
+\image{h!}{rgb camera to monitor direct.pdf}{카메라에서 모니터까지의 RGB 직결 연결}{fig1 rgb camera to monitor direct}
+\image{h!}{video encodeded into ntsc pal.pdf}{단일 동축 케이블 전송을 위해 NTSC 또는 PAL로 인코딩된 비디오}{fig2 video encodeded into ntsc pal}
+\image{h!}{digital no degradation.pdf}{디지털 전송에서는 아날로그적 신호 열화가 발생하지 않는다}{fig3 digital no degradation}
 비디오 카메라는 이미지를 빛의 삼원색인 빨강, 초록, 파랑으로 분해한다. 카메라의 센서들은 이 각각의 단색 이미지들을 각각의 전기 신호로 변환한다.
 화상의 왼쪽 끝과 최상단을 알려주는 동기 정보가 이 신호들에 추가된다. 디스플레이를 카메라와 동기화시키는 정보가 초록 채널에, 때로는 모든 채널에 더해지거나 아니면 별도로 전달된다.
 
 
-가장 간단한 배선은 \figurename~\ref{fig:rgb camera to monitor direct}에 나와 있듯이 R, G, B를 카메라에서 그대로 받아서 모니터에 연결하는 것이다. 여러 선을 이용한 전송 시스템은 아날로그 SD든 아날로그 HD든 구조가 같다.
+가장 간단한 배선은 \figurename~\ref{fig1 rgb camera to monitor direct}에 나와 있듯이 R, G, B를 카메라에서 그대로 받아서 모니터에 연결하는 것이다. 여러 선을 이용한 전송 시스템은 아날로그 SD든 아날로그 HD든 구조가 같다.
 여러 선을 이용한 연결은 작고 영구적으로 변경되지 않도록 구성된 하위 시스템에서 사용될 수 있을 것이다.
 
 
@@ -30,19 +30,19 @@ NTSC, PAL 또는 SECAM에 대한 이해로 충분한 이상, 컴포지트 비디
 분명히 세 채널을 하나로 다룰 방법이 필요하다.
 
 
-NTSC나 PAL 인코더와 디코더를 \figurename~\ref{fig:video encodeded into ntsc pal}\와 같이 추가하는 것은 방송국 내에서 신호가 하나의 선으로 다뤄지는 것 외에는 단순화에 도움을 주지 못한다.
+NTSC나 PAL 인코더와 디코더를 \figurename~\ref{fig2 video encodeded into ntsc pal}\와 같이 추가하는 것은 방송국 내에서 신호가 하나의 선으로 다뤄지는 것 외에는 단순화에 도움을 주지 못한다.
 시스템 대역폭은 세 비디오 신호의 에너지를 4.2 MHz(NTSC)나 5.0에서 5.5 MHz(PAL) 내에서 다루기 적절하게 정해진다.
 단일 선 구성은 비디오 라우팅을 쉽게 해 주지만, 더 먼 경로에 대해서 주파수 응답과 타이밍 문제를 고려해야 한다.
 NTSC와 PAL 신호 모두에서 색상차와 휘도는 4.2 MHz(NTSC) 또는 5.0에서 5.5 MHz(PAL)의 대역폭을 공유하므로, 여러 번의 인코딩과 디코딩은 피해야 한다.
 (역주: 좁은 대역폭 안에 신호가 들어가므로 열화를 피해야 함)
 
 
-위의 시스템에서 NTSC/PAL 인코더와 디코더를 컴포넌트 디지털 인코더와 디코더로 대체함으로써 \figurename~\ref{fig:digital no degradation}의 구성은 더 복잡하지도 않으면서 더 좋은 성능을 보인다.
+위의 시스템에서 NTSC/PAL 인코더와 디코더를 컴포넌트 디지털 인코더와 디코더로 대체함으로써 \figurename~\ref{fig3 digital no degradation}의 구성은 더 복잡하지도 않으면서 더 좋은 성능을 보인다.
 하나의 동축 케이블에 들어있는 에너지는 SD 신호일 경우 270 Mb/s, HD 신호일 경우 1.485 Gb/s 이상의 속도이다.
 SD 신호는 전통적인 방송 텔레비전 채널을 통한 전송을 하기 위해 아날로그 NTSC나 PAL로 변환될 수 있다.
 HD 신호는 기존의 NTSC나 PAL 채널의 대역폭에 맞춰져서 공중파로 전송되기 위해서 압축되어야 한다.
 
-\image{h!}{bt 709 gamma.pdf}{BT.709 감마 보정은 CRT 디스플레이의 응답을 보정한다}{fig:bt 709 gamma}
+\image{h!}{bt 709 gamma.pdf}{BT.709 감마 보정은 CRT 디스플레이의 응답을 보정한다}{fig4 bt 709 gamma}
 \section{감마 보정}
 비디오 신호를 다룰 때 고려해야 할 아날로그 요소는 비디오 디스플레이는 장면의 각 요소들의 밝기를 정확하게 표현한다고 인식되는 점이다.
 음극선관(CRT) 디스플레이는 근본적으로 비선형 장치로서, 디스플레이에 가해지는 전압은 비선형적인 함수에 따라 정해지는 빛의 양으로 출력된다.
@@ -58,7 +58,7 @@ LCD와 PDP가 보편적인 오늘날에는(역주: 이 글이 처음 쓰인 지 
 CRT를 위한 감마 보정은 거의 최적의 인지적 보정이다. 이러한 이유로, 감마 보정 장치가 있는 시스템을 평가할 때는 유의해야 한다.
 
 
-\figurename~\ref{fig:bt 709 gamma}\는 디지털 HD 비디오에 대해 널리 사용되는 ITU-R BT.709 표준에 따른 0.45제곱을 이용한 감마 보정을 보여준다.
+\figurename~\ref{fig4 bt 709 gamma}\는 디지털 HD 비디오에 대해 널리 사용되는 ITU-R BT.709 표준에 따른 0.45제곱을 이용한 감마 보정을 보여준다.
 이 감마 보정은 CRT의 비선형성 교정과 인지적 코딩을 위해서 카메라에 적용된다. CRT의 비선형성은 2.2에서 2.6의 지수를 갖는 지수함수이고, 대부분의 CRT는 2.5의 지수를 갖는다.
 최종적인 전체 시스템의 감마는 약 1.2(역주: $0.45\times 2.5\approx 1.2$)로 일반적인 시청 환경에서 거의 이상적인 값이다. 이 응답은 대략적으로 인간의 밝기 인지 특성에 적합하고, 결과적으로 비디오가 전송을 위해 디지털화될 때에 필요한 비트 수를 줄여준다.
 
