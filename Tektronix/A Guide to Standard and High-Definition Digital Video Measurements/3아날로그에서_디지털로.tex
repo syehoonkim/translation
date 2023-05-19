@@ -62,8 +62,8 @@ CRT를 위한 감마 보정은 거의 최적의 인지적 보정이다. 이러�
 이 감마 보정은 CRT의 비선형성 교정과 인지적 코딩을 위해서 카메라에 적용된다. CRT의 비선형성은 2.2에서 2.6의 지수를 갖는 지수함수이고, 대부분의 CRT는 2.5의 지수를 갖는다.
 최종적인 전체 시스템의 감마는 약 1.2(역주: $0.45\times 2.5\approx 1.2$)로 일반적인 시청 환경에서 거의 이상적인 값이다. 이 응답은 대략적으로 인간의 밝기 인지 특성에 적합하고, 결과적으로 비디오가 전송을 위해 디지털화될 때에 필요한 비트 수를 줄여준다.
 
-\tbl{h!}{luma and chroma components.pdf}{휘도와 색상 비디오 요소}{table:luma and chroma components}
-\htbl{h!}{luma and chroma for composite encoding.pdf}{컴포지트 비디오 인코딩을 위한 휘도와 색차 값}{table:luma and chroma for composite encoding}
+\tbl{h!}{luma and chroma components.pdf}{휘도와 색상 비디오 요소}{table1 luma and chroma components}
+\htbl{h!}{luma and chroma for composite encoding.pdf}{컴포지트 비디오 인코딩을 위한 휘도와 색차 값}{table2 luma and chroma for composite encoding}
 \section{R'G'B'신호의 휘도와 색상차 신호로의 변환}
 빨강, 초록, 파랑의 RGB 비디오 요소들은 카메라의 감지 장치의 근본적인 것들이고 비디오 색상을 다룰 때 거의 항상 이용된다.
 하지만 RGB는 비디오 처리를 할 때 이미지를 전달하는 가장 대역폭 효율적인 방법은 아닌데, 이는 세 신호가 모두 같은 대역폭을 가져야 하기 때문이다.
@@ -76,12 +76,12 @@ CRT를 위한 감마 보정은 거의 최적의 인지적 보정이다. 이러�
 다음에 나오는 문단과 표에서 인코더와 디코더 내에서 일어나는 R'G"B'에서 Y',R'-Y', B'-Y'로의 변환을 다룰 것이다.
 
 
-감마 보정된 R'G'B' 요소들은 행렬을 이용해서 감마 보정된 휘도(Y')와 두 개의 색차 요소로 바뀐다. 휘도와 색차 요소들은 표 \ref{table:luma and chroma components}에 나온 값들을 이용해서 R',G',B'로부터 나온다(각 계수들의 단위는 볼트이다).
+감마 보정된 R'G'B' 요소들은 행렬을 이용해서 감마 보정된 휘도(Y')와 두 개의 색차 요소로 바뀐다. 휘도와 색차 요소들은 표 \ref{table1 luma and chroma components}에 나온 값들을 이용해서 R',G',B'로부터 나온다(각 계수들의 단위는 볼트이다).
 
 
-표 \ref{table:luma and chroma components}\은 R'G'B'에서 Y',(R'-Y'),(B'-Y')로의 변환에 사용되는 전압의 범위를 알려준다. 휘도 신호는 0에서 700 mV의 다이내믹 레인지를 갖는다.
+표 \ref{table1 luma and chroma components}\은 R'G'B'에서 Y',(R'-Y'),(B'-Y')로의 변환에 사용되는 전압의 범위를 알려준다. 휘도 신호는 0에서 700 mV의 다이내믹 레인지를 갖는다.
 색차 신호들인 R'-Y'와 B'-Y'는 여러 컴포넌트 포맷들에 따라 달라지는 배율에 의해 다른 다이내믹 레인지를 가질 수 있다. Y'P'bP'r로 표기되는 아날로그 요소 포맷에서는 두 색차 값은 $\pm 350$ mV의 다이내믹 레인지를 갖는다. 이는 비디오 신호 처리를 더 단순하게 해준다.
 아날로그 Y'Pb'Pr' 값은 디지털 표준에서 보통 사용되는 Y'C'bC'r을 만들기 위한 오프셋 역할을 한다. 이로부터 나오는 비디오 요소들은 흑백 비디오 신호와 비슷한 Y' 또는 휘도 채널과 두 개의 색차 채널인 C'b와 C'r인데 이들은 밝기 정보 없이 색상 정보만 전달하며 이 세 신호는 모두 디지털 데이터로 양자화되기 쉽게 적절하게 배율이 곱해진다.
 
 
-여러 다른 색차 포맷들이 다양한 응용(목적)에서 사용된다. 컴포지트 PAL, SECAM과 NTSC 인코딩에서 현재 사용되는 배율 값들이 표 \ref{table:luma and chroma for composite encoding}에 나와 있는 것처럼 다르다는 것을 아는 것은 특히 중요하다.
+여러 다른 색차 포맷들이 다양한 응용(목적)에서 사용된다. 컴포지트 PAL, SECAM과 NTSC 인코딩에서 현재 사용되는 배율 값들이 표 \ref{table2 luma and chroma for composite encoding}에 나와 있는 것처럼 다르다는 것을 아는 것은 특히 중요하다.

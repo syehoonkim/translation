@@ -4,7 +4,6 @@
 \figurename~\ref{fig5 digitizing rgb camera}부터 \figurename~\ref{fig8 recovering analog values from prallel data}까지의 블록 다이어그램은 비디오 제작 장비가 디지털 컴포넌트 비디오 신호를 어떻게 다루는지 이해하는 데 도움을 줄 것이다.
 이 그림들이 SD 시스템을 다루긴 하지만, 기본 개념은 HD 포맷에서도 똑같다. HD 포맷에서는 샘플링과 데이터 속도가 더 빠르고 각각 분리된 10비트의 휘도와 색차 버스가 시스템 전체에서 더 널리 그대로 사용되고, 이는 고속으로 작동해야 하는 회로를 줄인다.
 
-
 감마 보정된 RGB(\figurename~\ref{fig5 digitizing rgb camera})는 선형 행렬을 통해서 휘도 요소인 Y'과 두 개의 배율이 곱해진 색차 요소인 P'b와 P'r로 바뀐다.
 눈은 색상 변화보다 밝기 세부 정보의 변화에 더 민감하므로, Y'신호는 시스템 내에서 더 높은 대역폭으로 전달된다(SD의 경우 5.5 MHz).
 휘도와 색차 신호는 샘플링(디지털화) 과정에서 에일리어싱을 일으킬 수 있는 고주파 비디오 성분을 제거하기 위해서 저역 통과 필터로 처리된다.
@@ -14,9 +13,7 @@
 \image{h!}{processing and serializing parallel data stream.pdf}{병렬 데이터 스트림의 처리와 직렬화}{fig6 processing and serializing parallel data stream}
 보조 처리기(\figurename~\ref{fig6 processing and serializing parallel data stream})가 타이밍 기준 신호, AES/EBU 포맷의 디지털 오디오와 기타 부가 데이터를 추가한다. 데이터에 대한 체크섬 또한 계산되어서 병렬 데이터 스트림에 추가된다.
 
-
 27 Mb/s, 10 비트의 병렬 데이터는 270 Mb/s로 작동하는 시프트 레지스터(직렬화기)로 입력되어서, 이 예에서는 SD 표준인 ITU-R BT-656/SMPTE 259M을 따르는 효율적인 전송을 위해서 스크램블된다.
-
 
 SD ITU-R BT-656/SMPTE 259M 적합 신호는 표준 비디오 케이블을 따라서 거의 100\%의 무결성을 유지하며 300 m를 갈 수 있다. 1.485 Gb/s의 HD SMPTE 292M 적합 신호는 약 100 m를 갈 수 있다.
 \image{!t}{sdi receiver.pdf}{SDI 수신기 - 비디오 데이터를 역직렬화하여 다시 병렬로 만든다}{fig7 sdi receiver}
@@ -25,7 +22,6 @@ SD ITU-R BT-656/SMPTE 259M 적합 신호는 표준 비디오 케이블을 따라
 보조 처리기는 오디오나 다른 부가 데이터들을 추출한다.
 \image{!t}{recovering r'g'b' from parallel data.pdf}{병렬 데이터에서 아날로그 R'G'B'를 복원}{fig8 recovering analog values from prallel data}
 10비트 데이터 스트림은 역다중화되어(\figurename~\ref{fig8 recovering analog values from prallel data}) 디지털 휘도와 색차 스트림이 되고, 3개의 디지털-아날로그 변환기를 통하여 아날로그 신호가 되며, 이산적인 데이터 레벨에서 부드러운 아날로그 신호가 되도록 (역자 주:저역) 필터를 통과하고 디스플레이에서 원래의 R'G'B'신호가 되게 행렬을 이용해서 합쳐진다.
-
 
 이 간단한 시스템 개관은 시스템이 어떻게 작동하는지 이해하는 데 도움이 될 것이다. 추가적인 디지털 인터페이스에 대한 세부적인 설명은 뒤의 문단들에서 나올 것이다.
 
@@ -38,14 +34,12 @@ ITU-R BT.601은 625/50과 525/60 텔레비전 시스템의 디지털 요소들�
 샘플링된 값들은 디지털 휘도인 Y'와 디지털 색차 신호인 C'B와 C'r인데 이들은 아날로그의 감마 보정 신호인 B'-Y'와 R'-Y'에 배율이 곱해진 것이다.
 525줄과 625줄 시스템에서 공통적인 요소인 2.25 MHz가 13.5 MHz의 약수이기 때문에 13.5 MHz라는 샘플링 주파수가 선정되었다(부록 B - 텔레비전 클럭 관계를 참고하라).
 
-
 현재 많은 ITU-R BT.601 구현들이 10 비트 샘플링을 쓰고 있지만, ITU-R BT.601은 8비트 샘플링($00_h$부터 $FF_h$까지 256레벨을 갖는)과 10비트 샘플링($000_h$부터 $3FF_h$까지 1024 레벨을 갖는) 모두를 허용한다.
 상호 운용성을 위해 8비트 워드들은 그대로 10비트가 되고, 또 10비트 워드들은 8비트로 자리수가 줄어들 수 있는 것들을 사용한다. 색차 성분 C'r과 C'b 값들은 아날로그의 $\pm 350$ mV 내의 값에 대응되는 $040_h$부터 $3C0_h$까지의 값을 갖는다.(\figurename~\ref{fig9 color difference quantizing})
 이 범위를 넘어서는 신호도 허용되고, 최종적으로 가능한 범위는 $\pm 400$ mV이다. 휘도 성분 Y' (\figurename~\ref{fig10 luminance quantizing})의 값의 범위는 $040_h$부터 $3AC_h$의 값을 갖는데 이는 아날로그 신호의 0.0 mV부터 700 mV까지에 대응된다.
 이 범위를 벗어나는 신호도 마찬가지로 허용되고, 흰색 레벨을 넘어서는 과한 값을 처리할 수 있는 더 넓은 여유 공간을 위해 최종적인 범위는 -48 mV부터 +763 mV까지가 된다.
 아날로그/디지털 변환기들은 $000_h$부터 $003_h$와 $3FC_h$부터 $3FF_h$의 10비트 값을 생성하지 않도록 설정되는데 이는 8비트 시스템과의 상호 운용성을 위해서이다.
 양자화 레벨은 8비트 레벨에 두 개의 0을 붙이면 10비트 값과 같은 값이 되도록 선택된다. 휘도와 색차 아날로그/디지털 컨버터 모두에서 $000_h$부터 $003_h$와 $3FC_h$부터 $3FF_h$까지의 값은 동기화를 위해 예약되어 있다.
-
 
 \himage{!h}{digital horizontal blanking interval.pdf}{디지털 수평 블랭킹 구간}{fig11 digital horizontal blanking interval}
 \image{!t}{layout of 2 to 1 interlaced digital frame.pdf}{2:1 비월 주사 디지털 프레임의 구조}{fig12 layout of 2:1 interlaced digital frame}
@@ -130,12 +124,17 @@ NRZI 인코딩의 또 다른 결과로 모든 "1" 신호는 매 클럭 구간마
     \item ANSI/SMPTE 425M, 텔레비전 - 3 Gb/s 신호/데이터 직렬 인터페이스 - 소스 이미지 포맷 매핑: 단일 3 Gb/s의 전송 인터페이스를 통해 1920x1080과 2048x1080 영상 포맷을 전송하는 방법을 정의한다.
 \end{itemize}
 
-
-\tbl{!h}{bit distribution of line number word.pdf}{라인 번호 워드 내의 비트 분포}{fig:bit distribution of line number word}
+\tbl{!h}{bit distribution of line number word.pdf}{라인 번호 워드 내의 비트 분포}{table3 bit distribution of line number word}
 
 일반적인 HD 비디오의 빨강, 초록, 파랑 성분의 아날로그 비디오 대역폭은 1080 포맷(비월주사 및  30, 29.97, 25, 24, 23.98 fps의 순차주사)과 720 순차주사 포맷의 경우 30 MHz이며 1080 순차주사(50, 59.94, 60 fps) 포맷의 경우 60 MHz이다.
 따라서, 행렬로 섞인 휘도와 색차 신호들을 디지털화하기 위해 높은 샘플 주파수가 필요하다. 30 MHz의 휘도 Y 채널에 대한 샘플 주파수는 74.25 MHz이고 색차 신호인 C'b와 C'r 채널에 대해서는 이의 절반인 37.125 MHz가 사용된다.
 각 신호들은 10 비트의 해상도로 샘플링된다. C'b와 C'r은 74.25 Mb/s의 10 비트의 병렬 데이터로 구성되는 하나의 스트림으로 합쳐지고, 74.25 Mb/s의 휘도 신호와 함께 SD에서와 같운 순서로 C'b, Y', C'r, Y' 순서의 148.5 Mb/s 10비트 병렬 데이터 스트림으로 합쳐진다.
 SD에서와 마찬가지로 이 병렬 데이터는 스크램블된 NRZI 신호로 직렬화되는데, 이러한 HD의 경우에는 1.485 Gb/s의 데이터 스트림이 되어 방송국 내에서 전달된다. 짝수 프레임율이 아닌 59,94 Hz, 29,97 Hz, 23.98 Hz의 경우 클럭 속도가 1.001로 나누어져야 함에 유의하라.
 
-색차와 휘도 양자화는 SD와 HD에서 모두 같고(\figurename~\ref{})
+색차와 휘도 양자화는 SD와 HD에서 모두 같고(\figurename~\ref{fig9 color difference quantizing}\와 \figurename~\ref{fig10 luminance quantizing}\을 참고하라) 10진수로 표현한 10비트의 코드워드들인 0,1,2,3과 1020,1021,1022,1023은 마찬가지로 사용되지 않는다.
+EAV와 SAV 코드워드들도 SD와 HD에서 같은 기능을 한다. HD에서는 EAV 뒤에 각 라인의 번호를 나타내고 라인마다 색차와 휘도 값에 에러가 있는지 검증하는 워드가 붙는다.
+
+비디오 라인 안의 데이터 포맷과 아날로그 HD 비디오의 타이밍과의 관계는 \figurename~\ref{fig16 ancillary data in the digital line vs analog representation}에 나와있다.
+
+HD 포맷에서는 EAV의 4개 워드 직후에 LN0과 LN1 두 개의 선 번호가 오고, 이 뒤에는 CR0과 CR1이라는 두 개의 CRC 워드가 온다. 처음 오는 LN1과 LN2에는 표 \ref{table3 bit distribution of line number word}에 나와 있듯이 11비트의 선 번호 카운터가 들어있다.
+예를 들어, 1125번째 선에 대해서는 LN0=$394_h$, LN1=$220_h$, 이진법으로는 $10001100101$이 될 것이다.
